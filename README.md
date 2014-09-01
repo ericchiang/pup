@@ -26,13 +26,13 @@ By default, `pup` will fill in missing tags, and properly indent the page.
 
 ```bash
 $ cat robots.html
-# nasty looking html
-$ cat robots.html | pup
-# cleaned and indented html
+# nasty looking HTML
+$ cat robots.html | pup --color
+# cleaned, indented, and colorful HTML
 ```
 
 ###Filter by tag
-```
+```bash
 $ pup < robots.html title
 <title>
  Robots exclusion standard - Wikipedia, the free encyclopedia
@@ -40,7 +40,7 @@ $ pup < robots.html title
 ```
 
 ###Filter by id
-```
+```bash
 $ pup < robots.html span#See_also
 <span class="mw-headline" id="See_also">
  See also
@@ -49,19 +49,20 @@ $ pup < robots.html span#See_also
 
 ###Chain selectors together
 
-The following two commands are equivalent.
+The following two commands are equivalent. (NOTE: pipes do not work with the
+`--color` flag)
 
-```
+```bash
 $ pup < robots.html table.navbox ul a | tail
 ```
 
-```
+```bash
 $ pup < robots.html table.navbox | pup ul | pup a | tail
 ```
 
 Both produce the ouput:
 
-```
+```bash
 </a>
 <a href="/wiki/Stop_words" title="Stop words">
  Stop words
@@ -75,13 +76,15 @@ Both produce the ouput:
 ```
 
 ###How many nodes are selected by a filter?
-```
+
+```bash
 $ pup < robots.html a -n
 283
 ```
 
 ###Limit print level
-```
+
+```bash
 $ pup < robots.html table -l 2
 <table class="metadata plainlinks ambox ambox-content" role="presentation">
  <tbody>
@@ -105,4 +108,3 @@ $ pup < robots.html table -l 2
 * Attribute css selectors.
 * Print attribute value rather than html ({href}) 
 * Print result as JSON (--json)
-* Print colorfully
