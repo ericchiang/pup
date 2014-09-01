@@ -5,13 +5,20 @@ import (
 	"code.google.com/p/go.net/html/atom"
 	"fmt"
 	"github.com/fatih/color"
+	"regexp"
 )
 
 var (
+	// Colors
 	tagColor     *color.Color = color.New(color.FgYellow).Add(color.Bold)
 	tokenColor                = color.New(color.FgCyan).Add(color.Bold)
 	attrKeyColor              = color.New(color.FgRed)
 	quoteColor                = color.New(color.FgBlue)
+
+	// Regexp helpers
+	whitespaceRegexp *regexp.Regexp = regexp.MustCompile(`^\s*$`)
+	preWhitespace    *regexp.Regexp = regexp.MustCompile(`^\s+`)
+	postWhitespace   *regexp.Regexp = regexp.MustCompile(`\s+$`)
 )
 
 func printIndent(level int) {
@@ -48,6 +55,7 @@ func printChildren(n *html.Node, level int) {
 	}
 }
 
+// Print a node and all of it's children to `maxlevel`.
 func PrintNode(n *html.Node, level int) {
 	switch n.Type {
 	case html.TextNode:

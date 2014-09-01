@@ -6,12 +6,11 @@ import (
 	"github.com/ericchiang/pup/selector"
 	"io"
 	"os"
-	"regexp"
 	"strconv"
 	"strings"
 )
 
-const VERSION = "0.1.0"
+const VERSION string = "0.1.0"
 
 var (
 	// Flags
@@ -20,20 +19,17 @@ var (
 	maxPrintLevel int           = -1
 	printNumber   bool          = false
 	printColor    bool          = false
-
-	// Helpers
-	whitespaceRegexp *regexp.Regexp = regexp.MustCompile(`^\s*$`)
-	preWhitespace    *regexp.Regexp = regexp.MustCompile(`^\s+`)
-	postWhitespace   *regexp.Regexp = regexp.MustCompile(`\s+$`)
 )
 
+// Print to stderr and exit
 func Fatal(format string, args ...interface{}) {
 	fmt.Fprintf(os.Stderr, format, args...)
 	fmt.Fprintf(os.Stderr, "\n")
 	os.Exit(1)
 }
 
-func printHelp() {
+// Print help to stderr and quit
+func PrintHelp() {
 	helpString := `Usage
 
     pup [list of css selectors]
@@ -54,7 +50,8 @@ Flags
 	Fatal(helpString, VERSION)
 }
 
-func processFlags(cmds []string) []string {
+// Process command arguments and return all non-flags.
+func ProcessFlags(cmds []string) []string {
 	var i int
 	var err error
 	defer func() {
@@ -77,7 +74,7 @@ func processFlags(cmds []string) []string {
 			}
 			i++
 		case "-h", "--help":
-			printHelp()
+			PrintHelp()
 			os.Exit(1)
 		case "-i", "--indent":
 			indentLevel, err := strconv.Atoi(cmds[i+1])
@@ -109,8 +106,9 @@ func processFlags(cmds []string) []string {
 	return nonFlagCmds[:n]
 }
 
+// pup
 func main() {
-	cmds := processFlags(os.Args[1:])
+	cmds := ProcessFlags(os.Args[1:])
 	root, err := html.Parse(inputStream)
 	if err != nil {
 		fmt.Fprintf(os.Stderr, err.Error())
@@ -121,9 +119,9 @@ func main() {
 		PrintNode(root, 0)
 		os.Exit(0)
 	}
-	selectors := make([]selector.Selector, len(cmds))
+	selectors := make([]*selector.Selector, len(cmds))
 	for i, cmd := range cmds {
-		selectors[i], err = selector.ParseSelector(cmd)
+		selectors[i], err = selector.NewSelector(cmd)
 		if err != nil {
 			fmt.Fprintf(os.Stderr, err.Error())
 			os.Exit(2)
@@ -134,7 +132,8 @@ func main() {
 	for _, selector := range selectors {
 		selected = []*html.Node{}
 		for _, node := range currNodes {
-			selected = append(selected, selector.FindAllChildren(node)...)
+			selected = append(selected,
+				selector.FindAllChildren(node)...)
 		}
 		currNodes = selected
 	}

@@ -7,20 +7,22 @@ import (
 	"strings"
 )
 
+// A CSS Selector
 type Selector struct {
 	Class, ID, Name *regexp.Regexp
 	Attrs           map[string]*regexp.Regexp
 }
 
-type SelectorType string
+type selectorField string
 
 const (
-	Class SelectorType = "class"
-	ID    SelectorType = "id"
-	Name  SelectorType = "name"
+	Class selectorField = "class"
+	ID    selectorField = "id"
+	Name  selectorField = "name"
 )
 
-func setTypeValue(s *Selector, a SelectorType, v string) error {
+// Set a field of this selector.
+func (s *Selector) setFieldValue(a selectorField, v string) error {
 	if v == "" {
 		return nil
 	}
@@ -41,7 +43,8 @@ func setTypeValue(s *Selector, a SelectorType, v string) error {
 	return nil
 }
 
-func ParseSelector(s string) (Selector, error) {
+// Convert a string to a selector.
+func NewSelector(s string) (*Selector, error) {
 	attrs := map[string]*regexp.Regexp{}
 	selector := &Selector{nil, nil, nil, attrs}
 	nextAttr := Name
@@ -49,26 +52,30 @@ func ParseSelector(s string) (Selector, error) {
 	for i, c := range s {
 		switch c {
 		case '.':
-			err := setTypeValue(selector, nextAttr, s[start:i])
+			err := selector.setFieldValue(nextAttr, s[start:i])
 			if err != nil {
-				return *selector, err
+				return selector, err
 			}
 			nextAttr = Class
 			start = i + 1
 		case '#':
-			err := setTypeValue(selector, nextAttr, s[start:i])
+			err := selector.setFieldValue(nextAttr, s[start:i])
 			if err != nil {
-				return *selector, err
+				return selector, err
 			}
 			nextAttr = ID
 			start = i + 1
 		}
 	}
-	setTypeValue(selector, nextAttr, s[start:])
-	return *selector, nil
+	err := selector.setFieldValue(nextAttr, s[start:])
+	if err != nil {
+		return selector, err
+	}
+	return selector, nil
 }
 
-func (sel Selector) FindAllChildren(node *html.Node) []*html.Node {
+// Find all nodes which match a selector.
+func (sel *Selector) FindAllChildren(node *html.Node) []*html.Node {
 	selected := []*html.Node{}
 	child := node.FirstChild
 	for child != nil {
@@ -79,7 +86,8 @@ func (sel Selector) FindAllChildren(node *html.Node) []*html.Node {
 	return selected
 }
 
-func (sel Selector) FindAll(node *html.Node) []*html.Node {
+// Find all nodes which match a selector. May return itself.
+func (sel *Selector) FindAll(node *html.Node) []*html.Node {
 	selected := []*html.Node{}
 	if sel.Match(node) {
 		return []*html.Node{node}
@@ -93,7 +101,8 @@ func (sel Selector) FindAll(node *html.Node) []*html.Node {
 	return selected
 }
 
-func (sel Selector) Match(node *html.Node) bool {
+// Does this selector match a given node?
+func (sel *Selector) Match(node *html.Node) bool {
 	if node.Type != html.ElementNode {
 		return false
 	}

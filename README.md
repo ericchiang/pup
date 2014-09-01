@@ -13,8 +13,7 @@ fast and flexible way of exploring HTML from the terminal.
 
 ## Examples
 
-Download a webpage with `wget`. _Please exercise restraint when using any 
-automated request tool._ 
+Download a webpage with `wget`.
 
 ```bash
 $ wget http://en.wikipedia.org/wiki/Robots_exclusion_standard -O robots.html
