@@ -104,6 +104,5 @@ $ pup < robots.html table -l 2
 
 ## TODO:
 
-* Attribute css selectors.
 * Print attribute value rather than html ({href}) 
 * Print result as JSON (--json)

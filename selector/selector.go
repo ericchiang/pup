@@ -9,36 +9,81 @@ import (
 
 // A CSS Selector
 type Selector struct {
-	Class, ID, Name *regexp.Regexp
-	Attrs           map[string]*regexp.Regexp
+	Name  *regexp.Regexp
+	Attrs map[string]*regexp.Regexp
 }
 
-type selectorField string
+type selectorField int
 
 const (
-	Class selectorField = "class"
-	ID    selectorField = "id"
-	Name  selectorField = "name"
+	ClassField selectorField = iota
+	IDField
+	NameField
+	AttrField
 )
 
+// Parse an attribute command to a key string and a regexp
+func parseAttrField(command string) (attrKey string, matcher *regexp.Regexp,
+	err error) {
+
+	attrSplit := strings.Split(command, "=")
+	matcherString := ""
+	switch len(attrSplit) {
+	case 1:
+		attrKey = attrSplit[0]
+		matcherString = ".*"
+	case 2:
+		attrKey = attrSplit[0]
+		attrVal := attrSplit[1]
+		if len(attrKey) == 0 {
+			err = fmt.Errorf("No attribute key")
+			return
+		}
+		attrKeyLen := len(attrKey)
+		switch attrKey[attrKeyLen-1] {
+		case '~':
+			matcherString = fmt.Sprintf(`[^\s]%s[$\s]`, attrVal)
+		case '$':
+			matcherString = fmt.Sprintf("%s$", attrVal)
+		case '^':
+			matcherString = fmt.Sprintf("^%s", attrVal)
+		case '*':
+			matcherString = fmt.Sprintf("%s", attrVal)
+		default:
+			attrKeyLen++
+			matcherString = fmt.Sprintf("^%s$", attrVal)
+		}
+		attrKey = attrKey[:attrKeyLen-1]
+	default:
+		err = fmt.Errorf("more than one '='")
+		return
+	}
+	matcher, err = regexp.Compile(matcherString)
+	return
+}
+
 // Set a field of this selector.
-func (s *Selector) setFieldValue(a selectorField, v string) error {
+func (s *Selector) setFieldValue(f selectorField, v string) error {
 	if v == "" {
 		return nil
 	}
-	// wildcards become '.*'
-	v = strings.Replace(v, "*", ".*", -1)
 	r, err := regexp.Compile(fmt.Sprintf("^%s$", v))
 	if err != nil {
 		return err
 	}
-	switch a {
-	case Class:
-		s.Class = r
-	case ID:
-		s.ID = r
-	case Name:
+	switch f {
+	case ClassField:
+		s.Attrs["class"] = r
+	case IDField:
+		s.Attrs["id"] = r
+	case NameField:
 		s.Name = r
+	case AttrField:
+		keystring, matcher, err := parseAttrField(v)
+		if err != nil {
+			return err
+		}
+		s.Attrs[keystring] = matcher
 	}
 	return nil
 }
@@ -46,28 +91,51 @@ func (s *Selector) setFieldValue(a selectorField, v string) error {
 // Convert a string to a selector.
 func NewSelector(s string) (*Selector, error) {
 	attrs := map[string]*regexp.Regexp{}
-	selector := &Selector{nil, nil, nil, attrs}
-	nextAttr := Name
+	selector := &Selector{nil, attrs}
+	nextField := NameField
 	start := 0
 	for i, c := range s {
 		switch c {
 		case '.':
-			err := selector.setFieldValue(nextAttr, s[start:i])
+			if nextField == AttrField {
+				continue
+			}
+			err := selector.setFieldValue(nextField, s[start:i])
 			if err != nil {
 				return selector, err
 			}
-			nextAttr = Class
+			nextField = ClassField
 			start = i + 1
 		case '#':
-			err := selector.setFieldValue(nextAttr, s[start:i])
+			if nextField == AttrField {
+				continue
+			}
+			err := selector.setFieldValue(nextField, s[start:i])
 			if err != nil {
 				return selector, err
 			}
-			nextAttr = ID
+			nextField = IDField
+			start = i + 1
+		case '[':
+			err := selector.setFieldValue(nextField, s[start:i])
+			if err != nil {
+				return selector, err
+			}
+			nextField = AttrField
+			start = i + 1
+		case ']':
+			if nextField != AttrField {
+				return selector, fmt.Errorf(
+					"']' must be preceeded by '['")
+			}
+			err := selector.setFieldValue(nextField, s[start:i])
+			if err != nil {
+				return selector, err
+			}
 			start = i + 1
 		}
 	}
-	err := selector.setFieldValue(nextAttr, s[start:])
+	err := selector.setFieldValue(nextField, s[start:])
 	if err != nil {
 		return selector, err
 	}
@@ -111,27 +179,27 @@ func (sel *Selector) Match(node *html.Node) bool {
 			return false
 		}
 	}
-	classMatched := sel.Class == nil
-	idMatched := sel.ID == nil
+	matchedAttrs := []string{}
 	for _, attr := range node.Attr {
-		switch attr.Key {
-		case "class":
-			if !classMatched {
-				if !sel.Class.MatchString(attr.Val) {
-					return false
-				} else {
-					classMatched = true
-				}
-			}
-		case "id":
-			if !idMatched {
-				if !sel.ID.MatchString(attr.Val) {
-					return false
-				} else {
-					idMatched = true
-				}
+		matcher, ok := sel.Attrs[attr.Key]
+		if !ok {
+			continue
+		}
+		if !matcher.MatchString(attr.Val) {
+			return false
+		}
+		matchedAttrs = append(matchedAttrs, attr.Key)
+	}
+	for k := range sel.Attrs {
+		attrMatched := false
+		for _, attrKey := range matchedAttrs {
+			if k == attrKey {
+				attrMatched = true
 			}
 		}
+		if !attrMatched {
+			return false
+		}
 	}
-	return classMatched && idMatched
+	return true
 }

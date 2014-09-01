@@ -123,8 +123,7 @@ func main() {
 	for i, cmd := range cmds {
 		selectors[i], err = selector.NewSelector(cmd)
 		if err != nil {
-			fmt.Fprintf(os.Stderr, err.Error())
-			os.Exit(2)
+			Fatal("Selector parse error: %s", err)
 		}
 	}
 	currNodes := []*html.Node{root}
