@@ -17,8 +17,8 @@ var (
 
 	// Regexp helpers
 	whitespaceRegexp *regexp.Regexp = regexp.MustCompile(`^\s*$`)
-	preWhitespace    *regexp.Regexp = regexp.MustCompile(`^\s+`)
-	postWhitespace   *regexp.Regexp = regexp.MustCompile(`\s+$`)
+	preWhitespace                   = regexp.MustCompile(`^\s+`)
+	postWhitespace                  = regexp.MustCompile(`\s+$`)
 )
 
 func printIndent(level int) {

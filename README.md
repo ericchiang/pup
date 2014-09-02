@@ -31,7 +31,7 @@ Download a webpage with `wget`.
 $ wget http://en.wikipedia.org/wiki/Robots_exclusion_standard -O robots.html
 ```
 
-###Clean and indent
+####Clean and indent
 
 By default `pup` will fill in missing tags and properly indent the page.
 
@@ -42,7 +42,7 @@ $ cat robots.html | pup --color
 # cleaned, indented, and colorful HTML
 ```
 
-###Filter by tag
+####Filter by tag
 ```bash
 $ pup < robots.html title
 <title>
@@ -50,7 +50,7 @@ $ pup < robots.html title
 </title>
 ```
 
-###Filter by id
+####Filter by id
 ```bash
 $ pup < robots.html span#See_also
 <span class="mw-headline" id="See_also">
@@ -58,7 +58,7 @@ $ pup < robots.html span#See_also
 </span>
 ```
 
-###Chain selectors together
+####Chain selectors together
 
 The following two commands are equivalent. (NOTE: pipes do not work with the
 `--color` flag)
@@ -86,14 +86,14 @@ Both produce the ouput:
 </a>
 ```
 
-###How many nodes are selected by a filter?
+####How many nodes are selected by a filter?
 
 ```bash
 $ pup < robots.html a -n
 283
 ```
 
-###Limit print level
+####Limit print level
 
 ```bash
 $ pup < robots.html table -l 2
@@ -134,6 +134,36 @@ You can mix and match selectors as you wish.
 cat index.html | pup element#id[attribute=value]
 ```
 
+## Functions
+
+Non-HTML selectors which effect the output type are implemented as functions
+which can be provided as a final argument.
+
+As of now, `text{}` is the only implemented function.
+
+#### `text{}`
+
+Print all text from selected nodes and children in depth first order.
+
+```bash
+$ cat robots.html | pup .mw-headline text{}
+History
+About the standard
+Disadvantages
+Alternatives
+Examples
+Nonstandard extensions
+Crawl-delay directive
+Allow directive
+Sitemap
+Host
+Universal "*" match
+Meta tags and headers
+See also
+References
+External links
+```
+
 ## Flags
 
 ```bash
@@ -148,5 +178,6 @@ cat index.html | pup element#id[attribute=value]
 
 ## TODO:
 
-* Print attribute value rather than html ({href}) 
-* Print result as JSON (--json)
+* Print attribute function `attr{attr1, attr2}`
+* Print as json function `json{}`
+* Switch `-n` from a flag to a function

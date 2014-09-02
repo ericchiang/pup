@@ -3,6 +3,7 @@ package main
 import (
 	"code.google.com/p/go.net/html"
 	"fmt"
+	"github.com/ericchiang/pup/funcs"
 	"github.com/ericchiang/pup/selector"
 	"io"
 	"os"
@@ -14,11 +15,13 @@ const VERSION string = "0.1.0"
 
 var (
 	// Flags
-	inputStream   io.ReadCloser = os.Stdin
-	indentString  string        = " "
-	maxPrintLevel int           = -1
-	printNumber   bool          = false
-	printColor    bool          = false
+	attributes    []string        = []string{}
+	inputStream   io.ReadCloser   = os.Stdin
+	indentString  string          = " "
+	maxPrintLevel int             = -1
+	printNumber   bool            = false
+	printColor    bool            = false
+	displayer     funcs.Displayer = nil
 )
 
 // Print to stderr and exit
@@ -64,6 +67,9 @@ func ProcessFlags(cmds []string) []string {
 	for i = 0; i < len(cmds); i++ {
 		cmd := cmds[i]
 		switch cmd {
+		case "-a", "--attr":
+			attributes = append(attributes, cmds[i+1])
+			i++
 		case "-c", "--color":
 			printColor = true
 		case "-f", "--file":
@@ -121,6 +127,14 @@ func main() {
 	}
 	selectors := make([]*selector.Selector, len(cmds))
 	for i, cmd := range cmds {
+		if i+1 == len(cmds) {
+			d, err := funcs.NewDisplayFunc(cmd)
+			if err == nil {
+				displayer = d
+				selectors = selectors[0 : len(cmds)-1]
+				break
+			}
+		}
 		selectors[i], err = selector.NewSelector(cmd)
 		if err != nil {
 			Fatal("Selector parse error: %s", err)
@@ -136,7 +150,9 @@ func main() {
 		}
 		currNodes = selected
 	}
-	if printNumber {
+	if displayer != nil {
+		displayer.Display(currNodes)
+	} else if printNumber {
 		fmt.Println(len(currNodes))
 	} else {
 		for _, s := range currNodes {
