@@ -1,6 +1,6 @@
 # pup
 
-`pup` is a command line tool for processing HTML. It read from stdin,
+`pup` is a command line tool for processing HTML. It reads from stdin,
 prints to stdout, and allows the user to filter parts ot the page using
 [CCS selectors](http://www.w3schools.com/cssref/css_selectors.asp).
 
@@ -10,6 +10,18 @@ fast and flexible way of exploring HTML from the terminal.
 ## Install
 
 	go get github.com/ericchiang/pup
+
+## Basic Usage
+
+```bash
+$ cat index.html | pup [selectors and flags]
+```
+
+or
+
+```bash
+$ pup < index.html [selectors and flags]
+```
 
 ## Examples
 
@@ -21,7 +33,7 @@ $ wget http://en.wikipedia.org/wiki/Robots_exclusion_standard -O robots.html
 
 ###Clean and indent
 
-By default, `pup` will fill in missing tags, and properly indent the page.
+By default `pup` will fill in missing tags and properly indent the page.
 
 ```bash
 $ cat robots.html
@@ -100,6 +112,38 @@ $ pup < robots.html table -l 2
   ...
  </tbody>
 </table>
+```
+
+## Implemented Selectors
+
+For further examples of these selectors head over to [w3schools](
+http://www.w3schools.com/cssref/css_selectors.asp).
+
+```bash
+cat index.html | pup .class
+# '#' indicates comments at the command line so you have to escape it
+cat index.html | pup \#id
+cat index.html | pup element
+cat index.html | pup [attribute]
+cat index.html | pup [attribute=value]
+```
+
+You can mix and match selectors as you wish.
+
+```bash
+cat index.html | pup element#id[attribute=value]
+```
+
+## Flags
+
+```bash
+-c --color         print result with color
+-f --file          file to read from
+-h --help          display this help
+-i --indent        number of spaces to use for indent or character
+-n --number        print number of elements selected
+-l --limit         restrict number of levels printed
+--version          display version
 ```
 
 ## TODO:
