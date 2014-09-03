@@ -164,6 +164,24 @@ References
 External links
 ```
 
+#### `attr{attrkey}`
+
+Print the values of all attributes with a given key from all selected nodes.
+
+```bash
+$ pup < robots.html a attr{href} | head
+#mw-navigation
+#p-search
+/wiki/MediaWiki:Robots.txt
+//en.wikipedia.org/robots.txt
+/wiki/Wikipedia:What_Wikipedia_is_not#NOTHOWTO
+//en.wikipedia.org/w/index.php?title=Robots_exclusion_standard&action=edit
+//meta.wikimedia.org/wiki/Help:Transwiki
+//en.wikiversity.org/wiki/
+//en.wikibooks.org/wiki/
+//en.wikivoyage.org/wiki/
+```
+
 ## Flags
 
 ```bash
@@ -178,6 +196,5 @@ External links
 
 ## TODO:
 
-* Print attribute function `attr{attr1, attr2}`
 * Print as json function `json{}`
 * Switch `-n` from a flag to a function
