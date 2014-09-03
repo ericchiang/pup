@@ -28,11 +28,26 @@ func (t TextDisplayer) Display(nodes []*html.Node) {
 	}
 }
 
+type AttrDisplayer struct {
+	Attr string
+}
+
+func (a AttrDisplayer) Display(nodes []*html.Node) {
+	for _, node := range nodes {
+		attributes := node.Attr
+		for _, attr := range attributes {
+			if attr.Key == a.Attr {
+				fmt.Println(attr.Val)
+			}
+		}
+	}
+}
+
 var (
 	// Display function helpers
 	displayMatcher  *regexp.Regexp = regexp.MustCompile(`\{[^\}]*\}$`)
 	textFuncMatcher                = regexp.MustCompile(`^text\{\}$`)
-	attrFuncMatcher                = regexp.MustCompile(`^attr\{[^\}]*\}$`)
+	attrFuncMatcher                = regexp.MustCompile(`^attr\{([^\}]*)\}$`)
 )
 
 func NewDisplayFunc(text string) (Displayer, error) {
@@ -43,7 +58,12 @@ func NewDisplayFunc(text string) (Displayer, error) {
 	case textFuncMatcher.MatchString(text):
 		return TextDisplayer{}, nil
 	case attrFuncMatcher.MatchString(text):
-		return nil, fmt.Errorf("attr")
+		matches := attrFuncMatcher.FindStringSubmatch(text)
+		if len(matches) != 2 {
+			return nil, fmt.Errorf("")
+		} else {
+			return AttrDisplayer{matches[1]}, nil
+		}
 	}
 	return nil, fmt.Errorf("Not a display function")
 }
