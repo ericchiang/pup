@@ -1,15 +1,31 @@
 # pup
 
-`pup` is a command line tool for processing HTML. It reads from stdin,
+pup is a command line tool for processing HTML. It reads from stdin,
 prints to stdout, and allows the user to filter parts ot the page using
 [CCS selectors](http://www.w3schools.com/cssref/css_selectors.asp).
 
-Inspired by [`jq`](http://stedolan.github.io/jq/), `pup` aims to be a
+Inspired by [jq](http://stedolan.github.io/jq/), pup aims to be a
 fast and flexible way of exploring HTML from the terminal.
+
+Looking for feature requests and argument design, feel free to open an
+issue if you'd like to comment.
 
 ## Install
 
 	go get github.com/ericchiang/pup
+
+## Quick start
+
+```bash
+$ curl http://www.pro-football-reference.com/years/2013/games.htm 
+```
+
+Ew, HTML. Let's run that through some pup selectors:
+
+```bash
+$ curl http://www.pro-football-reference.com/years/2013/games.htm | \
+pup table#games a[href*=boxscores] attr{href}
+```
 
 ## Basic Usage
 
@@ -25,7 +41,7 @@ $ pup < index.html [selectors and flags]
 
 ## Examples
 
-Download a webpage with `wget`.
+Download a webpage with wget.
 
 ```bash
 $ wget http://en.wikipedia.org/wiki/Robots_exclusion_standard -O robots.html
@@ -33,7 +49,7 @@ $ wget http://en.wikipedia.org/wiki/Robots_exclusion_standard -O robots.html
 
 ####Clean and indent
 
-By default `pup` will fill in missing tags and properly indent the page.
+By default pup will fill in missing tags and properly indent the page.
 
 ```bash
 $ cat robots.html
@@ -60,8 +76,7 @@ $ pup < robots.html span#See_also
 
 ####Chain selectors together
 
-The following two commands are equivalent. (NOTE: pipes do not work with the
-`--color` flag)
+The following two commands are (somewhat) equivalent.
 
 ```bash
 $ pup < robots.html table.navbox ul a | tail
@@ -86,12 +101,9 @@ Both produce the ouput:
 </a>
 ```
 
-####How many nodes are selected by a filter?
-
-```bash
-$ pup < robots.html a -n
-283
-```
+Because pup reconstructs the HTML parse tree, funny things can
+happen when piping two commands together. I'd recommend chaining
+commands rather than pipes.
 
 ####Limit print level
 
@@ -197,4 +209,3 @@ $ pup < robots.html a attr{href} | head
 ## TODO:
 
 * Print as json function `json{}`
-* Switch `-n` from a flag to a function
