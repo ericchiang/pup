@@ -2,7 +2,7 @@
 
 pup is a command line tool for processing HTML. It reads from stdin,
 prints to stdout, and allows the user to filter parts ot the page using
-[CCS selectors](http://www.w3schools.com/cssref/css_selectors.asp).
+[CSS selectors](http://www.w3schools.com/cssref/css_selectors.asp).
 
 Inspired by [jq](http://stedolan.github.io/jq/), pup aims to be a
 fast and flexible way of exploring HTML from the terminal.
