@@ -42,7 +42,7 @@ func parseAttrField(command string) (attrKey string, matcher *regexp.Regexp,
 		attrKeyLen := len(attrKey)
 		switch attrKey[attrKeyLen-1] {
 		case '~':
-			matcherString = fmt.Sprintf(`[^\s]%s[$\s]`, attrVal)
+			matcherString = fmt.Sprintf(`\b%s\b`, attrVal)
 		case '$':
 			matcherString = fmt.Sprintf("%s$", attrVal)
 		case '^':
@@ -67,18 +67,27 @@ func (s *Selector) setFieldValue(f selectorField, v string) error {
 	if v == "" {
 		return nil
 	}
-	r, err := regexp.Compile(fmt.Sprintf("^%s$", v))
-	if err != nil {
-		return err
-	}
 	switch f {
 	case ClassField:
+		r, err := regexp.Compile(fmt.Sprintf(`\b%s\b`, v))
+		if err != nil {
+			return err
+		}
 		s.Attrs["class"] = r
 	case IDField:
+		r, err := regexp.Compile(fmt.Sprintf("^%s$", v))
+		if err != nil {
+			return err
+		}
 		s.Attrs["id"] = r
 	case NameField:
+		r, err := regexp.Compile(fmt.Sprintf("^%s$", v))
+		if err != nil {
+			return err
+		}
 		s.Name = r
 	case AttrField:
+		// Attribute fields are a little more complicated
 		keystring, matcher, err := parseAttrField(v)
 		if err != nil {
 			return err
@@ -94,6 +103,7 @@ func NewSelector(s string) (*Selector, error) {
 	selector := &Selector{nil, attrs}
 	nextField := NameField
 	start := 0
+	// Parse the selector character by character
 	for i, c := range s {
 		switch c {
 		case '.':
