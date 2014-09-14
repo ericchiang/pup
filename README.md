@@ -143,6 +143,11 @@ cat index.html | pup \#id
 cat index.html | pup element
 cat index.html | pup [attribute]
 cat index.html | pup [attribute=value]
+# Probably best to quote enclose wildcards
+cat index.html | pup '[attribute*=value]'
+cat index.html | pup [attribute~=value]
+cat index.html | pup [attribute^=value]
+cat index.html | pup [attribute$=value]
 ```
 
 You can mix and match selectors as you wish.
