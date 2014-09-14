@@ -12,6 +12,11 @@ issue if you'd like to comment.
 
 ## Install
 
+Direct download are available on the [releases page](
+https://github.com/EricChiang/pup/releases).
+
+Or if you can run `go get` to download via git.
+
 	go get github.com/ericchiang/pup
 
 ## Quick start
