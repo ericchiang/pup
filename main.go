@@ -11,7 +11,7 @@ import (
 	"strings"
 )
 
-const VERSION string = "0.1.1"
+const VERSION string = "0.1.2a"
 
 var (
 	// Flags
@@ -125,7 +125,7 @@ func main() {
 		PrintNode(root, 0)
 		os.Exit(0)
 	}
-	selectors := make([]*selector.Selector, len(cmds))
+	selectors := make([]selector.Selector, len(cmds))
 	for i, cmd := range cmds {
 		if i+1 == len(cmds) {
 			d, err := funcs.NewDisplayFunc(cmd)

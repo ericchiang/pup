@@ -8,9 +8,18 @@ import (
 )
 
 // A CSS Selector
-type Selector struct {
+type BasicSelector struct {
 	Name  *regexp.Regexp
 	Attrs map[string]*regexp.Regexp
+}
+
+type Selector interface {
+	// Does this selector match a given node?
+	Match(node *html.Node) bool
+	// Find all nodes which match a selector. May return itself.
+	FindAll(node *html.Node) []*html.Node
+	// Find all child nodes which match a selector.
+	FindAllChildren(node *html.Node) []*html.Node
 }
 
 type selectorField int
@@ -63,7 +72,7 @@ func parseAttrField(command string) (attrKey string, matcher *regexp.Regexp,
 }
 
 // Set a field of this selector.
-func (s *Selector) setFieldValue(f selectorField, v string) error {
+func (s *BasicSelector) setFieldValue(f selectorField, v string) error {
 	if v == "" {
 		return nil
 	}
@@ -98,9 +107,9 @@ func (s *Selector) setFieldValue(f selectorField, v string) error {
 }
 
 // Convert a string to a selector.
-func NewSelector(s string) (*Selector, error) {
+func NewSelector(s string) (Selector, error) {
 	attrs := map[string]*regexp.Regexp{}
-	selector := &Selector{nil, attrs}
+	selector := BasicSelector{nil, attrs}
 	nextField := NameField
 	start := 0
 	// Parse the selector character by character
@@ -153,7 +162,7 @@ func NewSelector(s string) (*Selector, error) {
 }
 
 // Find all nodes which match a selector.
-func (sel *Selector) FindAllChildren(node *html.Node) []*html.Node {
+func (sel BasicSelector) FindAllChildren(node *html.Node) []*html.Node {
 	selected := []*html.Node{}
 	child := node.FirstChild
 	for child != nil {
@@ -165,7 +174,7 @@ func (sel *Selector) FindAllChildren(node *html.Node) []*html.Node {
 }
 
 // Find all nodes which match a selector. May return itself.
-func (sel *Selector) FindAll(node *html.Node) []*html.Node {
+func (sel BasicSelector) FindAll(node *html.Node) []*html.Node {
 	selected := []*html.Node{}
 	if sel.Match(node) {
 		return []*html.Node{node}
@@ -180,7 +189,7 @@ func (sel *Selector) FindAll(node *html.Node) []*html.Node {
 }
 
 // Does this selector match a given node?
-func (sel *Selector) Match(node *html.Node) bool {
+func (sel BasicSelector) Match(node *html.Node) bool {
 	if node.Type != html.ElementNode {
 		return false
 	}
