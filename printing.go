@@ -5,6 +5,7 @@ import (
 	"code.google.com/p/go.net/html/atom"
 	"fmt"
 	"github.com/fatih/color"
+	"github.com/mattn/go-colorable"
 	"regexp"
 )
 
@@ -20,6 +21,10 @@ var (
 	preWhitespace                   = regexp.MustCompile(`^\s+`)
 	postWhitespace                  = regexp.MustCompile(`\s+$`)
 )
+
+func init() {
+	color.Output = colorable.NewColorableStdout()
+}
 
 func printIndent(level int) {
 	for ; level > 0; level-- {
