@@ -22,13 +22,13 @@ Or if you can run `go get` to download via git.
 ## Quick start
 
 ```bash
-$ curl http://www.pro-football-reference.com/years/2013/games.htm 
+$ curl -s http://www.pro-football-reference.com/years/2013/games.htm 
 ```
 
 Ew, HTML. Let's run that through some pup selectors:
 
 ```bash
-$ curl http://www.pro-football-reference.com/years/2013/games.htm | \
+$ curl -s http://www.pro-football-reference.com/years/2013/games.htm | \
 pup table#games 'a[href*=boxscores]' attr{href}
 ```
 
