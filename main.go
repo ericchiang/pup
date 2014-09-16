@@ -2,6 +2,7 @@ package main
 
 import (
 	"code.google.com/p/go.net/html"
+	"code.google.com/p/go.net/html/charset"
 	"fmt"
 	"github.com/ericchiang/pup/funcs"
 	"github.com/ericchiang/pup/selector"
@@ -115,7 +116,12 @@ func ProcessFlags(cmds []string) []string {
 // pup
 func main() {
 	cmds := ProcessFlags(os.Args[1:])
-	root, err := html.Parse(inputStream)
+	cr, err := charset.NewReader(inputStream, "")
+	if err != nil {
+		fmt.Fprintf(os.Stderr, err.Error())
+		os.Exit(2)
+	}
+	root, err := html.Parse(cr)
 	if err != nil {
 		fmt.Fprintf(os.Stderr, err.Error())
 		os.Exit(2)
