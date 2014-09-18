@@ -269,7 +269,7 @@ func (sel SliceSelector) Select(nodes []*html.Node) []*html.Node {
 			selected = append(selected, nodes[i])
 		}
 	} else {
-		for i := end - 1; i > 0 && i >= start; i = i + by {
+		for i := end - 1; i >= 0 && i >= start; i = i + by {
 			selected = append(selected, nodes[i])
 		}
 	}
@@ -328,12 +328,12 @@ func parseSliceSelector(s string) (sel SliceSelector, err error) {
 
 func parseSelectorFunc(s string) (Selector, error) {
 	switch {
-	case strings.HasPrefix(s, "{"):
+	case strings.HasPrefix(s, "slice{"):
 		if !strings.HasSuffix(s, "}") {
 			return nil, fmt.Errorf(
 				"slice func must end with a '}'")
 		}
-		s = strings.TrimPrefix(s, "{")
+		s = strings.TrimPrefix(s, "slice{")
 		s = strings.TrimSuffix(s, "}")
 		return parseSliceSelector(s)
 	}

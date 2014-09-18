@@ -139,7 +139,7 @@ selected for the next round of selection.
 Provide one number for a simple index.
 
 ```bash
-$ pup < robots.html a {0}
+$ pup < robots.html a slice{0}
 <a id="top">
 </a>
 ```
@@ -148,7 +148,7 @@ You can provide an end to limit the number of nodes selected.
 
 ```bash
 $ # {:3} is the same as {0:3}
-$ pup < robots.html a {:3}
+$ pup < robots.html a slice{:3}
 <a id="top">
 </a>
 <a href="#mw-navigation">
@@ -159,7 +159,24 @@ $ pup < robots.html a {:3}
 </a>
 ```
 
-The `by` index still needs work.
+The `by` indexer works particularly well with tables.
+
+```bash
+$ curl -s http://www.pro-football-reference.com/boxscores/201402020den.htm | \
+pup table#linescore td slice{::6}
+<td align="left">
+ <a href="/teams/sea/2013.htm">
+  Seattle Seahawks
+ </a>
+ (13-3-0)
+</td>
+<td align="left">
+ <a href="/teams/den/2013.htm">
+  Denver Broncos
+ </a>
+ (13-3-0)
+</td>
+```
 
 ## Implemented Selectors
 
