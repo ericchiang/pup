@@ -14,12 +14,7 @@ type BasicSelector struct {
 }
 
 type Selector interface {
-	// Does this selector match a given node?
-	Match(node *html.Node) bool
-	// Find all nodes which match a selector. May return itself.
-	FindAll(node *html.Node) []*html.Node
-	// Find all child nodes which match a selector.
-	FindAllChildren(node *html.Node) []*html.Node
+	Select(nodes []*html.Node) []*html.Node
 }
 
 type selectorField int
@@ -159,6 +154,14 @@ func NewSelector(s string) (Selector, error) {
 		return selector, err
 	}
 	return selector, nil
+}
+
+func (sel BasicSelector) Select(nodes []*html.Node) []*html.Node {
+	selected := []*html.Node{}
+	for _, node := range nodes {
+		selected = append(selected, sel.FindAllChildren(node)...)
+	}
+	return selected
 }
 
 // Find all nodes which match a selector.

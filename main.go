@@ -12,7 +12,7 @@ import (
 	"strings"
 )
 
-const VERSION string = "0.1.3"
+const VERSION string = "0.2.0"
 
 var (
 	// Flags
@@ -133,6 +133,8 @@ func main() {
 	}
 	selectors := make([]selector.Selector, len(cmds))
 	for i, cmd := range cmds {
+		// if this is the last element, check for a function like
+		// text{} or attr{}
 		if i+1 == len(cmds) {
 			d, err := funcs.NewDisplayFunc(cmd)
 			if err == nil {
@@ -147,14 +149,8 @@ func main() {
 		}
 	}
 	currNodes := []*html.Node{root}
-	var selected []*html.Node
 	for _, selector := range selectors {
-		selected = []*html.Node{}
-		for _, node := range currNodes {
-			selected = append(selected,
-				selector.FindAllChildren(node)...)
-		}
-		currNodes = selected
+		currNodes = selector.Select(currNodes)
 	}
 	if displayer != nil {
 		displayer.Display(currNodes)
