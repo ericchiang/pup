@@ -131,6 +131,36 @@ $ pup < robots.html table -l 2
 </table>
 ```
 
+####Slices
+
+Slices allow you to do simple `{start:end:by}` operations to limit the number of nodes
+selected for the next round of selection.
+
+Provide one number for a simple index.
+
+```bash
+$ pup < robots.html a {0}
+<a id="top">
+</a>
+```
+
+You can provide an end to limit the number of nodes selected.
+
+```bash
+$ # {:3} is the same as {0:3}
+$ pup < robots.html a {:3}
+<a id="top">
+</a>
+<a href="#mw-navigation">
+ navigation
+</a>
+<a href="#p-search">
+ search
+</a>
+```
+
+The `by` index still needs work.
+
 ## Implemented Selectors
 
 For further examples of these selectors head over to [w3schools](
@@ -160,8 +190,6 @@ cat index.html | pup element#id[attribute=value]
 
 Non-HTML selectors which effect the output type are implemented as functions
 which can be provided as a final argument.
-
-As of now, `text{}` is the only implemented function.
 
 #### `text{}`
 
