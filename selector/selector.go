@@ -4,6 +4,7 @@ import (
 	"code.google.com/p/go.net/html"
 	"fmt"
 	"regexp"
+	"strconv"
 	"strings"
 )
 
@@ -103,11 +104,16 @@ func (s *BasicSelector) setFieldValue(f selectorField, v string) error {
 
 // Convert a string to a selector.
 func NewSelector(s string) (Selector, error) {
+	// A very simple test for a selector function
+	if strings.Contains(s, "{") {
+		return parseSelectorFunc(s)
+	}
+
+	// Otherwise let's evaluate a basic selector
 	attrs := map[string]*regexp.Regexp{}
 	selector := BasicSelector{nil, attrs}
 	nextField := NameField
 	start := 0
-	// Parse the selector character by character
 	for i, c := range s {
 		switch c {
 		case '.':
@@ -224,4 +230,112 @@ func (sel BasicSelector) Match(node *html.Node) bool {
 		}
 	}
 	return true
+}
+
+type SliceSelector struct {
+	Start      int
+	LimitStart bool
+	End        int
+	LimitEnd   bool
+	By         int
+}
+
+func (sel SliceSelector) Select(nodes []*html.Node) []*html.Node {
+	var start, end, by int
+	selected := []*html.Node{}
+	nNodes := len(nodes)
+	switch {
+	case !sel.LimitStart:
+		start = 0
+	case sel.Start < 0:
+		start = (nNodes + 1) + sel.Start
+	default:
+		start = sel.Start
+	}
+	switch {
+	case !sel.LimitEnd:
+		end = nNodes
+	case sel.End < 0:
+		end = (nNodes + 1) + sel.End
+	default:
+		end = sel.End
+	}
+	by = sel.By
+	if by == 0 {
+		return selected
+	}
+	if by > 0 {
+		for i := start; i < nNodes && i < end; i = i + by {
+			selected = append(selected, nodes[i])
+		}
+	} else {
+		for i := end - 1; i > 0 && i >= start; i = i + by {
+			selected = append(selected, nodes[i])
+		}
+	}
+	return selected
+}
+
+// expects input to be the slice only, e.g. "9:4:-1"
+func parseSliceSelector(s string) (sel SliceSelector, err error) {
+	sel = SliceSelector{
+		Start:      0,
+		End:        0,
+		By:         1,
+		LimitStart: false,
+		LimitEnd:   false,
+	}
+	split := strings.Split(s, ":")
+	n := len(split)
+	if n > 3 {
+		err = fmt.Errorf("too many slices")
+		return
+	}
+	var value int
+	if split[0] != "" {
+		value, err = strconv.Atoi(split[0])
+		if err != nil {
+			return
+		}
+		sel.Start = value
+		sel.LimitStart = true
+	}
+	if n == 1 {
+		sel.End = sel.Start + 1
+		sel.LimitEnd = true
+		return
+	}
+	if split[1] != "" {
+		value, err = strconv.Atoi(split[1])
+		if err != nil {
+			return
+		}
+		sel.End = value
+		sel.LimitEnd = true
+	}
+	if n == 2 {
+		return
+	}
+	if split[2] != "" {
+		value, err = strconv.Atoi(split[2])
+		if err != nil {
+			return
+		}
+		sel.By = value
+	}
+	return
+}
+
+func parseSelectorFunc(s string) (Selector, error) {
+	switch {
+	case strings.HasPrefix(s, "{"):
+		if !strings.HasSuffix(s, "}") {
+			return nil, fmt.Errorf(
+				"slice func must end with a '}'")
+		}
+		s = strings.TrimPrefix(s, "{")
+		s = strings.TrimSuffix(s, "}")
+		return parseSliceSelector(s)
+	}
+	return nil, fmt.Errorf("%s is an invalid function", s)
 }
