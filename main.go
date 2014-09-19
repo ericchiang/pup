@@ -12,7 +12,7 @@ import (
 	"strings"
 )
 
-const VERSION string = "0.2.1"
+const VERSION string = "0.2.2"
 
 var (
 	// Flags

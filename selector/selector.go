@@ -238,6 +238,7 @@ type SliceSelector struct {
 	End        int
 	LimitEnd   bool
 	By         int
+	N          int
 }
 
 func (sel SliceSelector) Select(nodes []*html.Node) []*html.Node {
@@ -248,15 +249,17 @@ func (sel SliceSelector) Select(nodes []*html.Node) []*html.Node {
 	case !sel.LimitStart:
 		start = 0
 	case sel.Start < 0:
-		start = (nNodes + 1) + sel.Start
+		start = nNodes + sel.Start
 	default:
 		start = sel.Start
 	}
 	switch {
+	case sel.N == 1:
+		end = start + 1
 	case !sel.LimitEnd:
 		end = nNodes
 	case sel.End < 0:
-		end = (nNodes + 1) + sel.End
+		end = nNodes + sel.End
 	default:
 		end = sel.End
 	}
@@ -287,6 +290,7 @@ func parseSliceSelector(s string) (sel SliceSelector, err error) {
 	}
 	split := strings.Split(s, ":")
 	n := len(split)
+	sel.N = n
 	if n > 3 {
 		err = fmt.Errorf("too many slices")
 		return
