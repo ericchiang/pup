@@ -1,15 +1,16 @@
 package main
 
 import (
-	"code.google.com/p/go.net/html"
-	"code.google.com/p/go.net/html/charset"
 	"fmt"
-	"github.com/ericchiang/pup/funcs"
-	"github.com/ericchiang/pup/selector"
 	"io"
 	"os"
 	"strconv"
 	"strings"
+
+	"code.google.com/p/go.net/html"
+	"code.google.com/p/go.net/html/charset"
+	"github.com/ericchiang/pup/funcs"
+	"github.com/ericchiang/pup/selector"
 )
 
 const VERSION string = "0.2.2"
@@ -113,20 +114,8 @@ func ProcessFlags(cmds []string) []string {
 	return nonFlagCmds[:n]
 }
 
-// pup
-func main() {
-	cmds := ProcessFlags(os.Args[1:])
-	cr, err := charset.NewReader(inputStream, "")
-	if err != nil {
-		fmt.Fprintf(os.Stderr, err.Error())
-		os.Exit(2)
-	}
-	root, err := html.Parse(cr)
-	if err != nil {
-		fmt.Fprintf(os.Stderr, err.Error())
-		os.Exit(2)
-	}
-	inputStream.Close()
+func ApplySelectors(cmds []string, root *html.Node) {
+	var err error
 	if len(cmds) == 0 {
 		PrintNode(root, 0)
 		os.Exit(0)
@@ -162,4 +151,21 @@ func main() {
 			PrintNode(s, 0)
 		}
 	}
+}
+
+// pup
+func main() {
+	cmds := ProcessFlags(os.Args[1:])
+	cr, err := charset.NewReader(inputStream, "")
+	if err != nil {
+		fmt.Fprintf(os.Stderr, err.Error())
+		os.Exit(2)
+	}
+	root, err := html.Parse(cr)
+	if err != nil {
+		fmt.Fprintf(os.Stderr, err.Error())
+		os.Exit(2)
+	}
+	inputStream.Close()
+	ApplySelectors(cmds, root)
 }
