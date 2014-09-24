@@ -180,8 +180,7 @@ pup table#linescore td slice{::6}
 
 ## Implemented Selectors
 
-For further examples of these selectors head over to [w3schools](
-http://www.w3schools.com/cssref/css_selectors.asp).
+For further examples of these selectors head over to [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference).
 
 ```bash
 cat index.html | pup .class
