@@ -128,7 +128,7 @@ func QuoteSplit(input string) []string {
 		switch c {
 		case ' ':
 			if !inQuote {
-				if last < i-1 {
+				if last < i {
 					split = append(split, input[last:i])
 				}
 				last = i + 1
