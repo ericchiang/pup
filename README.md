@@ -22,14 +22,13 @@ Or if you can run `go get` to download via git.
 ## Quick start
 
 ```bash
-$ curl http://www.pro-football-reference.com/years/2013/games.htm 
+$ curl -s https://news.ycombinator.com/
 ```
 
 Ew, HTML. Let's run that through some pup selectors:
 
 ```bash
-$ curl http://www.pro-football-reference.com/years/2013/games.htm | \
-pup table#games 'a[href*=boxscores]' attr{href}
+$ curl -s https://news.ycombinator.com/ | pup 'td.title a[href^=http] attr{href}'
 ```
 
 ## Basic Usage
@@ -157,25 +156,6 @@ $ pup < robots.html a slice{:3}
 <a href="#p-search">
  search
 </a>
-```
-
-The `by` indexer works particularly well with tables.
-
-```bash
-$ curl -s http://www.pro-football-reference.com/boxscores/201402020den.htm | \
-pup table#linescore td slice{::6}
-<td align="left">
- <a href="/teams/sea/2013.htm">
-  Seattle Seahawks
- </a>
- (13-3-0)
-</td>
-<td align="left">
- <a href="/teams/den/2013.htm">
-  Denver Broncos
- </a>
- (13-3-0)
-</td>
 ```
 
 ## Implemented Selectors
