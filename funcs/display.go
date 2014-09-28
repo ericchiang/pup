@@ -37,7 +37,8 @@ func (a AttrDisplayer) Display(nodes []*html.Node) {
 		attributes := node.Attr
 		for _, attr := range attributes {
 			if attr.Key == a.Attr {
-				fmt.Println(attr.Val)
+				val := html.EscapeString(attr.Val)
+				fmt.Printf("%s\n", val)
 			}
 		}
 	}

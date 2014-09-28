@@ -74,7 +74,7 @@ func (t TreeDisplayer) printIndent(level int) {
 func (t TreeDisplayer) printNode(n *html.Node, level int) {
 	switch n.Type {
 	case html.TextNode:
-		s := n.Data
+		s := html.EscapeString(n.Data)
 		if !whitespaceRegexp.MatchString(s) {
 			s = preWhitespace.ReplaceAllString(s, "")
 			s = postWhitespace.ReplaceAllString(s, "")
@@ -94,9 +94,11 @@ func (t TreeDisplayer) printNode(n *html.Node, level int) {
 				fmt.Print(" ")
 				attrKeyColor.Printf("%s", a.Key)
 				tokenColor.Print("=")
-				quoteColor.Printf(`"%s"`, a.Val)
+				val := html.EscapeString(a.Val)
+				quoteColor.Printf(`"%s"`, val)
 			} else {
-				fmt.Printf(` %s="%s"`, a.Key, a.Val)
+				val := html.EscapeString(a.Val)
+				fmt.Printf(` %s="%s"`, a.Key, val)
 			}
 		}
 		if printColor {
