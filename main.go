@@ -128,7 +128,8 @@ func main() {
 	}
 	inputStream.Close()
 	if len(cmds) == 0 {
-		PrintNode(root, 0)
+		t := TreeDisplayer{indentString}
+		t.Display([]*html.Node{root})
 		os.Exit(0)
 	}
 	selectors := make([]selector.Selector, len(cmds))
@@ -141,6 +142,8 @@ func main() {
 				displayer = d
 				selectors = selectors[0 : len(cmds)-1]
 				break
+			} else {
+				displayer = TreeDisplayer{indentString}
 			}
 		}
 		selectors[i], err = selector.NewSelector(cmd)
@@ -152,14 +155,9 @@ func main() {
 	for _, selector := range selectors {
 		currNodes = selector.Select(currNodes)
 	}
-	if displayer != nil {
-		displayer.Display(currNodes)
-	} else if printNumber {
+	if printNumber {
 		fmt.Println(len(currNodes))
 	} else {
-		for _, s := range currNodes {
-			// defined in `printing.go`
-			PrintNode(s, 0)
-		}
+		displayer.Display(currNodes)
 	}
 }

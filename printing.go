@@ -26,12 +26,6 @@ func init() {
 	color.Output = colorable.NewColorableStdout()
 }
 
-func printIndent(level int) {
-	for ; level > 0; level-- {
-		fmt.Print(indentString)
-	}
-}
-
 // Is this node a tag with no end tag such as <meta> or <br>?
 // http://www.w3.org/TR/html-markup/syntax.html#syntax-elements
 func isVoidElement(n *html.Node) bool {
@@ -45,34 +39,50 @@ func isVoidElement(n *html.Node) bool {
 
 }
 
-func printChildren(n *html.Node, level int) {
+type TreeDisplayer struct {
+	IndentString string
+}
+
+func (t TreeDisplayer) Display(nodes []*html.Node) {
+	for _, node := range nodes {
+		t.printNode(node, 0)
+	}
+}
+
+func (t TreeDisplayer) printChildren(n *html.Node, level int) {
 	if maxPrintLevel > -1 {
 		if level >= maxPrintLevel {
-			printIndent(level)
+			t.printIndent(level)
 			fmt.Println("...")
 			return
 		}
 	}
 	child := n.FirstChild
 	for child != nil {
-		PrintNode(child, level)
+		t.printNode(child, level)
 		child = child.NextSibling
 	}
 }
 
+func (t TreeDisplayer) printIndent(level int) {
+	for ; level > 0; level-- {
+		fmt.Print(indentString)
+	}
+}
+
 // Print a node and all of it's children to `maxlevel`.
-func PrintNode(n *html.Node, level int) {
+func (t TreeDisplayer) printNode(n *html.Node, level int) {
 	switch n.Type {
 	case html.TextNode:
 		s := n.Data
 		if !whitespaceRegexp.MatchString(s) {
 			s = preWhitespace.ReplaceAllString(s, "")
 			s = postWhitespace.ReplaceAllString(s, "")
-			printIndent(level)
+			t.printIndent(level)
 			fmt.Println(s)
 		}
 	case html.ElementNode:
-		printIndent(level)
+		t.printIndent(level)
 		if printColor {
 			tokenColor.Print("<")
 			tagColor.Printf("%s", n.Data)
@@ -95,8 +105,8 @@ func PrintNode(n *html.Node, level int) {
 			fmt.Print(">\n")
 		}
 		if !isVoidElement(n) {
-			printChildren(n, level+1)
-			printIndent(level)
+			t.printChildren(n, level+1)
+			t.printIndent(level)
 			if printColor {
 				tokenColor.Print("</")
 				tagColor.Printf("%s", n.Data)
@@ -106,6 +116,6 @@ func PrintNode(n *html.Node, level int) {
 			}
 		}
 	case html.CommentNode, html.DoctypeNode, html.DocumentNode:
-		printChildren(n, level)
+		t.printChildren(n, level)
 	}
 }
