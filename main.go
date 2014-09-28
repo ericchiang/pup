@@ -113,9 +113,49 @@ func ProcessFlags(cmds []string) []string {
 	return nonFlagCmds[:n]
 }
 
+// Split a string while ignoring strings. 
+func QuoteSplit(input string) []string {
+	last := 0
+	split := []string{}
+	inQuote := false
+	quoteChar := ' '
+	escapeNext := false
+	for i, c := range input {
+		if escapeNext {
+			escapeNext = false
+			continue
+		}
+		switch c {
+		case ' ':
+			if !inQuote {
+				if last < i-1 {
+					split = append(split, input[last:i])
+				}
+				last = i + 1
+			}
+		case '"', '\'':
+			if inQuote {
+				if c == quoteChar {
+					inQuote = false
+				}
+			} else {
+				inQuote = true
+				quoteChar = c
+			}
+		case '\\':
+			escapeNext = true
+		}
+	}
+	if last < len(input) {
+		split = append(split, input[last:len(input)])
+	}
+	return split
+}
+
 // pup
 func main() {
-	cmds := ProcessFlags(os.Args[1:])
+	args := QuoteSplit(strings.Join(os.Args[1:], " "))
+	cmds := ProcessFlags(args)
 	cr, err := charset.NewReader(inputStream, "")
 	if err != nil {
 		fmt.Fprintf(os.Stderr, err.Error())
