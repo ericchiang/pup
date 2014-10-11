@@ -34,16 +34,22 @@ Ew, HTML. Let's run that through some pup selectors:
 $ curl -s https://news.ycombinator.com/ | pup 'td.title a[href^=http] attr{href}'
 ```
 
+Even better, let's grab the titles too:
+
+```bash
+$ curl -s https://news.ycombinator.com/ | pup 'td.title a[href^=http] json{}'
+```
+
 ## Basic Usage
 
 ```bash
-$ cat index.html | pup [selectors and flags]
+$ cat index.html | pup [flags] [selectors] [optional display function]
 ```
 
 or
 
 ```bash
-$ pup < index.html [selectors and flags]
+$ pup < index.html [flags] [selectors] [optional display function]
 ```
 
 ## Examples
@@ -185,7 +191,7 @@ You can mix and match selectors as you wish.
 cat index.html | pup element#id[attribute=value]
 ```
 
-## Functions
+## Display Functions
 
 Non-HTML selectors which effect the output type are implemented as functions
 which can be provided as a final argument.
@@ -231,6 +237,85 @@ $ pup < robots.html a attr{href} | head
 //en.wikivoyage.org/wiki/
 ```
 
+#### `json{}`
+
+Print HTML as JSON.
+
+```bash
+$ cat robots.html  | pup div#p-namespaces a
+<a href="/wiki/Robots_exclusion_standard" title="View the content page [c]" accesskey="c">
+ Article
+</a>
+<a href="/wiki/Talk:Robots_exclusion_standard" title="Discussion about the content page [t]" accesskey="t">
+ Talk
+</a>
+```
+
+```bash
+$ cat robots.html  | pup div#p-namespaces a json{}
+[
+ {
+  "attrs": {
+   "accesskey": "c",
+   "href": "/wiki/Robots_exclusion_standard",
+   "title": "View the content page [c]"
+  },
+  "tag": "a",
+  "text": "Article"
+ },
+ {
+  "attrs": {
+   "accesskey": "t",
+   "href": "/wiki/Talk:Robots_exclusion_standard",
+   "title": "Discussion about the content page [t]"
+  },
+  "tag": "a",
+  "text": "Talk"
+ }
+]
+```
+
+Use the `-i` / `--indent` flag to control the intent level.
+
+```bash
+$ cat robots.html  | pup --indent 4 div#p-namespaces a json{}
+[
+    {
+        "attrs": {
+            "accesskey": "c",
+            "href": "/wiki/Robots_exclusion_standard",
+            "title": "View the content page [c]"
+        },
+        "tag": "a",
+        "text": "Article"
+    },
+    {
+        "attrs": {
+            "accesskey": "t",
+            "href": "/wiki/Talk:Robots_exclusion_standard",
+            "title": "Discussion about the content page [t]"
+        },
+        "tag": "a",
+        "text": "Talk"
+    }
+]
+```
+
+If the selectors only return one element the results will be printed as a JSON
+object, not a list.
+
+```bash
+$ cat robots.html  | pup --indent 4 title json{}
+{
+    "tag": "title",
+    "text": "Robots exclusion standard - Wikipedia, the free encyclopedia"
+}
+```
+
+Because there is no universal standard for converting HTML/XML to JSON, a
+method has been chosen which hopefully fits. The goal is simply to get the
+output of pup into a more consumable format.
+
 ## Flags
 
 ```bash
@@ -243,6 +328,6 @@ $ pup < robots.html a attr{href} | head
 --version          display version
 ```
 
-## TODO:
+## TODO
 
-* Print as json function `json{}`
+Add more tests!
