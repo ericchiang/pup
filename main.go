@@ -4,7 +4,6 @@ import (
 	"code.google.com/p/go.net/html"
 	"code.google.com/p/go.net/html/charset"
 	"fmt"
-	"github.com/ericchiang/pup/funcs"
 	"github.com/ericchiang/pup/selector"
 	"io"
 	"os"
@@ -12,7 +11,7 @@ import (
 	"strings"
 )
 
-const VERSION string = "0.3.0"
+const VERSION string = "0.3.1"
 
 var (
 	// Flags
@@ -22,7 +21,7 @@ var (
 	maxPrintLevel int             = -1
 	printNumber   bool            = false
 	printColor    bool            = false
-	displayer     funcs.Displayer = nil
+	displayer     Displayer       = nil
 )
 
 // Print to stderr and exit
@@ -177,7 +176,7 @@ func main() {
 		// if this is the last element, check for a function like
 		// text{} or attr{}
 		if i+1 == len(cmds) {
-			d, err := funcs.NewDisplayFunc(cmd)
+			d, err := NewDisplayFunc(cmd)
 			if err == nil {
 				displayer = d
 				selectors = selectors[0 : len(cmds)-1]
