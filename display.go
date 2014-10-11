@@ -78,6 +78,9 @@ func jsonify(node *html.Node) map[string]interface{} {
 			}
 		}
 	}
+	if len(children) > 0 {
+		vals["children"] = children
+	}
 	return vals
 }
 
@@ -86,8 +89,19 @@ func (j JSONDisplayer) Display(nodes []*html.Node) {
 	var err error
 	switch len(nodes) {
 	case 1:
-		jsonNode := jsonify(nodes[0])
-		data, err = json.MarshalIndent(&jsonNode, "", indentString)
+		node := nodes[0]
+		if node.Type != html.DocumentNode {
+			jsonNode := jsonify(nodes[0])
+			data, err = json.MarshalIndent(&jsonNode, "", indentString)
+		} else {
+			children := []*html.Node{}
+			child := node.FirstChild
+			for child != nil {
+				children = append(children, child)
+				child = child.NextSibling
+			}
+			j.Display(children)
+		}
 	default:
 		jsonNodes := []map[string]interface{}{}
 		for _, node := range nodes {
@@ -98,7 +112,7 @@ func (j JSONDisplayer) Display(nodes []*html.Node) {
 	if err != nil {
 		panic("Could not jsonify nodes")
 	}
-	fmt.Printf("%s\n", data)
+	fmt.Printf("%s", data)
 }
 
 var (
