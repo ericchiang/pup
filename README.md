@@ -15,14 +15,13 @@ and join the hangout to discuss, pup, Go, and command-line tools.
 
 ## Install
 
-If you don't have Go or aren't using OS X, directy downloads are available
-through the [releases page](https://github.com/EricChiang/pup/releases).
+Direct downloads are available through the [releases page](https://github.com/EricChiang/pup/releases/latest).
 
 If you have Go installed on your computer just run `go get`.
 
     go get github.com/ericchiang/pup
 
-If you're on OS X, use [Brew](http://brew.sh/) to install.
+If you're on OS X, use [Brew](http://brew.sh/) to install (no Go required).
 
     brew install https://raw.githubusercontent.com/EricChiang/pup/master/pup.rb
 
