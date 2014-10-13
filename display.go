@@ -76,6 +76,13 @@ func jsonify(node *html.Node) map[string]interface{} {
 				}
 				vals["text"] = text
 			}
+		case html.CommentNode:
+			comment := strings.TrimSpace(child.Data)
+			currComment, ok := vals["comment"]
+			if ok {
+				comment = fmt.Sprintf("%s %s", currComment, comment)
+			}
+			vals["comment"] = comment
 		}
 	}
 	if len(children) > 0 {

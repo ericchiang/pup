@@ -11,7 +11,7 @@ import (
 	"strings"
 )
 
-const VERSION string = "0.3.1"
+const VERSION string = "0.3.2"
 
 var (
 	// Flags
@@ -35,7 +35,7 @@ func Fatal(format string, args ...interface{}) {
 func PrintHelp() {
 	helpString := `Usage
 
-    pup [list of css selectors]
+    pup [flags] [selectors] [optional display function]
 
 Version
 

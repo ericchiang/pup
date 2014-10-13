@@ -1,25 +1,23 @@
 package main
 
 import (
+	"fmt"
+	"strings"
+
 	"code.google.com/p/go.net/html"
 	"code.google.com/p/go.net/html/atom"
-	"fmt"
+
 	"github.com/fatih/color"
 	"github.com/mattn/go-colorable"
-	"regexp"
 )
 
 var (
 	// Colors
-	tagColor     *color.Color = color.New(color.FgYellow).Add(color.Bold)
-	tokenColor                = color.New(color.FgCyan).Add(color.Bold)
-	attrKeyColor              = color.New(color.FgRed)
+	tagColor     *color.Color = color.New(color.FgCyan)
+	tokenColor                = color.New(color.FgCyan)
+	attrKeyColor              = color.New(color.FgMagenta)
 	quoteColor                = color.New(color.FgBlue)
-
-	// Regexp helpers
-	whitespaceRegexp *regexp.Regexp = regexp.MustCompile(`^\s*$`)
-	preWhitespace                   = regexp.MustCompile(`^\s+`)
-	postWhitespace                  = regexp.MustCompile(`\s+$`)
+	commentColor              = color.New(color.FgYellow)
 )
 
 func init() {
@@ -75,10 +73,9 @@ func (t TreeDisplayer) printNode(n *html.Node, level int) {
 	switch n.Type {
 	case html.TextNode:
 		s := html.EscapeString(n.Data)
-		if !whitespaceRegexp.MatchString(s) {
-			s = preWhitespace.ReplaceAllString(s, "")
-			s = postWhitespace.ReplaceAllString(s, "")
-			t.printIndent(level)
+		s = strings.TrimSpace(s)
+		if s != "" {
+			t.printIndent(level + 1)
 			fmt.Println(s)
 		}
 	case html.ElementNode:
@@ -117,7 +114,15 @@ func (t TreeDisplayer) printNode(n *html.Node, level int) {
 				fmt.Printf("</%s>\n", n.Data)
 			}
 		}
-	case html.CommentNode, html.DoctypeNode, html.DocumentNode:
+	case html.CommentNode:
+		t.printIndent(level)
+		if printColor {
+			commentColor.Printf("<!--%s-->\n", n.Data)
+		} else {
+			fmt.Printf("<!--%s-->\n", n.Data)
+		}
+		t.printChildren(n, level)
+	case html.DoctypeNode, html.DocumentNode:
 		t.printChildren(n, level)
 	}
 }
