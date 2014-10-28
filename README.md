@@ -7,12 +7,6 @@ prints to stdout, and allows the user to filter parts of the page using
 Inspired by [jq](http://stedolan.github.io/jq/), pup aims to be a
 fast and flexible way of exploring HTML from the terminal.
 
-## Upcoming talk
-
-I'll be giving a talk on pup on October 15th at 11:00am (PDT) for Codementor!
-RSVP on the [event page](https://www.codementor.io/officehours/3636154029/stdin-stdout-pup-go-and-life-at-the-command-line)
-and join the hangout to discuss, pup, Go, and command-line tools.
-
 ## Install
 
 Direct downloads are available through the [releases page](https://github.com/EricChiang/pup/releases/latest).
