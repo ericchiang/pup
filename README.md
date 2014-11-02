@@ -327,4 +327,26 @@ output of pup into a more consumable format.
 
 ## TODO
 
-Add more tests!
+Add more selectors:
+
+```
+div > p
+div + p
+
+p:contains
+
+p:empty
+
+p:first-child
+p:first-of-type
+p:last-child
+p:last-of-type
+
+p:nth-child(2)
+p:nth-last-child(2)
+p:nth-last-of-type(2)
+p:nth-of-type(2)
+
+p:only-of-type
+p:only-child
+```
