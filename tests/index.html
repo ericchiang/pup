@@ -1,0 +1,1494 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8" />
+<title>Go (programming language) - Wikipedia, the free encyclopedia</title>
+<meta name="generator" content="MediaWiki 1.25wmf6" />
+<link rel="alternate" href="android-app://org.wikipedia/http/en.m.wikipedia.org/wiki/Go_(programming_language)" />
+<link rel="alternate" type="application/x-wiki" title="Edit this page" href="/w/index.php?title=Go_(programming_language)&amp;action=edit" />
+<link rel="edit" title="Edit this page" href="/w/index.php?title=Go_(programming_language)&amp;action=edit" />
+<link rel="apple-touch-icon" href="//bits.wikimedia.org/apple-touch/wikipedia.png" />
+<link rel="shortcut icon" href="//bits.wikimedia.org/favicon/wikipedia.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (en)" />
+<link rel="EditURI" type="application/rsd+xml" href="//en.wikipedia.org/w/api.php?action=rsd" />
+<link rel="alternate" hreflang="x-default" href="/wiki/Go_(programming_language)" />
+<link rel="copyright" href="//creativecommons.org/licenses/by-sa/3.0/" />
+<link rel="alternate" type="application/atom+xml" title="Wikipedia Atom feed" href="/w/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<link rel="canonical" href="http://en.wikipedia.org/wiki/Go_(programming_language)" />
+<link rel="stylesheet" href="//bits.wikimedia.org/en.wikipedia.org/load.php?debug=false&amp;lang=en&amp;modules=ext.gadget.DRN-wizard%2CReferenceTooltips%2Ccharinsert%2Cfeatured-articles-links%2CrefToolbar%2Cteahouse%7Cext.geshi.language.go%7Cext.geshi.local%7Cext.rtlcite%2Cwikihiero%2CwikimediaBadges%7Cext.uls.nojs%7Cext.visualEditor.viewPageTarget.noscript%7Cmediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.skinning.interface%7Cmediawiki.ui.button%7Cskins.vector.styles%7Cwikibase.client.init&amp;only=styles&amp;skin=vector&amp;*" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<link rel="stylesheet" href="//bits.wikimedia.org/en.wikipedia.org/load.php?debug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=vector&amp;*" />
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: enwiki:resourceloader:filter:minify-css:7:3904d24a08aa08f6a68dc338f9be277e */</style>
+<script src="//bits.wikimedia.org/en.wikipedia.org/load.php?debug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Go_(programming_language)","wgTitle":"Go (programming language)","wgCurRevisionId":632918619,"wgRevisionId":632918619,"wgArticleId":25039021,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Pages with citations lacking titles","Pages with citations having bare URLs","CS1 errors: missing author or editor","All articles with unsourced statements","Articles with unsourced statements from July 2014","Articles containing potentially dated statements from August 2014","All articles containing potentially dated statements","Articles prone to spam from June 2013","Use dmy dates from August 2011","C programming language family","Concurrent programming languages","Google software","Procedural programming languages","Cross-platform software","Programming languages created in 2009","American inventions","Software using the BSD license","Free compilers and interpreters"],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"Go_(programming_language)","wgIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"hidesig":true,"preview":false,"previewDialog":false,"publish":false},"wgBetaFeaturesFeatures":[],"wgMediaViewerOnClick":true,"wgMediaViewerEnabledByDefault":true,"wgVisualEditor":{"isPageWatched":false,"pageLanguageCode":"en","pageLanguageDir":"ltr","svgMaxSize":4096,"namespacesWithSubpages":{"6":0,"8":0,"1":true,"2":true,"3":true,"4":true,"5":true,"7":true,"9":true,"10":true,"11":true,"12":true,"13":true,"14":true,"15":true,"100":true,"101":true,"102":true,"103":true,"104":true,"105":true,"106":true,"107":true,"108":true,"109":true,"110":true,"111":true,"830":true,"831":true,"447":true,"2600":false,"828":true,"829":true}},"wikilove-recipient":"","wikilove-anon":0,"wgHHVMStart":1412726400000,"wgULSAcceptLanguageList":["en-gb","en-us","en"],"wgULSCurrentAutonym":"English","wgFlaggedRevsParams":{"tags":{"status":{"levels":1,"quality":2,"pristine":3}}},"wgStableRevisionId":null,"wgCategoryTreePageCategoryOptions":"{\"mode\":0,\"hideprefix\":20,\"showcount\":true,\"namespaces\":false}","wgNoticeProject":"wikipedia","wgWikibaseItemId":"Q37227"});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"ccmeonemails":0,"cols":80,"date":"default","diffonly":0,"disablemail":0,"editfont":"default","editondblclick":0,"editsectiononrightclick":0,"enotifminoredits":0,"enotifrevealaddr":0,"enotifusertalkpages":1,"enotifwatchlistpages":0,"extendwatchlist":0,"fancysig":0,"forceeditsummary":0,"gender":"unknown","hideminor":0,"hidepatrolled":0,"imagesize":2,"math":0,"minordefault":0,"newpageshidepatrolled":0,"nickname":"","norollbackdiff":0,"numberheadings":0,"previewonfirst":0,"previewontop":1,"rcdays":7,"rclimit":50,"rows":25,"showhiddencats":false,"shownumberswatching":1,"showtoolbar":1,"skin":"vector","stubthreshold":0,"thumbsize":4,"underline":2,"uselivepreview":0,"usenewrc":0,"watchcreations":1,"watchdefault":0,"watchdeletion":0,"watchlistdays":3,"watchlisthideanons":0,"watchlisthidebots":0,"watchlisthideliu":0,"watchlisthideminor":0,"watchlisthideown":0,"watchlisthidepatrolled":0,"watchmoves":0,"watchrollback":0,
+"wllimit":250,"useeditwarning":1,"prefershttps":1,"flaggedrevssimpleui":1,"flaggedrevsstable":0,"flaggedrevseditdiffs":true,"flaggedrevsviewdiffs":false,"usebetatoolbar":1,"usebetatoolbar-cgd":1,"visualeditor-enable":0,"visualeditor-betatempdisable":0,"visualeditor-enable-experimental":0,"visualeditor-enable-language":0,"visualeditor-hidebetawelcome":0,"wikilove-enabled":1,"echo-subscriptions-web-page-review":true,"echo-subscriptions-email-page-review":false,"ep_showtoplink":false,"ep_bulkdelorgs":false,"ep_bulkdelcourses":true,"ep_showdyk":true,"echo-subscriptions-web-education-program":true,"echo-subscriptions-email-education-program":false,"echo-notify-show-link":true,"echo-show-alert":true,"echo-email-frequency":0,"echo-email-format":"html","echo-subscriptions-email-system":true,"echo-subscriptions-web-system":true,"echo-subscriptions-email-user-rights":true,"echo-subscriptions-web-user-rights":true,"echo-subscriptions-email-other":false,"echo-subscriptions-web-other":true,
+"echo-subscriptions-email-edit-user-talk":false,"echo-subscriptions-web-edit-user-talk":true,"echo-subscriptions-email-reverted":false,"echo-subscriptions-web-reverted":true,"echo-subscriptions-email-article-linked":false,"echo-subscriptions-web-article-linked":false,"echo-subscriptions-email-mention":false,"echo-subscriptions-web-mention":true,"echo-subscriptions-web-edit-thank":true,"echo-subscriptions-email-edit-thank":false,"echo-subscriptions-web-flow-discussion":true,"echo-subscriptions-email-flow-discussion":false,"gettingstarted-task-toolbar-show-intro":true,"uls-preferences":"","multimediaviewer-enable":true,"language":"en","variant-gan":"gan","variant-iu":"iu","variant-kk":"kk","variant-ku":"ku","variant-shi":"shi","variant-sr":"sr","variant-tg":"tg","variant-uz":"uz","variant-zh":"zh","searchNs0":true,"searchNs1":false,"searchNs2":false,"searchNs3":false,"searchNs4":false,"searchNs5":false,"searchNs6":false,"searchNs7":false,"searchNs8":false,"searchNs9":false,"searchNs10":
+false,"searchNs11":false,"searchNs12":false,"searchNs13":false,"searchNs14":false,"searchNs15":false,"searchNs100":false,"searchNs101":false,"searchNs108":false,"searchNs109":false,"searchNs118":false,"searchNs119":false,"searchNs446":false,"searchNs447":false,"searchNs710":false,"searchNs711":false,"searchNs828":false,"searchNs829":false,"searchNs2600":false,"gadget-teahouse":1,"gadget-ReferenceTooltips":1,"gadget-geonotice":1,"gadget-DRN-wizard":1,"gadget-charinsert":1,"gadget-refToolbar":1,"gadget-mySandbox":1,"gadget-featured-articles-links":1,"variant":"en"});},{},{});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});},{},{});
+/* cache key: enwiki:resourceloader:filter:minify-js:7:fb6d33a792758dc6c0c50bd882524047 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","ext.centralauth.centralautologin","mmv.head","ext.visualEditor.viewPageTarget.init","ext.uls.init","ext.uls.interface","ext.centralNotice.bannerController","skins.vector.js"]);
+}</script>
+<link rel="dns-prefetch" href="//meta.wikimedia.org" />
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/w/static-1.25wmf6/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-Go_programming_language skin-vector action-view vector-animateLayout">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+							<div id="siteNotice"><!-- CentralNotice --></div>
+						<div class="mw-indicators">
+</div>
+			<h1 id="firstHeading" class="firstHeading" lang="en"><span dir="auto">Go (programming language)</span></h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From Wikipedia, the free encyclopedia</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="#mw-navigation">navigation</a>, 					<a href="#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="hatnote">Not to be confused with <a href="/wiki/Go!_(programming_language)" title="Go! (programming language)">Go! (programming language)</a>, an agent-based language released in 2003.</div>
+<table class="infobox vevent" style="border-spacing:3px;width:22em">
+<caption class="summary">Go</caption>
+<tr>
+<td colspan="2" style="text-align:center"><a href="/wiki/File:Golang.png" class="image"><img alt="Golang.png" src="//upload.wikimedia.org/wikipedia/commons/thumb/2/23/Golang.png/300px-Golang.png" width="300" height="108" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/2/23/Golang.png/450px-Golang.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/2/23/Golang.png/600px-Golang.png 2x" data-file-width="1224" data-file-height="440" /></a></td>
+</tr>
+<tr>
+<th scope="row" style="text-align:left"><a href="/wiki/Programming_paradigm" title="Programming paradigm">Paradigm(s)</a></th>
+<td><a href="/wiki/Compiled_language" title="Compiled language">compiled</a>, <a href="/wiki/Concurrent_programming" title="Concurrent programming" class="mw-redirect">concurrent</a>, <a href="/wiki/Imperative_programming" title="Imperative programming">imperative</a>, <a href="/wiki/Structured_programming" title="Structured programming">structured</a></td>
+</tr>
+<tr>
+<th scope="row" style="text-align:left"><a href="/wiki/Software_design" title="Software design">Designed by</a></th>
+<td><a href="/wiki/Robert_Griesemer" title="Robert Griesemer">Robert Griesemer</a><br />
+<a href="/wiki/Rob_Pike" title="Rob Pike">Rob Pike</a><br />
+<a href="/wiki/Ken_Thompson" title="Ken Thompson">Ken Thompson</a></td>
+</tr>
+<tr>
+<th scope="row" style="text-align:left"><a href="/wiki/Software_developer" title="Software developer">Developer</a></th>
+<td class="organiser"><a href="/wiki/Google" title="Google">Google Inc.</a></td>
+</tr>
+<tr>
+<th scope="row" style="text-align:left">Appeared in</th>
+<td>2009<span class="noprint">; 5&#160;years ago</span><span style="display:none">&#160;(<span class="bday dtstart published updated">2009</span>)</span></td>
+</tr>
+<tr>
+<th scope="row" style="text-align:left"><a href="/wiki/Software_release_life_cycle" title="Software release life cycle">Stable release</a></th>
+<td>version 1.3.3<sup id="cite_ref-1" class="reference"><a href="#cite_note-1"><span>[</span>1<span>]</span></a></sup> / 1&#160;October 2014<span class="noprint">; 39 days ago</span><span style="display:none">&#160;(<span class="bday dtstart published updated">2014-10-01</span>)</span></td>
+</tr>
+<tr>
+<th scope="row" style="text-align:left"><a href="/wiki/Type_system" title="Type system">Typing discipline</a></th>
+<td><a href="/wiki/Strong_typing" title="Strong typing" class="mw-redirect">strong</a>, <a href="/wiki/Static_typing" title="Static typing" class="mw-redirect">static</a>, <a href="/wiki/Type_inference" title="Type inference">inferred</a>, <a href="/wiki/Nominal_typing" title="Nominal typing" class="mw-redirect">nominal</a></td>
+</tr>
+<tr>
+<th scope="row" style="text-align:left"><a href="/wiki/Programming_language_implementation" title="Programming language implementation">Major implementations</a></th>
+<td>gc (8g, 6g, 5g), gccgo</td>
+</tr>
+<tr>
+<th scope="row" style="text-align:left">Influenced by</th>
+<td><a href="/wiki/C_(programming_language)" title="C (programming language)">C</a>, <a href="/wiki/Occam_(programming_language)" title="Occam (programming language)">occam</a>, <a href="/wiki/Limbo_(programming_language)" title="Limbo (programming language)">Limbo</a>, <a href="/wiki/Modula" title="Modula">Modula</a>, <a href="/wiki/Newsqueak" title="Newsqueak">Newsqueak</a>, <a href="/wiki/Oberon_(programming_language)" title="Oberon (programming language)">Oberon</a>, <a href="/wiki/Pascal_(programming_language)" title="Pascal (programming language)">Pascal</a>,<sup id="cite_ref-langfaq_2-0" class="reference"><a href="#cite_note-langfaq-2"><span>[</span>2<span>]</span></a></sup> <a href="/wiki/Python_(programming_language)" title="Python (programming language)">Python</a><sup class="noprint Inline-Template Template-Fact" style="white-space:nowrap;">[<i><a href="/wiki/Wikipedia:Citation_needed" title="Wikipedia:Citation needed"><span title="This claim needs references to reliable sources. (July 2014)">citation needed</span></a></i>]</sup></td>
+</tr>
+<tr>
+<th scope="row" style="text-align:left">Implementation language</th>
+<td><a href="/wiki/C_(programming_language)" title="C (programming language)">C</a>, Go, <a href="/wiki/Assembly_language" title="Assembly language">Asm</a></td>
+</tr>
+<tr>
+<th scope="row" style="text-align:left"><a href="/wiki/Operating_system" title="Operating system">OS</a></th>
+<td><a href="/wiki/Linux" title="Linux">Linux</a>, <a href="/wiki/Mac_OS_X" title="Mac OS X" class="mw-redirect">Mac OS X</a>, <a href="/wiki/FreeBSD" title="FreeBSD">FreeBSD</a>, <a href="/wiki/NetBSD" title="NetBSD">NetBSD</a>, <a href="/wiki/OpenBSD" title="OpenBSD">OpenBSD</a>, <a href="/wiki/Microsoft_Windows" title="Microsoft Windows">MS Windows</a>, <a href="/wiki/Plan_9_from_Bell_Labs" title="Plan 9 from Bell Labs">Plan 9</a><sup id="cite_ref-3" class="reference"><a href="#cite_note-3"><span>[</span>3<span>]</span></a></sup></td>
+</tr>
+<tr>
+<th scope="row" style="text-align:left"><a href="/wiki/Software_license" title="Software license">License</a></th>
+<td><a href="/wiki/BSD_licenses" title="BSD licenses">BSD</a>-style<sup id="cite_ref-4" class="reference"><a href="#cite_note-4"><span>[</span>4<span>]</span></a></sup> + Patent grant<sup id="cite_ref-5" class="reference"><a href="#cite_note-5"><span>[</span>5<span>]</span></a></sup></td>
+</tr>
+<tr>
+<th scope="row" style="text-align:left"><a href="/wiki/Filename_extension" title="Filename extension">Filename extension(s)</a></th>
+<td>.go</td>
+</tr>
+<tr>
+<th scope="row" style="text-align:left">Website</th>
+<td><span class="url"><a rel="nofollow" class="external text" href="https://golang.org">golang.org</a></span></td>
+</tr>
+</table>
+<p><b>Go</b>, also commonly referred to as <b>golang</b>, is a programming language initially developed at <a href="/wiki/Google" title="Google">Google</a><sup id="cite_ref-6" class="reference"><a href="#cite_note-6"><span>[</span>6<span>]</span></a></sup> in 2007 by <a href="/wiki/Robert_Griesemer" title="Robert Griesemer">Robert Griesemer</a>, <a href="/wiki/Rob_Pike" title="Rob Pike">Rob Pike</a>, and <a href="/wiki/Ken_Thompson" title="Ken Thompson">Ken Thompson</a>.<sup id="cite_ref-langfaq_2-1" class="reference"><a href="#cite_note-langfaq-2"><span>[</span>2<span>]</span></a></sup> It is a statically-<a href="/wiki/Type_system" title="Type system">typed</a> language with syntax loosely derived from that of C, adding <a href="/wiki/Garbage_collection_(computer_science)" title="Garbage collection (computer science)">garbage collection</a>, <a href="/wiki/Type_safety" title="Type safety">type safety</a>, some <a href="/wiki/Dynamic_typing" title="Dynamic typing" class="mw-redirect">dynamic-typing</a> capabilities, additional built-in types such as <a href="/wiki/Variable-length_array" title="Variable-length array">variable-length arrays</a> and key-value maps, and a large standard library.</p>
+<p>The language was announced in November 2009 and is now used in some of Google's production systems.<sup id="cite_ref-faq_7-0" class="reference"><a href="#cite_note-faq-7"><span>[</span>7<span>]</span></a></sup> Go's "gc" compiler targets the <a href="/wiki/Linux" title="Linux">Linux</a>, <a href="/wiki/Mac_OS_X" title="Mac OS X" class="mw-redirect">Mac OS X</a>, <a href="/wiki/FreeBSD" title="FreeBSD">FreeBSD</a>, <a href="/wiki/NetBSD" title="NetBSD">NetBSD</a>, <a href="/wiki/OpenBSD" title="OpenBSD">OpenBSD</a>, <a href="/wiki/Plan_9_from_Bell_Labs" title="Plan 9 from Bell Labs">Plan 9</a>, and <a href="/wiki/Microsoft_Windows" title="Microsoft Windows">Microsoft Windows</a> operating systems and the <a href="/wiki/I386" title="I386" class="mw-redirect">i386</a>, <a href="/wiki/Amd64" title="Amd64" class="mw-redirect">amd64</a>, and <a href="/wiki/ARM_architecture" title="ARM architecture">ARM</a> processor architectures.<sup id="cite_ref-8" class="reference"><a href="#cite_note-8"><span>[</span>8<span>]</span></a></sup> A second compiler, gccgo, is a <a href="/wiki/GNU_Compiler_Collection" title="GNU Compiler Collection">GCC</a> frontend.<sup id="cite_ref-9" class="reference"><a href="#cite_note-9"><span>[</span>9<span>]</span></a></sup><sup id="cite_ref-10" class="reference"><a href="#cite_note-10"><span>[</span>10<span>]</span></a></sup></p>
+<p></p>
+<div id="toc" class="toc">
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#History"><span class="tocnumber">1</span> <span class="toctext">History</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Language_design"><span class="tocnumber">2</span> <span class="toctext">Language design</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="#Syntax"><span class="tocnumber">2.1</span> <span class="toctext">Syntax</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#Types"><span class="tocnumber">2.2</span> <span class="toctext">Types</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Package_system"><span class="tocnumber">2.3</span> <span class="toctext">Package system</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Concurrency:_goroutines.2C_channels.2C_and_select"><span class="tocnumber">2.4</span> <span class="toctext">Concurrency: goroutines, channels, and select</span></a>
+<ul>
+<li class="toclevel-3 tocsection-7"><a href="#Race_condition_safety"><span class="tocnumber">2.4.1</span> <span class="toctext">Race condition safety</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-8"><a href="#Interface_system"><span class="tocnumber">2.5</span> <span class="toctext">Interface system</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="#Omissions"><span class="tocnumber">2.6</span> <span class="toctext">Omissions</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-10"><a href="#Conventions_and_code_style"><span class="tocnumber">3</span> <span class="toctext">Conventions and code style</span></a></li>
+<li class="toclevel-1 tocsection-11"><a href="#Language_tools"><span class="tocnumber">4</span> <span class="toctext">Language tools</span></a></li>
+<li class="toclevel-1 tocsection-12"><a href="#Examples"><span class="tocnumber">5</span> <span class="toctext">Examples</span></a>
+<ul>
+<li class="toclevel-2 tocsection-13"><a href="#Hello_world"><span class="tocnumber">5.1</span> <span class="toctext">Hello world</span></a></li>
+<li class="toclevel-2 tocsection-14"><a href="#Echo"><span class="tocnumber">5.2</span> <span class="toctext">Echo</span></a></li>
+<li class="toclevel-2 tocsection-15"><a href="#File_Read"><span class="tocnumber">5.3</span> <span class="toctext">File Read</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-16"><a href="#Notable_users"><span class="tocnumber">6</span> <span class="toctext">Notable users</span></a></li>
+<li class="toclevel-1 tocsection-17"><a href="#Libraries"><span class="tocnumber">7</span> <span class="toctext">Libraries</span></a></li>
+<li class="toclevel-1 tocsection-18"><a href="#Community_and_conferences"><span class="tocnumber">8</span> <span class="toctext">Community and conferences</span></a></li>
+<li class="toclevel-1 tocsection-19"><a href="#Reception"><span class="tocnumber">9</span> <span class="toctext">Reception</span></a></li>
+<li class="toclevel-1 tocsection-20"><a href="#Mascot"><span class="tocnumber">10</span> <span class="toctext">Mascot</span></a></li>
+<li class="toclevel-1 tocsection-21"><a href="#Naming_dispute"><span class="tocnumber">11</span> <span class="toctext">Naming dispute</span></a></li>
+<li class="toclevel-1 tocsection-22"><a href="#See_also"><span class="tocnumber">12</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1 tocsection-23"><a href="#Notes"><span class="tocnumber">13</span> <span class="toctext">Notes</span></a></li>
+<li class="toclevel-1 tocsection-24"><a href="#References"><span class="tocnumber">14</span> <span class="toctext">References</span></a></li>
+<li class="toclevel-1 tocsection-25"><a href="#External_links"><span class="tocnumber">15</span> <span class="toctext">External links</span></a></li>
+</ul>
+</div>
+<p></p>
+<h2><span class="mw-headline" id="History">History</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Go_(programming_language)&amp;action=edit&amp;section=1" title="Edit section: History">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Ken Thompson states that, initially, Go was purely an experimental project. Referring to himself along with the other original authors of Go, he states:<sup id="cite_ref-11" class="reference"><a href="#cite_note-11"><span>[</span>11<span>]</span></a></sup></p>
+<blockquote class="templatequote">
+<p>When the three of us [Thompson, Rob Pike, and Robert Griesemer] got started, it was pure research. The three of us got together and decided that we hated <a href="/wiki/C%2B%2B" title="C++">C++</a>. [laughter] ... [Returning to Go,] we started off with the idea that all three of us had to be talked into every feature in the language, so there was no extraneous garbage put into the language for any reason.</p>
+</blockquote>
+<p>The history of the language before its first release, back to 2007, is covered in the language's FAQ.<sup id="cite_ref-12" class="reference"><a href="#cite_note-12"><span>[</span>12<span>]</span></a></sup></p>
+<h2><span class="mw-headline" id="Language_design">Language design</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Go_(programming_language)&amp;action=edit&amp;section=2" title="Edit section: Language design">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Go is recognizably in the tradition of C, but makes many changes aimed at conciseness, simplicity, and safety. The following is a brief overview of the features which define Go (for more information see the <a rel="nofollow" class="external text" href="http://golang.org/ref/spec">language specification</a>):</p>
+<ul>
+<li>A syntax and environment adopting patterns more common in <a href="/wiki/Dynamic_programming_language" title="Dynamic programming language">dynamic languages</a>:<sup id="cite_ref-go_lang_video_2009_13-0" class="reference"><a href="#cite_note-go_lang_video_2009-13"><span>[</span>13<span>]</span></a></sup>
+<ul>
+<li>Concise variable declaration and initialization through <a href="/wiki/Type_inference" title="Type inference">type inference</a> (<code>x&#160;:= 0</code> not <code>int x = 0;</code>).</li>
+<li>Fast compilation times.<sup id="cite_ref-techtalk-compiling_14-0" class="reference"><a href="#cite_note-techtalk-compiling-14"><span>[</span>14<span>]</span></a></sup></li>
+<li>Remote package management (<code>go get</code>)<sup id="cite_ref-15" class="reference"><a href="#cite_note-15"><span>[</span>15<span>]</span></a></sup> and online package documentation.<sup id="cite_ref-16" class="reference"><a href="#cite_note-16"><span>[</span>16<span>]</span></a></sup></li>
+</ul>
+</li>
+<li>Distinctive approaches to particular problems.
+<ul>
+<li>Built-in concurrency primitives: <a href="/wiki/Light-weight_process" title="Light-weight process">light-weight processes</a> (goroutines), <a href="/wiki/Channel_(programming)" title="Channel (programming)">channels</a>, and the <code>select</code> statement.</li>
+<li>An <a href="/wiki/Protocol_(object-oriented_programming)" title="Protocol (object-oriented programming)">interface</a> system in place of <a href="/wiki/Virtual_inheritance" title="Virtual inheritance">virtual inheritance</a>, and type embedding instead of non-virtual inheritance.</li>
+<li>A toolchain that, by default, produces <a href="/wiki/Static_library" title="Static library">statically linked</a> native binaries without external dependencies.</li>
+</ul>
+</li>
+<li>A desire to keep the <a rel="nofollow" class="external text" href="http://golang.org/ref/spec">language specification</a> simple enough to hold in a programmer's head,<sup id="cite_ref-17" class="reference"><a href="#cite_note-17"><span>[</span>17<span>]</span></a></sup><sup id="cite_ref-18" class="reference"><a href="#cite_note-18"><span>[</span>18<span>]</span></a></sup> in part by omitting features common to similar languages:
+<ul>
+<li>no <a href="/wiki/Type_inheritance" title="Type inheritance" class="mw-redirect">type inheritance</a></li>
+<li>no <a href="/wiki/Method_overloading" title="Method overloading" class="mw-redirect">method</a> or <a href="/wiki/Operator_overloading" title="Operator overloading">operator overloading</a></li>
+<li>no <a href="/wiki/Circular_dependencies" title="Circular dependencies" class="mw-redirect">circular dependencies</a> among packages</li>
+<li>no <a href="/wiki/Pointer_arithmetic" title="Pointer arithmetic" class="mw-redirect">pointer arithmetic</a></li>
+<li>no <a href="/wiki/Assertion_(computing)" title="Assertion (computing)" class="mw-redirect">assertions</a></li>
+<li>no <a href="/wiki/Generic_programming" title="Generic programming">generic programming</a></li>
+</ul>
+</li>
+</ul>
+<h3><span class="mw-headline" id="Syntax">Syntax</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Go_(programming_language)&amp;action=edit&amp;section=3" title="Edit section: Syntax">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Go's syntax includes changes from C aimed at keeping code concise and readable. The programmer needn't specify the types of expressions, allowing just <code>i&#160;:= 3</code> or <code>s&#160;:= "some words"</code> to replace C's <code>int i = 3;</code> or <code>char* s = "some words";</code>. Semicolons at the end of lines aren't required. Functions may return multiple, named values, and returning a <code>result, err</code> pair is the conventional way a function indicates an error to its caller in Go.<sup id="cite_ref-19" class="reference"><a href="#cite_note-19"><span>[</span>a<span>]</span></a></sup> Go adds literal syntaxes for initializing struct parameters by name, and for initializing maps and slices. As an alternative to C's three-statement <code>for</code> loop, Go's <code>range</code> expressions allow concise iteration over arrays, slices, strings, and maps.</p>
+<h3><span class="mw-headline" id="Types">Types</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Go_(programming_language)&amp;action=edit&amp;section=4" title="Edit section: Types">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Go adds some basic types not present in C for safety and convenience:</p>
+<ul>
+<li><i>Slices</i> (written <code>[]<i>type</i></code>) point into an array of objects in memory, storing a pointer to the start of the slice, a length, and a <i>capacity</i> specifying when new memory needs to be allocated to expand the array. Slice contents are passed by reference, and their contents are always mutable.</li>
+<li>Go's immutable <code>string</code> type typically holds UTF-8 text (though it can hold arbitrary bytes as well).</li>
+<li><code>map[<i>keytype</i>]<i>valtype</i></code> provides a hashtable.</li>
+<li>Go also adds <i>channel types</i>, which support concurrency and are discussed below, and <i>interfaces</i>, which replace virtual inheritance and are discussed in Interface system section.</li>
+</ul>
+<p>Structurally, Go's type system has a few differences from C and most C derivatives. Unlike C <code>typedef</code>s, Go's named <code>type</code>s are not aliases for each other, and rules limit when different types can be assigned to each other without explicit conversion.<sup id="cite_ref-20" class="reference"><a href="#cite_note-20"><span>[</span>19<span>]</span></a></sup> Unlike in C, conversions between number types are explicit; to ensure that doesn't create verbose conversion-heavy code, numeric constants in Go represent abstract, untyped numbers.<sup id="cite_ref-21" class="reference"><a href="#cite_note-21"><span>[</span>20<span>]</span></a></sup> Finally, in place of non-virtual inheritance, Go has a feature called <i>type embedding</i> in which one object can contain others and pick up their methods.</p>
+<h3><span class="mw-headline" id="Package_system">Package system</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Go_(programming_language)&amp;action=edit&amp;section=5" title="Edit section: Package system">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>In Go's package system, each package has a path (e.g., <code>"compress/bzip2"</code> or <code>"code.google.com/p/go.net/html"</code>) and a name (e.g., <code>bzip2</code> or <code>html</code>). References to other packages' definitions must <i>always</i> be prefixed with the other package's name, and only the <i>capitalized</i> names from other modules are accessible: <code>io.Reader</code> is public but <code>bzip2.reader</code> is not.<sup id="cite_ref-22" class="reference"><a href="#cite_note-22"><span>[</span>21<span>]</span></a></sup> The <code>go get</code> command can retrieve packages stored in a remote repository such as Github or Google Code, and package paths often look like partial URLs for compatibility.<sup id="cite_ref-23" class="reference"><a href="#cite_note-23"><span>[</span>22<span>]</span></a></sup></p>
+<h3><span class="mw-headline" id="Concurrency:_goroutines.2C_channels.2C_and_select">Concurrency: goroutines, channels, and <code>select</code></span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Go_(programming_language)&amp;action=edit&amp;section=6" title="Edit section: Concurrency: goroutines, channels, and select">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Go provides facilities for writing concurrent programs that share state by communicating.<sup id="cite_ref-24" class="reference"><a href="#cite_note-24"><span>[</span>23<span>]</span></a></sup><sup id="cite_ref-25" class="reference"><a href="#cite_note-25"><span>[</span>24<span>]</span></a></sup><sup id="cite_ref-26" class="reference"><a href="#cite_note-26"><span>[</span>25<span>]</span></a></sup> Concurrency refers not only to <a href="/wiki/Multithreading_(software)" title="Multithreading (software)" class="mw-redirect">multithreading</a> and CPU parallelism, which Go supports, but also to <a href="/wiki/Asynchronous_I/O" title="Asynchronous I/O">asynchrony</a>: letting slow operations like a database or network-read run while the program does other work, as is common in event-based servers.<sup id="cite_ref-27" class="reference"><a href="#cite_note-27"><span>[</span>26<span>]</span></a></sup></p>
+<p>Go's concurrency-related syntax and types include:</p>
+<ul>
+<li>The <code>go</code> statement, <code>go <i>func()</i></code>, starts a function in a new <a href="/wiki/Light-weight_process" title="Light-weight process">light-weight process</a>, or <i>goroutine</i></li>
+<li><i>Channel types</i>, <code>chan <i>type</i></code>, provide a type-safe, synchronized, optionally buffered channels between goroutines, and are useful mostly with two other facilities:
+<ul>
+<li>The <i>send statement</i>, <code><i>ch</i> &lt;- <i>x</i></code> sends <code><i>x</i></code> over <code><i>ch</i></code></li>
+<li>The <i>receive operator</i>, <code>&lt;- <i>ch</i></code> receives a value from <code><i>ch</i></code></li>
+<li>Both operations <a href="/wiki/Blocking_(computing)" title="Blocking (computing)">block</a> until the other goroutine is ready to communicate</li>
+</ul>
+</li>
+<li>The <code>select</code> statement uses a <code>switch</code>-like syntax to wait for communication on any of a set of channels<sup id="cite_ref-28" class="reference"><a href="#cite_note-28"><span>[</span>27<span>]</span></a></sup></li>
+</ul>
+<p>From these tools one can build concurrent constructs like worker pools, pipelines (in which, say, a file is decompressed and parsed as it downloads), background calls with timeout, "fan-out" parallel calls to a set of services, and others.<sup id="cite_ref-29" class="reference"><a href="#cite_note-29"><span>[</span>28<span>]</span></a></sup> Channels have also found uses further from the usual notion of interprocess communication, like serving as a concurrency-safe list of recycled buffers,<sup id="cite_ref-30" class="reference"><a href="#cite_note-30"><span>[</span>29<span>]</span></a></sup> implementing coroutines (which helped inspire the name <i>goroutine</i>),<sup id="cite_ref-31" class="reference"><a href="#cite_note-31"><span>[</span>30<span>]</span></a></sup> and implementing iterators.<sup id="cite_ref-32" class="reference"><a href="#cite_note-32"><span>[</span>31<span>]</span></a></sup></p>
+<p>While the communicating-processes model is favored in Go, it isn't the only one: memory can be shared across goroutines (see below), and the standard <code>sync</code> module provides locks and other primitives.<sup id="cite_ref-33" class="reference"><a href="#cite_note-33"><span>[</span>32<span>]</span></a></sup></p>
+<h4><span class="mw-headline" id="Race_condition_safety">Race condition safety</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Go_(programming_language)&amp;action=edit&amp;section=7" title="Edit section: Race condition safety">edit</a><span class="mw-editsection-bracket">]</span></span></h4>
+<p>There are no restrictions on how goroutines access shared data, making <a href="/wiki/Race_conditions" title="Race conditions" class="mw-redirect">race conditions</a> possible. Specifically, unless a program explicitly synchronizes via channels or other means, writes from one goroutine might be partly, entirely, or not at all visible to another, often with no guarantees about ordering of writes.<sup id="cite_ref-memmodel_34-0" class="reference"><a href="#cite_note-memmodel-34"><span>[</span>33<span>]</span></a></sup> Furthermore, Go's <i>internal data structures</i> like interface values, slice headers, and string headers are not immune to race conditions, so type and memory safety can be violated in multithreaded programs that modify shared instances of those types without synchronization.<sup id="cite_ref-35" class="reference"><a href="#cite_note-35"><span>[</span>34<span>]</span></a></sup><sup id="cite_ref-SPLASH2012_36-0" class="reference"><a href="#cite_note-SPLASH2012-36"><span>[</span>35<span>]</span></a></sup></p>
+<p>Idiomatic Go minimizes sharing of data (and thus potential race conditions) by communicating over channels, and a race-condition tester is included in the standard distribution to help catch unsafe behavior. Still, it is important to realize that while Go provides <i>building blocks</i> that can be used to write correct, comprehensible concurrent code, arbitrary code isn't <i>guaranteed</i> to be safe.</p>
+<p>Some concurrency-related structural conventions of Go (<a href="/wiki/Channel_(programming)" title="Channel (programming)">channels</a> and alternative channel inputs) are derived from <a href="/wiki/C._A._R._Hoare" title="C. A. R. Hoare" class="mw-redirect">Tony Hoare's</a> <a href="/wiki/Communicating_sequential_processes" title="Communicating sequential processes">communicating sequential processes</a> model. Unlike previous concurrent programming languages such as <a href="/wiki/Occam_(programming_language)" title="Occam (programming language)">occam</a> or <a href="/wiki/Limbo_(programming_language)" title="Limbo (programming language)">Limbo</a> (a language on which Go co-designer Rob Pike worked<sup id="cite_ref-37" class="reference"><a href="#cite_note-37"><span>[</span>36<span>]</span></a></sup>), Go does not provide any built-in notion of safe or verifiable concurrency.<sup id="cite_ref-memmodel_34-1" class="reference"><a href="#cite_note-memmodel-34"><span>[</span>33<span>]</span></a></sup></p>
+<h3><span class="mw-headline" id="Interface_system">Interface system</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Go_(programming_language)&amp;action=edit&amp;section=8" title="Edit section: Interface system">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>In place of <a href="/wiki/Virtual_inheritance" title="Virtual inheritance">virtual inheritance</a>, Go uses <i><a href="/wiki/Protocol_(object-oriented_programming)" title="Protocol (object-oriented programming)">interfaces</a></i>. An interface declaration is nothing but a list of required methods: for example, implementing <code>io.Reader</code> requires a <code>Read</code> method that takes a <code>[]byte</code> and returns a count of bytes read and any error.<sup id="cite_ref-38" class="reference"><a href="#cite_note-38"><span>[</span>37<span>]</span></a></sup> Code calling <code>Read</code> needn't know whether it's reading from an HTTP connection, a file, an in-memory buffer, or any other source.</p>
+<p>Go's standard library defines interfaces for a number of concepts: <a rel="nofollow" class="external text" href="http://golang.org/pkg/io/#Reader">input sources</a> and <a rel="nofollow" class="external text" href="http://golang.org/pkg/io/#Writer">output sinks,</a> <a rel="nofollow" class="external text" href="http://golang.org/pkg/sort/#Interface">sortable collections,</a> <a rel="nofollow" class="external text" href="http://golang.org/pkg/fmt/#Stringer">objects printable as strings,</a> <a rel="nofollow" class="external text" href="http://golang.org/pkg/hash/#Hash">cryptographic hashes</a>, and so on.</p>
+<p>Go types don't declare which interfaces they implement: having the required methods <i>is</i> implementing the interface. In formal language, Go's interface system provides <a href="/wiki/Structural_type_system" title="Structural type system">structural</a> rather than <a href="/wiki/Nominal_type_system" title="Nominal type system">nominal</a> typing.</p>
+<p>The example below uses the <code>io.Reader</code> and <code>io.Writer</code> interfaces to test Go's implementation of <a href="/wiki/SHA-256" title="SHA-256" class="mw-redirect">SHA-256</a> on a standard test input, 1,000,000 repeats of the character "a". <code>RepeatByte</code> implements an <code>io.Reader</code> yielding an infinite stream of repeats of a byte, similar to Unix <code>/dev/zero</code>. The <code>main()</code> function uses <code>RepeatByte</code> to stream a million repeats of "a" into the hash function, then prints the result, which matches the expected value published online.<sup id="cite_ref-39" class="reference"><a href="#cite_note-39"><span>[</span>38<span>]</span></a></sup> Even though both reader and writer interfaces are needed to make this work, the code needn't mention either; the compiler infers what types implement what interfaces:</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr">
+<div class="go source-go">
+<pre class="de1">
+<span class="kw1">package</span> main
+ 
+<span class="kw1">import</span> <span class="sy1">(</span>
+    <span class="st0">"fmt"</span>
+    <span class="st0">"io"</span>
+    <span class="st0">"crypto/sha256"</span>
+<span class="sy1">)</span>
+ 
+<span class="kw1">type</span> RepeatByte <span class="kw4">byte</span>
+ 
+<span class="kw4">func</span> <span class="sy1">(</span>r RepeatByte<span class="sy1">)</span> Read<span class="sy1">(</span>p <span class="sy1">[]</span><span class="kw4">byte</span><span class="sy1">)</span> <span class="sy1">(</span>n <span class="kw4">int</span><span class="sy1">,</span> err error<span class="sy1">)</span> <span class="sy1">{</span>
+    <span class="kw1">for</span> <span class="nu2">i</span> <span class="sy2">:=</span> <span class="kw1">range</span> p <span class="sy1">{</span>
+        p<span class="sy1">[</span><span class="nu2">i</span><span class="sy1">]</span> <span class="sy2">=</span> <span class="kw4">byte</span><span class="sy1">(</span>r<span class="sy1">)</span>
+    <span class="sy1">}</span>
+    <span class="kw1">return</span> <span class="kw3">len</span><span class="sy1">(</span>p<span class="sy1">),</span> <span class="kw2">nil</span>
+<span class="sy1">}</span>
+ 
+<span class="kw4">func</span> main<span class="sy1">()</span> <span class="sy1">{</span>
+    testStream <span class="sy2">:=</span> RepeatByte<span class="sy1">(</span><span class="st0">'a'</span><span class="sy1">)</span>
+    hasher <span class="sy2">:=</span> sha256<span class="sy3">.</span>New<span class="sy1">()</span>
+    io<span class="sy3">.</span>CopyN<span class="sy1">(</span>hasher<span class="sy1">,</span> testStream<span class="sy1">,</span> <span class="nu0">1000000</span><span class="sy1">)</span>
+    fmt<span class="sy3">.</span>Printf<span class="sy1">(</span><span class="st0">"%x"</span><span class="sy1">,</span> hasher<span class="sy3">.</span>Sum<span class="sy1">(</span><span class="kw2">nil</span><span class="sy1">))</span>
+<span class="sy1">}</span>
+</pre></div>
+</div>
+<p>(<a rel="nofollow" class="external text" href="http://play.golang.org/p/MIaP4AXV_G">Run or edit this example online.</a>)</p>
+<p>Also note <code>type RepeatByte</code> is defined as a <code>byte</code>, not a <code>struct</code>. Named types in Go needn't be <code>struct</code>s, and any named type can have methods defined, satisfy interfaces, and act, for practical purposes, as objects; the standard library, for example, stores IP addresses in byte slices.<sup id="cite_ref-40" class="reference"><a href="#cite_note-40"><span>[</span>39<span>]</span></a></sup></p>
+<p>Besides calling methods via interfaces, Go allows converting interface values to other types with a run-time type check. The language constructs to do so are the <i>type assertion</i>,<sup id="cite_ref-41" class="reference"><a href="#cite_note-41"><span>[</span>40<span>]</span></a></sup> which checks against a single potential type, and the <i>type switch</i>,<sup id="cite_ref-42" class="reference"><a href="#cite_note-42"><span>[</span>41<span>]</span></a></sup> which checks against multiple types.</p>
+<p><code>interface{}</code>, the <i>empty interface</i>, is an important corner case because it can refer to an item of <i>any</i> concrete type, including primitive types like <code>string</code>. Code using the empty interface can't simply call methods (or built-in operators) on the referred-to object, but it can store the <code>interface{}</code> value, try to convert it to a more useful type via a type assertion or type switch, or inspect it with Go's <code>reflect</code> package.<sup id="cite_ref-43" class="reference"><a href="#cite_note-43"><span>[</span>42<span>]</span></a></sup> Because <code>interface{}</code> can refer to any value, it's a limited way to escape the restrictions of static typing, like <code>void*</code> in C but with additional run-time type checks.</p>
+<p>Interface values are stored in memory as a pointer to data and a second pointer to run-time type information.<sup id="cite_ref-44" class="reference"><a href="#cite_note-44"><span>[</span>43<span>]</span></a></sup> Like other pointers in Go, interface values are <code>nil</code> if uninitialized.<sup id="cite_ref-45" class="reference"><a href="#cite_note-45"><span>[</span>44<span>]</span></a></sup> Unlike in environments like Java's virtual machine, there is no object header; the run-time type information is only attached to interface values. So, the system imposes no per-object memory overhead for objects not accessed via interface, similar to C <code>struct</code>s or C# <code>ValueType</code>s.</p>
+<p>Go does not have <a href="/wiki/Interface_inheritance" title="Interface inheritance" class="mw-redirect">interface inheritance</a>, but one interface type can <i>embed</i> another; then the embedding interface requires all of the methods required by the embedded interface.<sup id="cite_ref-46" class="reference"><a href="#cite_note-46"><span>[</span>45<span>]</span></a></sup></p>
+<h3><span class="mw-headline" id="Omissions">Omissions</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Go_(programming_language)&amp;action=edit&amp;section=9" title="Edit section: Omissions">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Go deliberately omits certain features common in other languages, including <a href="/wiki/Generic_programming" title="Generic programming">generic programming</a>, assertions, pointer arithmetic, and inheritance. After initially omitting <a href="/wiki/Exception_handling" title="Exception handling">exceptions</a>, the language added the <code>panic</code>/<code>recover</code> mechanism, but it is only meant for rare circumstances.<sup id="cite_ref-47" class="reference"><a href="#cite_note-47"><span>[</span>46<span>]</span></a></sup><sup id="cite_ref-48" class="reference"><a href="#cite_note-48"><span>[</span>47<span>]</span></a></sup><sup id="cite_ref-49" class="reference"><a href="#cite_note-49"><span>[</span>48<span>]</span></a></sup></p>
+<p>The Go authors express an openness to generic programming, explicitly argue against assertions and pointer arithmetic, while defending the choice to omit type inheritance as giving a more useful language, encouraging heavy use of <a href="/wiki/Protocol_(object-oriented_programming)" title="Protocol (object-oriented programming)">interfaces</a> instead.<sup id="cite_ref-langfaq_2-2" class="reference"><a href="#cite_note-langfaq-2"><span>[</span>2<span>]</span></a></sup></p>
+<h2><span class="mw-headline" id="Conventions_and_code_style">Conventions and code style</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Go_(programming_language)&amp;action=edit&amp;section=10" title="Edit section: Conventions and code style">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>The Go authors and community put substantial effort into molding the style and design of Go programs:</p>
+<ul>
+<li>Indentation, spacing, and other surface-level details of code are automatically standardized by the <code>go fmt</code> tool. <code>go vet</code> and <code>golint</code> do additional checking automatically.</li>
+<li>Tools and libraries distributed with Go suggest standard approaches to things like API documentation (<code>godoc</code><sup id="cite_ref-50" class="reference"><a href="#cite_note-50"><span>[</span>49<span>]</span></a></sup>), testing (<code>go test</code>), building (<code>go build</code>), package management (<code>go get</code>), and so on.</li>
+<li>Syntax rules require things that are optional in other languages, for example by banning cyclic dependencies, unused variables or imports, and implicit type conversions.</li>
+<li>The <i>omission</i> of certain features (for example, functional-programming shortcuts like <code>map</code> and C++-style <code>try</code>/<code>finally</code> blocks) tends to encourage a particular explicit, concrete, and imperative programming style.</li>
+<li>Core developers write extensively about Go idioms, style, and philosophy, in <a rel="nofollow" class="external text" href="http://golang.org/doc/effective_go.html">the Effective Go document</a> and <a rel="nofollow" class="external text" href="https://code.google.com/p/go-wiki/wiki/CodeReviewComments">code review comments reference</a>, <a rel="nofollow" class="external text" href="http://talks.golang.org/">presentations</a>, <a rel="nofollow" class="external text" href="http://commandcenter.blogspot.com/2012/06/less-is-exponentially-more.html">blog posts</a>, and <a rel="nofollow" class="external text" href="https://groups.google.com/d/msg/golang-dev/CGGiLKunggo/2z051XlQO1EJ">public mailing list messages</a>.</li>
+</ul>
+<p>When adapting to the Go ecosystem after working in other languages, differences in style and approach can be as important as low-level language and library differences.</p>
+<h2><span class="mw-headline" id="Language_tools">Language tools</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Go_(programming_language)&amp;action=edit&amp;section=11" title="Edit section: Language tools">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Go includes the same sort of debugging, testing, and code-vetting tools as many language distributions. The Go distribution includes <code>go vet</code>, which analyzes code searching for common stylistic problems and mistakes. A profiler, unit testing tool, <code>gdb</code> debugging support, and a race condition tester are also in the distribution. The Go distribution includes its own build system, which requires only information in the Go files themselves, no separate build files.</p>
+<p>There is an ecosystem of third-party tools that add to the standard distribution, such as <code>gocode</code>, which enables code autocompletion in many text editors, <code>goimports</code> (by a Go team member), which automatically adds/removes package imports as needed, <code>errcheck</code>, which detects code that might unintentionally ignore errors, and more. Plugins exist to add language support in widely used text editors, and at least one <a href="/wiki/Integrated_development_environment" title="Integrated development environment">IDE</a>, <a rel="nofollow" class="external text" href="https://github.com/visualfc/liteide">LiteIDE</a>, targets Go in particular.</p>
+<h2><span class="mw-headline" id="Examples">Examples</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Go_(programming_language)&amp;action=edit&amp;section=12" title="Edit section: Examples">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<h3><span class="mw-headline" id="Hello_world">Hello world</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Go_(programming_language)&amp;action=edit&amp;section=13" title="Edit section: Hello world">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Here is a <a href="/wiki/Hello_world_program" title="Hello world program" class="mw-redirect">Hello world program</a> in Go:</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr">
+<div class="go source-go">
+<pre class="de1">
+<span class="kw1">package</span> main
+ 
+<span class="kw1">import</span> <span class="st0">"fmt"</span>
+ 
+<span class="kw4">func</span> main<span class="sy1">()</span> <span class="sy1">{</span>
+    fmt<span class="sy3">.</span>Println<span class="sy1">(</span><span class="st0">"Hello, World"</span><span class="sy1">)</span>
+<span class="sy1">}</span>
+</pre></div>
+</div>
+<p>(<a rel="nofollow" class="external text" href="http://play.golang.org/p/6wn73kqMxi">Run or edit this example online.</a>)</p>
+<h3><span class="mw-headline" id="Echo">Echo</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Go_(programming_language)&amp;action=edit&amp;section=14" title="Edit section: Echo">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>This imitates the Unix <a href="/wiki/Echo_(command)" title="Echo (command)">echo command</a> in Go:<sup id="cite_ref-51" class="reference"><a href="#cite_note-51"><span>[</span>50<span>]</span></a></sup></p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr">
+<div class="go source-go">
+<pre class="de1">
+<span class="kw1">package</span> main
+ 
+<span class="kw1">import</span> <span class="sy1">(</span>
+    <span class="st0">"flag"</span>
+    <span class="st0">"fmt"</span>
+    <span class="st0">"strings"</span>
+<span class="sy1">)</span>
+ 
+<span class="kw4">func</span> main<span class="sy1">()</span> <span class="sy1">{</span>
+    <span class="kw1">var</span> omitNewline <span class="kw4">bool</span>
+    flag<span class="sy3">.</span>BoolVar<span class="sy1">(</span>&amp;omitNewline<span class="sy1">,</span> <span class="st0">"n"</span><span class="sy1">,</span> <span class="kw2">false</span><span class="sy1">,</span> <span class="st0">"don't print final newline"</span><span class="sy1">)</span>
+    flag<span class="sy3">.</span><span class="me1">Parse</span><span class="sy1">()</span> <span class="co1">// Scans the arg list and sets up flags.</span>
+ 
+    str <span class="sy2">:=</span> strings<span class="sy3">.</span><span class="me1">Join</span><span class="sy1">(</span>flag<span class="sy3">.</span><span class="me1">Args</span><span class="sy1">(),</span> <span class="st0">" "</span><span class="sy1">)</span>
+    <span class="kw1">if</span> omitNewline <span class="sy1">{</span>
+        fmt<span class="sy3">.</span>Print<span class="sy1">(</span>str<span class="sy1">)</span>
+    <span class="sy1">}</span> <span class="kw1">else</span> <span class="sy1">{</span>
+        fmt<span class="sy3">.</span>Println<span class="sy1">(</span>str<span class="sy1">)</span>
+    <span class="sy1">}</span>
+<span class="sy1">}</span>
+</pre></div>
+</div>
+<h3><span class="mw-headline" id="File_Read">File Read</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Go_(programming_language)&amp;action=edit&amp;section=15" title="Edit section: File Read">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr">
+<div class="go source-go">
+<pre class="de1">
+<span class="co1">// Reading and writing files are basic tasks needed for</span>
+<span class="co1">// many Go programs. First we'll look at some examples of</span>
+<span class="co1">// reading files.</span>
+ 
+<span class="kw1">package</span> main
+ 
+<span class="kw1">import</span> <span class="sy1">(</span>
+    <span class="st0">"bufio"</span>
+    <span class="st0">"fmt"</span>
+    <span class="st0">"io"</span>
+    <span class="st0">"io/ioutil"</span>
+    <span class="st0">"os"</span>
+<span class="sy1">)</span>
+ 
+<span class="co1">// Reading files requires checking most calls for errors.</span>
+<span class="co1">// This helper will streamline our error checks below.</span>
+<span class="kw4">func</span> check<span class="sy1">(</span>e error<span class="sy1">)</span> <span class="sy1">{</span>
+    <span class="kw1">if</span> e <span class="sy2">!=</span> <span class="kw2">nil</span> <span class="sy1">{</span>
+        <span class="kw3">panic</span><span class="sy1">(</span>e<span class="sy1">)</span>
+    <span class="sy1">}</span>
+<span class="sy1">}</span>
+ 
+<span class="kw4">func</span> main<span class="sy1">()</span> <span class="sy1">{</span>
+ 
+    <span class="co1">// Perhaps the most basic file reading task is</span>
+    <span class="co1">// slurping a file's entire contents into memory.</span>
+    dat<span class="sy1">,</span> err <span class="sy2">:=</span> ioutil<span class="sy3">.</span><span class="me1">ReadFile</span><span class="sy1">(</span><span class="st0">"/tmp/dat"</span><span class="sy1">)</span>
+    check<span class="sy1">(</span>err<span class="sy1">)</span>
+    fmt<span class="sy3">.</span>Print<span class="sy1">(</span><span class="kw4">string</span><span class="sy1">(</span>dat<span class="sy1">))</span>
+ 
+    <span class="co1">// You'll often want more control over how and what</span>
+    <span class="co1">// parts of a file are read. For these tasks, start</span>
+    <span class="co1">// by `Open`ing a file to obtain an `os.File` value.</span>
+    f<span class="sy1">,</span> err <span class="sy2">:=</span> os<span class="sy3">.</span><span class="me1">Open</span><span class="sy1">(</span><span class="st0">"/tmp/dat"</span><span class="sy1">)</span>
+    check<span class="sy1">(</span>err<span class="sy1">)</span>
+ 
+    <span class="co1">// Read some bytes from the beginning of the file.</span>
+    <span class="co1">// Allow up to 5 to be read but also note how many</span>
+    <span class="co1">// actually were read.</span>
+    b1 <span class="sy2">:=</span> <span class="kw3">make</span><span class="sy1">([]</span><span class="kw4">byte</span><span class="sy1">,</span> <span class="nu0">5</span><span class="sy1">)</span>
+    n1<span class="sy1">,</span> err <span class="sy2">:=</span> f<span class="sy3">.</span>Read<span class="sy1">(</span>b1<span class="sy1">)</span>
+    check<span class="sy1">(</span>err<span class="sy1">)</span>
+    fmt<span class="sy3">.</span>Printf<span class="sy1">(</span><span class="st0">"%d bytes: %s<span class="es1">\n</span>"</span><span class="sy1">,</span> n1<span class="sy1">,</span> <span class="kw4">string</span><span class="sy1">(</span>b1<span class="sy1">))</span>
+ 
+    <span class="co1">// You can also `Seek` to a known location in the file</span>
+    <span class="co1">// and `Read` from there.</span>
+    o2<span class="sy1">,</span> err <span class="sy2">:=</span> f<span class="sy3">.</span>Seek<span class="sy1">(</span><span class="nu0">6</span><span class="sy1">,</span> <span class="nu0">0</span><span class="sy1">)</span>
+    check<span class="sy1">(</span>err<span class="sy1">)</span>
+    b2 <span class="sy2">:=</span> <span class="kw3">make</span><span class="sy1">([]</span><span class="kw4">byte</span><span class="sy1">,</span> <span class="nu0">2</span><span class="sy1">)</span>
+    n2<span class="sy1">,</span> err <span class="sy2">:=</span> f<span class="sy3">.</span>Read<span class="sy1">(</span>b2<span class="sy1">)</span>
+    check<span class="sy1">(</span>err<span class="sy1">)</span>
+    fmt<span class="sy3">.</span>Printf<span class="sy1">(</span><span class="st0">"%d bytes @ %d: %s<span class="es1">\n</span>"</span><span class="sy1">,</span> n2<span class="sy1">,</span> o2<span class="sy1">,</span> <span class="kw4">string</span><span class="sy1">(</span>b2<span class="sy1">))</span>
+ 
+    <span class="co1">// The `io` package provides some functions that may</span>
+    <span class="co1">// be helpful for file reading. For example, reads</span>
+    <span class="co1">// like the ones above can be more robustly</span>
+    <span class="co1">// implemented with `ReadAtLeast`.</span>
+    o3<span class="sy1">,</span> err <span class="sy2">:=</span> f<span class="sy3">.</span>Seek<span class="sy1">(</span><span class="nu0">6</span><span class="sy1">,</span> <span class="nu0">0</span><span class="sy1">)</span>
+    check<span class="sy1">(</span>err<span class="sy1">)</span>
+    b3 <span class="sy2">:=</span> <span class="kw3">make</span><span class="sy1">([]</span><span class="kw4">byte</span><span class="sy1">,</span> <span class="nu0">2</span><span class="sy1">)</span>
+    n3<span class="sy1">,</span> err <span class="sy2">:=</span> io<span class="sy3">.</span>ReadAtLeast<span class="sy1">(</span>f<span class="sy1">,</span> b3<span class="sy1">,</span> <span class="nu0">2</span><span class="sy1">)</span>
+    check<span class="sy1">(</span>err<span class="sy1">)</span>
+    fmt<span class="sy3">.</span>Printf<span class="sy1">(</span><span class="st0">"%d bytes @ %d: %s<span class="es1">\n</span>"</span><span class="sy1">,</span> n3<span class="sy1">,</span> o3<span class="sy1">,</span> <span class="kw4">string</span><span class="sy1">(</span>b3<span class="sy1">))</span>
+ 
+    <span class="co1">// There is no built-in rewind, but `Seek(0, 0)`</span>
+    <span class="co1">// accomplishes this.</span>
+    _<span class="sy1">,</span> err <span class="sy2">=</span> f<span class="sy3">.</span>Seek<span class="sy1">(</span><span class="nu0">0</span><span class="sy1">,</span> <span class="nu0">0</span><span class="sy1">)</span>
+    check<span class="sy1">(</span>err<span class="sy1">)</span>
+ 
+    <span class="co1">// The `bufio` package implements a buffered</span>
+    <span class="co1">// reader that may be useful both for its efficiency</span>
+    <span class="co1">// with many small reads and because of the additional</span>
+    <span class="co1">// reading methods it provides.</span>
+    r4 <span class="sy2">:=</span> bufio<span class="sy3">.</span>NewReader<span class="sy1">(</span>f<span class="sy1">)</span>
+    b4<span class="sy1">,</span> err <span class="sy2">:=</span> r4<span class="sy3">.</span>Peek<span class="sy1">(</span><span class="nu0">5</span><span class="sy1">)</span>
+    check<span class="sy1">(</span>err<span class="sy1">)</span>
+    fmt<span class="sy3">.</span>Printf<span class="sy1">(</span><span class="st0">"5 bytes: %s<span class="es1">\n</span>"</span><span class="sy1">,</span> <span class="kw4">string</span><span class="sy1">(</span>b4<span class="sy1">))</span>
+ 
+    <span class="co1">// Close the file when you're done (usually this would</span>
+    <span class="co1">// be scheduled immediately after `Open`ing with</span>
+    <span class="co1">// `defer`).</span>
+    f<span class="sy3">.</span><span class="me1">Close</span><span class="sy1">()</span>
+ 
+<span class="sy1">}</span>
+</pre></div>
+</div>
+<p><sup id="cite_ref-52" class="reference"><a href="#cite_note-52"><span>[</span>51<span>]</span></a></sup><sup id="cite_ref-53" class="reference"><a href="#cite_note-53"><span>[</span>52<span>]</span></a></sup></p>
+<h2><span class="mw-headline" id="Notable_users">Notable users</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Go_(programming_language)&amp;action=edit&amp;section=16" title="Edit section: Notable users">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Some notable <a href="/wiki/Open-source" title="Open-source" class="mw-redirect">open-source</a> applications in Go include:</p>
+<ul>
+<li><a href="/wiki/Docker_(software)" title="Docker (software)">Docker</a>, a set of tools for deploying <a href="/wiki/Linux" title="Linux">Linux</a> containers</li>
+<li><a rel="nofollow" class="external text" href="https://github.com/flynn">Flynn</a>, a <a href="/wiki/Platform_as_a_service" title="Platform as a service">PaaS</a> powered by Docker</li>
+<li><a href="/wiki/Juju_(software)" title="Juju (software)">Juju</a>, a service orchestration tool by <a href="/wiki/Canonical_Ltd." title="Canonical Ltd.">Canonical</a>, packagers of <a href="/wiki/Ubuntu_(operating_system)" title="Ubuntu (operating system)">Ubuntu</a> Linux</li>
+<li><a rel="nofollow" class="external text" href="https://github.com/bitly/nsq">nsq</a>, a message queue by <a href="/wiki/Bitly" title="Bitly">bit.ly</a></li>
+<li><a rel="nofollow" class="external text" href="http://xph.us/2011/04/13/introducing-doozer.html">Doozer</a>, a lock service by managed hosting provider <a href="/wiki/Heroku" title="Heroku">Heroku</a></li>
+</ul>
+<p>Other companies and sites using Go (generally together with other languages, not exclusively) include:<sup id="cite_ref-54" class="reference"><a href="#cite_note-54"><span>[</span>53<span>]</span></a></sup><sup id="cite_ref-55" class="reference"><a href="#cite_note-55"><span>[</span>54<span>]</span></a></sup></p>
+<ul>
+<li><a href="/wiki/Google" title="Google">Google</a>, for many projects, notably including download server dl.google.com<sup id="cite_ref-56" class="reference"><a href="#cite_note-56"><span>[</span>55<span>]</span></a></sup><sup id="cite_ref-57" class="reference"><a href="#cite_note-57"><span>[</span>56<span>]</span></a></sup><sup id="cite_ref-58" class="reference"><a href="#cite_note-58"><span>[</span>57<span>]</span></a></sup></li>
+<li><a href="/wiki/Dropbox_(service)" title="Dropbox (service)">Dropbox</a>, migrated some of their critical components from Python to Go<sup id="cite_ref-59" class="reference"><a href="#cite_note-59"><span>[</span>58<span>]</span></a></sup></li>
+<li><a href="/wiki/CloudFlare" title="CloudFlare">CloudFlare</a>, for their delta-coding proxy <a rel="nofollow" class="external text" href="https://www.cloudflare.com/railgun">Railgun</a>, their distributed DNS service, as well as tools for cryptography, logging, stream processing, and accessing SPDY sites.<sup id="cite_ref-60" class="reference"><a href="#cite_note-60"><span>[</span>59<span>]</span></a></sup><sup id="cite_ref-61" class="reference"><a href="#cite_note-61"><span>[</span>60<span>]</span></a></sup></li>
+<li><a href="/wiki/SoundCloud" title="SoundCloud">SoundCloud</a>, for "dozens of systems"<sup id="cite_ref-62" class="reference"><a href="#cite_note-62"><span>[</span>61<span>]</span></a></sup></li>
+<li>The <a href="/wiki/BBC" title="BBC">BBC</a>, in some games and internal projects</li>
+<li><a href="/wiki/Novartis" title="Novartis">Novartis</a>, for an internal inventory system</li>
+<li><a href="/wiki/Cloud_Foundry" title="Cloud Foundry">Cloud Foundry</a>, a <a href="/wiki/Platform_as_a_service" title="Platform as a service">platform as a service</a></li>
+<li><a href="/wiki/CoreOS" title="CoreOS">CoreOS</a>, an operating system based on <a href="/wiki/Chrome_OS" title="Chrome OS">Chrome OS</a></li>
+<li><a href="/wiki/MongoDB" title="MongoDB">MongoDB</a>, tools for administrating MongoDB instances</li>
+</ul>
+<h2><span class="mw-headline" id="Libraries">Libraries</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Go_(programming_language)&amp;action=edit&amp;section=17" title="Edit section: Libraries">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Go's open-source libraries include:</p>
+<ul>
+<li>Go's <a rel="nofollow" class="external text" href="http://golang.org/pkg">standard library</a>, which covers a lot of fundamental functionality:
+<ul>
+<li>Algorithms: compression, cryptography, sorting, math, indexing, and text and string manipulation.</li>
+<li>External interfaces: I/O, network clients and servers, parsing and writing common formats, running system calls, and interacting with C code.</li>
+<li>Development tools: reflection, runtime control, debugging, profiling, unit testing, synchronization, and parsing Go.</li>
+</ul>
+</li>
+<li>Third-party libraries with more specialized tools:
+<ul>
+<li>Web toolkits, including <a rel="nofollow" class="external text" href="http://www.gorillatoolkit.org/">the Gorilla Web Toolkit</a>, <a rel="nofollow" class="external text" href="http://revel.github.io/">Revel</a>, and <a rel="nofollow" class="external text" href="https://github.com/stretchr/goweb">goweb</a></li>
+<li>Database, stream, and caching tools, including <a rel="nofollow" class="external text" href="https://github.com/golang/groupcache">groupcache</a> and <a rel="nofollow" class="external text" href="https://github.com/cznic/kv">kv</a> and <a rel="nofollow" class="external text" href="https://github.com/cznic/ql">ql</a></li>
+<li>Parsers for common formats, such as <a rel="nofollow" class="external text" href="https://code.google.com/p/go.net/html">HTML</a>, <a rel="nofollow" class="external text" href="https://github.com/bitly/go-simplejson">JSON</a>, and Google <a rel="nofollow" class="external text" href="https://code.google.com/p/goprotobuf/">Protocol Buffers</a></li>
+<li>Protocol implementations, such as <a rel="nofollow" class="external text" href="https://code.google.com/p/go.crypto/ssh">ssh</a>, <a rel="nofollow" class="external text" href="https://github.com/amahi/spdy">SPDY</a>, and <a rel="nofollow" class="external text" href="https://code.google.com/p/go.net/websocket">websocket</a></li>
+<li>Database drivers, such as <a rel="nofollow" class="external text" href="https://code.google.com/p/go-sqlite/">sqlite3</a>, <a rel="nofollow" class="external text" href="https://github.com/go-sql-driver/mysql">mysql</a>, and <a rel="nofollow" class="external text" href="https://github.com/garyburd/redigo/">redis</a></li>
+<li>Bindings to C libraries, such as <a rel="nofollow" class="external text" href="https://github.com/youtube/vitess/tree/master/go/cgzip">cgzip</a>, <a rel="nofollow" class="external text" href="https://github.com/niemeyer/qml">qml</a>, and <a rel="nofollow" class="external text" href="https://github.com/mattn/go-gtk">GTK</a></li>
+<li>Specialized tools like <a rel="nofollow" class="external text" href="https://code.google.com/p/biogo/">biogo</a> for bioinformatics, <a rel="nofollow" class="external text" href="https://github.com/soniakeys/meeus">meeus</a> for astronomy, and <a rel="nofollow" class="external text" href="http://paulsmith.github.io/gogeos/">gogeos</a> for <a href="/wiki/Geographic_information_systems" title="Geographic information systems" class="mw-redirect">GIS</a></li>
+</ul>
+</li>
+</ul>
+<p>Some sites help index the libraries outside the Go distribution:</p>
+<ul>
+<li><a rel="nofollow" class="external text" href="http://godoc.org/">godoc.org</a></li>
+<li><a rel="nofollow" class="external text" href="https://github.com/search?l=Go&amp;o=desc&amp;q=stars%3A%3E50&amp;ref=searchresults&amp;s=stars&amp;type=Repositories">GitHub's most starred repositories in Go</a></li>
+<li><a rel="nofollow" class="external text" href="https://code.google.com/p/go-wiki/wiki/Projects">The Go Wiki's project page</a></li>
+</ul>
+<h2><span class="mw-headline" id="Community_and_conferences">Community and conferences</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Go_(programming_language)&amp;action=edit&amp;section=18" title="Edit section: Community and conferences">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul>
+<li><a rel="nofollow" class="external text" href="http://gopheracademy.com/">Gopher Academy</a>, Gopher Academy is a group of developers working to educate and promote the golang community.</li>
+<li><a rel="nofollow" class="external text" href="http://golangprojects.com/">Golangprojects.com</a>, lists programming jobs and projects where companies are looking for people that know Go</li>
+<li><a rel="nofollow" class="external text" href="http://www.gophercon.com/">GopherCon</a> The first Go conference. Denver, Colorado, USA April 24-26 2014</li>
+<li><a rel="nofollow" class="external text" href="http://www.dotgo.eu/">dotGo</a> European conference. Paris, France October 10 2014</li>
+<li><a rel="nofollow" class="external text" href="http://www.gophercon.in/">GopherConIndia</a> The first Go conference in India. Bangalore Feb. 19-21 2015</li>
+</ul>
+<h2><span class="mw-headline" id="Reception">Reception</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Go_(programming_language)&amp;action=edit&amp;section=19" title="Edit section: Reception">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Go's initial release led to much discussion.</p>
+<p>Michele Simionato wrote in an article for artima.com:<sup id="cite_ref-63" class="reference"><a href="#cite_note-63"><span>[</span>62<span>]</span></a></sup></p>
+<blockquote class="templatequote">
+<p>Here I just wanted to point out the design choices about interfaces and inheritance. Such ideas are not new and it is a shame that no popular language has followed such particular route in the design space. I hope Go will become popular; if not, I hope such ideas will finally enter in a popular language, we are already 10 or 20 years too late&#160;:-(</p>
+</blockquote>
+<p>Dave Astels at <a href="/wiki/Engine_Yard" title="Engine Yard">Engine Yard</a> wrote:<sup id="cite_ref-64" class="reference"><a href="#cite_note-64"><span>[</span>63<span>]</span></a></sup></p>
+<blockquote class="templatequote">
+<p>Go is extremely easy to dive into. There are a minimal number of fundamental language concepts and the <a href="/wiki/Syntax_(programming_languages)" title="Syntax (programming languages)">syntax</a> is clean and designed to be clear and unambiguous. Go is still experimental and still a little rough around the edges.</p>
+</blockquote>
+<p><i><a href="/wiki/Ars_Technica" title="Ars Technica">Ars Technica</a></i> interviewed Rob Pike, one of the authors of Go, and asked why a new language was needed. He replied that:<sup id="cite_ref-ars_65-0" class="reference"><a href="#cite_note-ars-65"><span>[</span>64<span>]</span></a></sup></p>
+<blockquote class="templatequote">
+<p>It wasn't enough to just add features to existing programming languages, because sometimes you can get more in the long run by taking things away. They wanted to start from scratch and rethink everything. ... [But they did not want] to deviate too much from what developers already knew because they wanted to avoid alienating Go's target audience.</p>
+</blockquote>
+<p>Go was named Programming Language of the Year by the <a href="/wiki/TIOBE_Programming_Community_Index" title="TIOBE Programming Community Index" class="mw-redirect">TIOBE Programming Community Index</a> in its first year, 2009, for having a larger 12-month increase in popularity (in only 2 months, after its introduction in November) than any other language that year, and reached 13th place by January 2010,<sup id="cite_ref-66" class="reference"><a href="#cite_note-66"><span>[</span>65<span>]</span></a></sup> surpassing established languages like <a href="/wiki/Pascal_(programming_language)" title="Pascal (programming language)">Pascal</a>. As of August 2014<sup class="plainlinks noprint asof-tag update" style="display:none;"><a class="external text" href="//en.wikipedia.org/w/index.php?title=Go_(programming_language)&amp;action=edit">[update]</a></sup>, its ranking had dropped to 38th in the index, placing it lower than <a href="/wiki/COBOL" title="COBOL">COBOL</a> and <a href="/wiki/Fortran" title="Fortran">Fortran</a>.<sup id="cite_ref-67" class="reference"><a href="#cite_note-67"><span>[</span>66<span>]</span></a></sup> Go is already in commercial use by several large organizations.<sup id="cite_ref-68" class="reference"><a href="#cite_note-68"><span>[</span>67<span>]</span></a></sup></p>
+<p>Regarding Go, <a href="/wiki/Bruce_Eckel" title="Bruce Eckel">Bruce Eckel</a> has stated:<sup id="cite_ref-69" class="reference"><a href="#cite_note-69"><span>[</span>68<span>]</span></a></sup></p>
+<blockquote class="templatequote">
+<p>The complexity of <a href="/wiki/C%2B%2B" title="C++">C++</a> (even more complexity has been added in the new C++), and the resulting impact on productivity, is no longer justified. All the hoops that the C++ programmer had to jump through in order to use a C-compatible language make no sense anymore -- they're just a waste of time and effort. Now, Go makes much more sense for the class of problems that C++ was originally intended to solve.</p>
+</blockquote>
+<h2><span class="mw-headline" id="Mascot">Mascot</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Go_(programming_language)&amp;action=edit&amp;section=20" title="Edit section: Mascot">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Go's mascot is a <a href="/wiki/Gopher_(animal)" title="Gopher (animal)" class="mw-redirect">gopher</a> designed by <a href="/wiki/Ren%C3%A9e_French" title="Renée French">Renée French</a>, who also designed <a href="/wiki/Glenda,_the_Plan_9_Bunny" title="Glenda, the Plan 9 Bunny">Glenda, the Plan 9 Bunny</a>. The logo and mascot are licensed under <a href="/wiki/Creative_Commons" title="Creative Commons">Creative Commons</a> Attribution 3.0 license.<sup id="cite_ref-70" class="reference"><a href="#cite_note-70"><span>[</span>69<span>]</span></a></sup></p>
+<h2><span class="mw-headline" id="Naming_dispute">Naming dispute</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Go_(programming_language)&amp;action=edit&amp;section=21" title="Edit section: Naming dispute">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>On the day of the general release of the language, Francis McCabe, developer of the <a href="/wiki/Go!_(programming_language)" title="Go! (programming language)">Go! programming language</a> (note the <a href="/wiki/Exclamation_point" title="Exclamation point" class="mw-redirect">exclamation point</a>), requested a name change of Google's language to prevent confusion with his language.<sup id="cite_ref-infoweek_71-0" class="reference"><a href="#cite_note-infoweek-71"><span>[</span>70<span>]</span></a></sup> The issue was closed by a Google developer on 12 October 2010 with the custom status "Unfortunate" and with the following comment: "there are many computing products and services named Go. In the 11 months since our release, there has been minimal confusion of the two languages."<sup id="cite_ref-72" class="reference"><a href="#cite_note-72"><span>[</span>71<span>]</span></a></sup></p>
+<h2><span class="mw-headline" id="See_also">See also</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Go_(programming_language)&amp;action=edit&amp;section=22" title="Edit section: See also">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul>
+<li><a href="/wiki/Comparison_of_programming_languages" title="Comparison of programming languages">Comparison of programming languages</a></li>
+<li><a href="/wiki/Dart_(programming_language)" title="Dart (programming language)">Dart</a>, another Google programming language</li>
+</ul>
+<div class="noprint tright portal" style="border:solid #aaa 1px;margin:0.5em 0 0.5em 1em;">
+<table style="background:#f9f9f9;font-size:85%;line-height:110%;max-width:175px;">
+<tr valign="middle">
+<td style="text-align:center;"><a href="/wiki/File:Free_and_open-source_software_logo_(2009).svg" class="image"><img alt="Portal icon" src="//upload.wikimedia.org/wikipedia/commons/thumb/3/31/Free_and_open-source_software_logo_%282009%29.svg/28px-Free_and_open-source_software_logo_%282009%29.svg.png" width="28" height="28" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/3/31/Free_and_open-source_software_logo_%282009%29.svg/42px-Free_and_open-source_software_logo_%282009%29.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/3/31/Free_and_open-source_software_logo_%282009%29.svg/56px-Free_and_open-source_software_logo_%282009%29.svg.png 2x" data-file-width="512" data-file-height="512" /></a></td>
+<td style="padding:0 0.2em;vertical-align:middle;font-style:italic;font-weight:bold;"><a href="/wiki/Portal:Free_software" title="Portal:Free software">Free software portal</a></td>
+</tr>
+</table>
+</div>
+<h2><span class="mw-headline" id="Notes">Notes</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Go_(programming_language)&amp;action=edit&amp;section=23" title="Edit section: Notes">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<div class="reflist" style="list-style-type: lower-alpha;">
+<ol class="references">
+<li id="cite_note-19"><span class="mw-cite-backlink"><b><a href="#cite_ref-19">^</a></b></span> <span class="reference-text">Usually, exactly one of the result and error values has a value other than the type's zero value; sometimes both do, as when a read or write can only be partially completed, and sometimes neither, as when a read returns 0 bytes. See <a href="/wiki/Semipredicate_problem#Multivalued_return" title="Semipredicate problem">Semipredicate problem: Multivalued return</a>.</span></li>
+</ol>
+</div>
+<h2><span class="mw-headline" id="References">References</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Go_(programming_language)&amp;action=edit&amp;section=24" title="Edit section: References">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<div class="hatnote">This article incorporates material from the <a rel="nofollow" class="external text" href="http://golang.org/doc/go_tutorial.html">official Go tutorial</a>, which is licensed under the Creative Commons Attribution 3.0 license.</div>
+<div class="reflist columns references-column-width" style="-moz-column-width: 30em; -webkit-column-width: 30em; column-width: 30em; list-style-type: decimal;">
+<ol class="references">
+<li id="cite_note-1"><span class="mw-cite-backlink"><b><a href="#cite_ref-1">^</a></b></span> <span class="reference-text"><span class="citation web"><a rel="nofollow" class="external text" href="https://groups.google.com/forum/m/#!topic/Golang-nuts/MYS5MkDF5_A">"Go 1.3.3 is released"</a>. <i>golang-nuts group</i>. 1 October 2014<span class="reference-accessdate">. Retrieved 5 November 2014</span>.</span><span title="ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AGo+%28programming+language%29&amp;rft.atitle=Go+1.3.3+is+released&amp;rft.date=1+October+2014&amp;rft.genre=article&amp;rft_id=https%3A%2F%2Fgroups.google.com%2Fforum%2Fm%2F%23%21topic%2FGolang-nuts%2FMYS5MkDF5_A&amp;rft.jtitle=golang-nuts+group&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal" class="Z3988"><span style="display:none;">&#160;</span></span></span></li>
+<li id="cite_note-langfaq-2"><span class="mw-cite-backlink">^ <a href="#cite_ref-langfaq_2-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-langfaq_2-1"><sup><i><b>b</b></i></sup></a> <a href="#cite_ref-langfaq_2-2"><sup><i><b>c</b></i></sup></a></span> <span class="reference-text"><span class="citation web"><a rel="nofollow" class="external text" href="http://golang.org/doc/go_faq.html">"Language Design FAQ"</a>. <i>golang.org</i>. 16 January 2010<span class="reference-accessdate">. Retrieved 27 February 2010</span>.</span><span title="ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AGo+%28programming+language%29&amp;rft.atitle=Language+Design+FAQ&amp;rft.date=16+January+2010&amp;rft.genre=article&amp;rft_id=http%3A%2F%2Fgolang.org%2Fdoc%2Fgo_faq.html&amp;rft.jtitle=golang.org&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal" class="Z3988"><span style="display:none;">&#160;</span></span></span></li>
+<li id="cite_note-3"><span class="mw-cite-backlink"><b><a href="#cite_ref-3">^</a></b></span> <span class="reference-text"><span class="citation web"><a rel="nofollow" class="external text" href="http://go-lang.cat-v.org/os-ports">"Go Porting Efforts"</a>. <i>Go Language Resources</i>. cat-v. 12 January 2010<span class="reference-accessdate">. Retrieved 18 January 2010</span>.</span><span title="ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AGo+%28programming+language%29&amp;rft.atitle=Go+Porting+Efforts&amp;rft.date=12+January+2010&amp;rft.genre=article&amp;rft_id=http%3A%2F%2Fgo-lang.cat-v.org%2Fos-ports&amp;rft.jtitle=Go+Language+Resources&amp;rft.pub=cat-v&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal" class="Z3988"><span style="display:none;">&#160;</span></span></span></li>
+<li id="cite_note-4"><span class="mw-cite-backlink"><b><a href="#cite_ref-4">^</a></b></span> <span class="reference-text"><span class="citation web"><a rel="nofollow" class="external text" href="http://golang.org/LICENSE">"Text file LICENSE"</a>. <i>The Go Programming Language</i>. Google<span class="reference-accessdate">. Retrieved 5 October 2012</span>.</span><span title="ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AGo+%28programming+language%29&amp;rft.atitle=Text+file+LICENSE&amp;rft.genre=article&amp;rft_id=http%3A%2F%2Fgolang.org%2FLICENSE&amp;rft.jtitle=The+Go+Programming+Language&amp;rft.pub=Google&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal" class="Z3988"><span style="display:none;">&#160;</span></span></span></li>
+<li id="cite_note-5"><span class="mw-cite-backlink"><b><a href="#cite_ref-5">^</a></b></span> <span class="reference-text"><span class="citation web"><a rel="nofollow" class="external text" href="http://code.google.com/p/go/source/browse/PATENTS">"Additional IP Rights Grant"</a>. <i>The Go Programming Language</i>. Google<span class="reference-accessdate">. Retrieved 5 October 2012</span>.</span><span title="ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AGo+%28programming+language%29&amp;rft.atitle=Additional+IP+Rights+Grant&amp;rft.genre=article&amp;rft_id=http%3A%2F%2Fcode.google.com%2Fp%2Fgo%2Fsource%2Fbrowse%2FPATENTS&amp;rft.jtitle=The+Go+Programming+Language&amp;rft.pub=Google&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal" class="Z3988"><span style="display:none;">&#160;</span></span></span></li>
+<li id="cite_note-6"><span class="mw-cite-backlink"><b><a href="#cite_ref-6">^</a></b></span> <span class="reference-text"><span class="citation news">Kincaid, Jason (10 November 2009). <a rel="nofollow" class="external text" href="http://www.techcrunch.com/2009/11/10/google-go-language/">"Google’s Go: A New Programming Language That’s Python Meets C++"</a>. <i>TechCrunch</i><span class="reference-accessdate">. Retrieved 18 January 2010</span>.</span><span title="ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AGo+%28programming+language%29&amp;rft.atitle=Google%E2%80%99s+Go%3A+A+New+Programming+Language+That%E2%80%99s+Python+Meets+C%2B%2B&amp;rft.aufirst=Jason&amp;rft.au=Kincaid%2C+Jason&amp;rft.aulast=Kincaid&amp;rft.date=10+November+2009&amp;rft.genre=article&amp;rft_id=http%3A%2F%2Fwww.techcrunch.com%2F2009%2F11%2F10%2Fgoogle-go-language%2F&amp;rft.jtitle=TechCrunch&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal" class="Z3988"><span style="display:none;">&#160;</span></span></span></li>
+<li id="cite_note-faq-7"><span class="mw-cite-backlink"><b><a href="#cite_ref-faq_7-0">^</a></b></span> <span class="reference-text"><span class="citation news"><a rel="nofollow" class="external text" href="http://golang.org/doc/faq#Is_Google_using_go_internally">"Go FAQ: Is Google using Go internally?"</a><span class="reference-accessdate">. Retrieved 9 March 2013</span>.</span><span title="ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AGo+%28programming+language%29&amp;rft.btitle=Go+FAQ%3A+Is+Google+using+Go+internally%3F&amp;rft.genre=book&amp;rft_id=http%3A%2F%2Fgolang.org%2Fdoc%2Ffaq%23Is_Google_using_go_internally&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook" class="Z3988"><span style="display:none;">&#160;</span></span></span></li>
+<li id="cite_note-8"><span class="mw-cite-backlink"><b><a href="#cite_ref-8">^</a></b></span> <span class="reference-text"><span class="citation web"><a rel="nofollow" class="external text" href="http://golang.org/doc/install.html#tmp_33">"Installing Go"</a>. <i>golang.org</i>. The Go Authors. 11 June 2010<span class="reference-accessdate">. Retrieved 11 June 2010</span>.</span><span title="ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AGo+%28programming+language%29&amp;rft.atitle=Installing+Go&amp;rft.date=11+June+2010&amp;rft.genre=article&amp;rft_id=http%3A%2F%2Fgolang.org%2Fdoc%2Finstall.html%23tmp_33&amp;rft.jtitle=golang.org&amp;rft.pub=The+Go+Authors&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal" class="Z3988"><span style="display:none;">&#160;</span></span></span></li>
+<li id="cite_note-9"><span class="mw-cite-backlink"><b><a href="#cite_ref-9">^</a></b></span> <span class="reference-text"><span class="citation web"><a rel="nofollow" class="external text" href="http://golang.org/doc/go_faq.html#Implementation">"FAQ: Implementation"</a>. <i>golang.org</i>. 16 January 2010<span class="reference-accessdate">. Retrieved 18 January 2010</span>.</span><span title="ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AGo+%28programming+language%29&amp;rft.atitle=FAQ%3A+Implementation&amp;rft.date=16+January+2010&amp;rft.genre=article&amp;rft_id=http%3A%2F%2Fgolang.org%2Fdoc%2Fgo_faq.html%23Implementation&amp;rft.jtitle=golang.org&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal" class="Z3988"><span style="display:none;">&#160;</span></span></span></li>
+<li id="cite_note-10"><span class="mw-cite-backlink"><b><a href="#cite_ref-10">^</a></b></span> <span class="reference-text"><span class="citation web"><a rel="nofollow" class="external text" href="http://gcc.gnu.org/install/configure.html">"Installing GCC: Configuration"</a><span class="reference-accessdate">. Retrieved 3 December 2011</span>. "Ada, Go and Objective-C++ are not default languages"</span><span title="ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AGo+%28programming+language%29&amp;rft.btitle=Installing+GCC%3A+Configuration&amp;rft.genre=book&amp;rft_id=http%3A%2F%2Fgcc.gnu.org%2Finstall%2Fconfigure.html&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook" class="Z3988"><span style="display:none;">&#160;</span></span></span></li>
+<li id="cite_note-11"><span class="mw-cite-backlink"><b><a href="#cite_ref-11">^</a></b></span> <span class="reference-text"><span class="citation web">Andrew Binstock (18 May 2011). <a rel="nofollow" class="external text" href="http://www.drdobbs.com/open-source/interview-with-ken-thompson/229502480">"Dr. Dobb's: Interview with Ken Thompson"</a><span class="reference-accessdate">. Retrieved 7 February 2014</span>.</span><span title="ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AGo+%28programming+language%29&amp;rft.au=Andrew+Binstock&amp;rft.aulast=Andrew+Binstock&amp;rft.btitle=Dr.+Dobb%27s%3A+Interview+with+Ken+Thompson&amp;rft.date=18+May+2011&amp;rft.genre=book&amp;rft_id=http%3A%2F%2Fwww.drdobbs.com%2Fopen-source%2Finterview-with-ken-thompson%2F229502480&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook" class="Z3988"><span style="display:none;">&#160;</span></span></span></li>
+<li id="cite_note-12"><span class="mw-cite-backlink"><b><a href="#cite_ref-12">^</a></b></span> <span class="reference-text"><span class="citation web"><a rel="nofollow" class="external text" href="http://golang.org/doc/faq#history">"Frequently Asked Questions (FAQ) - The Go Programming Language"</a>. Golang.org<span class="reference-accessdate">. Retrieved 2014-03-27</span>.</span><span title="ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AGo+%28programming+language%29&amp;rft.btitle=Frequently+Asked+Questions+%28FAQ%29+-+The+Go+Programming+Language&amp;rft.genre=book&amp;rft_id=http%3A%2F%2Fgolang.org%2Fdoc%2Ffaq%23history&amp;rft.pub=Golang.org&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook" class="Z3988"><span style="display:none;">&#160;</span></span></span></li>
+<li id="cite_note-go_lang_video_2009-13"><span class="mw-cite-backlink"><b><a href="#cite_ref-go_lang_video_2009_13-0">^</a></b></span> <span class="reference-text"><span class="citation web">Pike, Rob. <a rel="nofollow" class="external text" href="http://www.youtube.com/watch?v=rKnDgT73v8s&amp;feature=related">"The Go Programming Language"</a>. YouTube<span class="reference-accessdate">. Retrieved 1 Jul 2011</span>.</span><span title="ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AGo+%28programming+language%29&amp;rft.aufirst=Rob&amp;rft.aulast=Pike&amp;rft.au=Pike%2C+Rob&amp;rft.btitle=The+Go+Programming+Language&amp;rft.genre=book&amp;rft_id=http%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DrKnDgT73v8s%26feature%3Drelated&amp;rft.pub=YouTube&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook" class="Z3988"><span style="display:none;">&#160;</span></span></span></li>
+<li id="cite_note-techtalk-compiling-14"><span class="mw-cite-backlink"><b><a href="#cite_ref-techtalk-compiling_14-0">^</a></b></span> <span class="reference-text"><span class="citation audio-visual"><a href="/wiki/Rob_Pike" title="Rob Pike">Rob Pike</a> (10 November 2009). <a rel="nofollow" class="external text" href="http://www.youtube.com/watch?v=rKnDgT73v8s#t=8m53"><i>The Go Programming Language</i></a> (flv) (Tech talk). Google. Event occurs at 8:53.</span><span title="ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AGo+%28programming+language%29&amp;rft.btitle=The+Go+Programming+Language&amp;rft.date=10+November+2009&amp;rft.genre=book&amp;rft_id=http%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DrKnDgT73v8s%23t%3D8m53&amp;rft.pub=Google&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook" class="Z3988"><span style="display:none;">&#160;</span></span></span></li>
+<li id="cite_note-15"><span class="mw-cite-backlink"><b><a href="#cite_ref-15">^</a></b></span> <span class="reference-text"><a rel="nofollow" class="external text" href="http://golang.org/cmd/go/#hdr-Download_and_install_packages_and_dependencies">Download and install packages and dependencies - go - The Go Programming Language</a>; see <a rel="nofollow" class="external text" href="http://godoc.org">godoc.org</a> for addresses and documentation of some packages</span></li>
+<li id="cite_note-16"><span class="mw-cite-backlink"><b><a href="#cite_ref-16">^</a></b></span> <span class="reference-text"><a rel="nofollow" class="external text" href="http://godoc.org">godoc.org</a> and, for the standard library, <a rel="nofollow" class="external text" href="http://golang.org/pkg">golang.org/pkg</a></span></li>
+<li id="cite_note-17"><span class="mw-cite-backlink"><b><a href="#cite_ref-17">^</a></b></span> <span class="reference-text">Rob Pike, on <a rel="nofollow" class="external text" href="http://5by5.tv/changelog/100">The Changelog</a> podcast</span></li>
+<li id="cite_note-18"><span class="mw-cite-backlink"><b><a href="#cite_ref-18">^</a></b></span> <span class="reference-text">Rob Pike, <a rel="nofollow" class="external text" href="http://commandcenter.blogspot.de/2012/06/less-is-exponentially-more.html">Less is exponentially more</a></span></li>
+<li id="cite_note-20"><span class="mw-cite-backlink"><b><a href="#cite_ref-20">^</a></b></span> <span class="reference-text"><a rel="nofollow" class="external text" href="http://golang.org/ref/spec#Assignability">Assignability - the Go Language Specification</a></span></li>
+<li id="cite_note-21"><span class="mw-cite-backlink"><b><a href="#cite_ref-21">^</a></b></span> <span class="reference-text"><a rel="nofollow" class="external text" href="http://golang.org/ref/spec#Constants">Constants - the Go Language Specification</a></span></li>
+<li id="cite_note-22"><span class="mw-cite-backlink"><b><a href="#cite_ref-22">^</a></b></span> <span class="reference-text"><span class="citation web"><a rel="nofollow" class="external text" href="http://golang.org/doc/go_tutorial.html">"A Tutorial for the Go Programming Language"</a>. <i>The Go Programming Language</i>. Google<span class="reference-accessdate">. Retrieved 10 March 2013</span>. "In Go the rule about visibility of information is simple: if a name (of a top-level type, function, method, constant or variable, or of a structure field or method) is capitalized, users of the package may see it. Otherwise, the name and hence the thing being named is visible only inside the package in which it is declared."</span><span title="ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AGo+%28programming+language%29&amp;rft.atitle=A+Tutorial+for+the+Go+Programming+Language&amp;rft.genre=article&amp;rft_id=http%3A%2F%2Fgolang.org%2Fdoc%2Fgo_tutorial.html&amp;rft.jtitle=The+Go+Programming+Language&amp;rft.pub=Google&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal" class="Z3988"><span style="display:none;">&#160;</span></span></span></li>
+<li id="cite_note-23"><span class="mw-cite-backlink"><b><a href="#cite_ref-23">^</a></b></span> <span class="reference-text"><a rel="nofollow" class="external text" href="http://golang.org/cmd/go/#hdr-Download_and_install_packages_and_dependencies">Download and install packages and dependencies - go - The Go Programming Language</a></span></li>
+<li id="cite_note-24"><span class="mw-cite-backlink"><b><a href="#cite_ref-24">^</a></b></span> <span class="reference-text"><a rel="nofollow" class="external text" href="http://golang.org/doc/effective_go.html#sharing">Share by communicating - Effective Go</a></span></li>
+<li id="cite_note-25"><span class="mw-cite-backlink"><b><a href="#cite_ref-25">^</a></b></span> <span class="reference-text">Andrew Gerrand, <a rel="nofollow" class="external text" href="http://blog.golang.org/share-memory-by-communicating">Share memory by communicating</a></span></li>
+<li id="cite_note-26"><span class="mw-cite-backlink"><b><a href="#cite_ref-26">^</a></b></span> <span class="reference-text">Andrew Gerrand, <a rel="nofollow" class="external text" href="http://golang.org/doc/codewalk/sharemem/">Codewalk: Share memory by communicating</a></span></li>
+<li id="cite_note-27"><span class="mw-cite-backlink"><b><a href="#cite_ref-27">^</a></b></span> <span class="reference-text">For more discussion, see Rob Pike, <a rel="nofollow" class="external text" href="http://vimeo.com/49718712">Concurrency is not Parallelism</a></span></li>
+<li id="cite_note-28"><span class="mw-cite-backlink"><b><a href="#cite_ref-28">^</a></b></span> <span class="reference-text"><a rel="nofollow" class="external text" href="http://golang.org/ref/spec">The Go Programming Language Specification</a>. This deliberately glosses over some details in the spec: <code>close</code>, channel range expressions, the two-argument form of the receive operator, unidrectional channel types, and so on.</span></li>
+<li id="cite_note-29"><span class="mw-cite-backlink"><b><a href="#cite_ref-29">^</a></b></span> <span class="reference-text"><a rel="nofollow" class="external text" href="http://talks.golang.org/2012/concurrency.slide">Concurrency patterns in Go</a></span></li>
+<li id="cite_note-30"><span class="mw-cite-backlink"><b><a href="#cite_ref-30">^</a></b></span> <span class="reference-text">John Graham-Cumming, <a rel="nofollow" class="external text" href="http://blog.cloudflare.com/recycling-memory-buffers-in-go">Recycling Memory Buffers in Go</a></span></li>
+<li id="cite_note-31"><span class="mw-cite-backlink"><b><a href="#cite_ref-31">^</a></b></span> <span class="reference-text"><a rel="nofollow" class="external text" href="http://golang.org/doc/play/tree.go">tree.go</a></span></li>
+<li id="cite_note-32"><span class="mw-cite-backlink"><b><a href="#cite_ref-32">^</a></b></span> <span class="reference-text">Ewen Cheslack-Postava, <a rel="nofollow" class="external text" href="http://ewencp.org/blog/golang-iterators/">Iterators in Go</a></span></li>
+<li id="cite_note-33"><span class="mw-cite-backlink"><b><a href="#cite_ref-33">^</a></b></span> <span class="reference-text"><a rel="nofollow" class="external text" href="http://golang.org/pkg/sync/">sync - The Go Programming Language</a></span></li>
+<li id="cite_note-memmodel-34"><span class="mw-cite-backlink">^ <a href="#cite_ref-memmodel_34-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-memmodel_34-1"><sup><i><b>b</b></i></sup></a></span> <span class="reference-text"><span class="citation web"><a rel="nofollow" class="external text" href="http://golang.org/doc/go_mem.html">"The Go Memory Model"</a>. Google<span class="reference-accessdate">. Retrieved 5 January 2011</span>.</span><span title="ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AGo+%28programming+language%29&amp;rft.btitle=The+Go+Memory+Model&amp;rft.genre=book&amp;rft_id=http%3A%2F%2Fgolang.org%2Fdoc%2Fgo_mem.html&amp;rft.pub=Google&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook" class="Z3988"><span style="display:none;">&#160;</span></span></span></li>
+<li id="cite_note-35"><span class="mw-cite-backlink"><b><a href="#cite_ref-35">^</a></b></span> <span class="reference-text">Russ Cox, <a rel="nofollow" class="external text" href="http://research.swtch.com/gorace">Off to the Races</a></span></li>
+<li id="cite_note-SPLASH2012-36"><span class="mw-cite-backlink"><b><a href="#cite_ref-SPLASH2012_36-0">^</a></b></span> <span class="reference-text"><span class="citation web"><a href="/wiki/Rob_Pike" title="Rob Pike">Rob Pike</a> (October 25, 2012). <a rel="nofollow" class="external text" href="http://talks.golang.org/2012/splash.article">"Go at Google: Language Design in the Service of Software Engineering"</a>. Google, Inc.</span><span title="ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AGo+%28programming+language%29&amp;rft.aulast=Rob+Pike&amp;rft.au=Rob+Pike&amp;rft.btitle=Go+at+Google%3A+Language+Design+in+the+Service+of+Software+Engineering&amp;rft.date=October+25%2C+2012&amp;rft.genre=book&amp;rft_id=http%3A%2F%2Ftalks.golang.org%2F2012%2Fsplash.article&amp;rft.pub=Google%2C+Inc.&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook" class="Z3988"><span style="display:none;">&#160;</span></span> "There is one important caveat: Go is not purely memory safe in the presence of concurrency."</span></li>
+<li id="cite_note-37"><span class="mw-cite-backlink"><b><a href="#cite_ref-37">^</a></b></span> <span class="reference-text">Brian W. Kernighan, <a rel="nofollow" class="external text" href="http://www.vitanuova.com/inferno/papers/descent.html">A Descent Into Limbo</a></span></li>
+<li id="cite_note-38"><span class="mw-cite-backlink"><b><a href="#cite_ref-38">^</a></b></span> <span class="reference-text"><a rel="nofollow" class="external text" href="http://golang.org/pkg/io/#Reader">Reader - io - The Go Programming Language</a></span></li>
+<li id="cite_note-39"><span class="mw-cite-backlink"><b><a href="#cite_ref-39">^</a></b></span> <span class="reference-text"><a rel="nofollow" class="external text" href="https://www.cosic.esat.kuleuven.be/nessie/testvectors/hash/sha/Sha-2-256.unverified.test-vectors">SHA-256 test vectors</a>, set 1, vector #8</span></li>
+<li id="cite_note-40"><span class="mw-cite-backlink"><b><a href="#cite_ref-40">^</a></b></span> <span class="reference-text"><a rel="nofollow" class="external text" href="http://golang.org/src/pkg/net/ip.go">src/pkg/net/ip.go</a></span></li>
+<li id="cite_note-41"><span class="mw-cite-backlink"><b><a href="#cite_ref-41">^</a></b></span> <span class="reference-text"><a rel="nofollow" class="external text" href="http://golang.org/ref/spec#Type_assertions">Type Assertions - The Go Language Specification</a></span></li>
+<li id="cite_note-42"><span class="mw-cite-backlink"><b><a href="#cite_ref-42">^</a></b></span> <span class="reference-text"><a rel="nofollow" class="external text" href="http://golang.org/ref/spec#Type_switches">Type switches - The Go Language Specification</a></span></li>
+<li id="cite_note-43"><span class="mw-cite-backlink"><b><a href="#cite_ref-43">^</a></b></span> <span class="reference-text"><a rel="nofollow" class="external text" href="http://golang.org/pkg/reflect/#ValueOf">reflect.ValueOf(i interface{})</a> converts an <code>interface{}</code> to a <code>reflect.Value</code> that can be further inspected</span></li>
+<li id="cite_note-44"><span class="mw-cite-backlink"><b><a href="#cite_ref-44">^</a></b></span> <span class="reference-text"><span class="citation web"><a rel="nofollow" class="external text" href="http://research.swtch.com/interfaces">"Go Data Structures: Interfaces"</a><span class="reference-accessdate">. Retrieved 15 November 2012</span>.</span><span title="ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AGo+%28programming+language%29&amp;rft.btitle=Go+Data+Structures%3A+Interfaces&amp;rft.genre=book&amp;rft_id=http%3A%2F%2Fresearch.swtch.com%2Finterfaces&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook" class="Z3988"><span style="display:none;">&#160;</span></span></span></li>
+<li id="cite_note-45"><span class="mw-cite-backlink"><b><a href="#cite_ref-45">^</a></b></span> <span class="reference-text"><a rel="nofollow" class="external text" href="http://golang.org/ref/spec#Interface_types">Interface types - The Go Programming Language Specification</a></span></li>
+<li id="cite_note-46"><span class="mw-cite-backlink"><b><a href="#cite_ref-46">^</a></b></span> <span class="reference-text"><span class="citation web"><a rel="nofollow" class="external text" href="http://golang.org/doc/effective_go.html#interfaces_and_types">"Effective Go&#160;— Interfaces and methods &amp; Embedding"</a>. Google<span class="reference-accessdate">. Retrieved 28 November 2011</span>.</span><span title="ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AGo+%28programming+language%29&amp;rft.btitle=Effective+Go%26nbsp%3B%E2%80%94+Interfaces+and+methods+%26+Embedding&amp;rft.genre=book&amp;rft_id=http%3A%2F%2Fgolang.org%2Fdoc%2Feffective_go.html%23interfaces_and_types&amp;rft.pub=Google&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook" class="Z3988"><span style="display:none;">&#160;</span></span></span></li>
+<li id="cite_note-47"><span class="mw-cite-backlink"><b><a href="#cite_ref-47">^</a></b></span> <span class="reference-text"><a rel="nofollow" class="external text" href="https://code.google.com/p/go-wiki/wiki/PanicAndRecover">Panic And Recover</a>, Go wiki</span></li>
+<li id="cite_note-48"><span class="mw-cite-backlink"><b><a href="#cite_ref-48">^</a></b></span> <span class="reference-text"><a rel="nofollow" class="external text" href="http://golang.org/doc/devel/weekly.html#2010-03-30">Release notes, 30 March 2010</a></span></li>
+<li id="cite_note-49"><span class="mw-cite-backlink"><b><a href="#cite_ref-49">^</a></b></span> <span class="reference-text"><span class="citation web"><a rel="nofollow" class="external text" href="http://groups.google.com/group/golang-nuts/browse_thread/thread/1ce5cd050bb973e4">"Proposal for an exception-like mechanism"</a>. <i>golang-nuts</i>. 25 March 2010<span class="reference-accessdate">. Retrieved 25 March 2010</span>.</span><span title="ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AGo+%28programming+language%29&amp;rft.atitle=Proposal+for+an+exception-like+mechanism&amp;rft.date=25+March+2010&amp;rft.genre=article&amp;rft_id=http%3A%2F%2Fgroups.google.com%2Fgroup%2Fgolang-nuts%2Fbrowse_thread%2Fthread%2F1ce5cd050bb973e4&amp;rft.jtitle=golang-nuts&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal" class="Z3988"><span style="display:none;">&#160;</span></span></span></li>
+<li id="cite_note-50"><span class="mw-cite-backlink"><b><a href="#cite_ref-50">^</a></b></span> <span class="reference-text"><a rel="nofollow" class="external text" href="http://golang.org/doc/effective_go.html#commentary">Commentary - Effective Go</a></span></li>
+<li id="cite_note-51"><span class="mw-cite-backlink"><b><a href="#cite_ref-51">^</a></b></span> <span class="reference-text"><span class="citation web"><a rel="nofollow" class="external text" href="http://golang.org/doc/go_tutorial.html">"A Tutorial for the Go Programming Language"</a>. <i>golang.org</i>. 16 January 2010<span class="reference-accessdate">. Retrieved 18 January 2010</span>.</span><span title="ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AGo+%28programming+language%29&amp;rft.atitle=A+Tutorial+for+the+Go+Programming+Language&amp;rft.date=16+January+2010&amp;rft.genre=article&amp;rft_id=http%3A%2F%2Fgolang.org%2Fdoc%2Fgo_tutorial.html&amp;rft.jtitle=golang.org&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal" class="Z3988"><span style="display:none;">&#160;</span></span></span></li>
+<li id="cite_note-52"><span class="mw-cite-backlink"><b><a href="#cite_ref-52">^</a></b></span> <span class="reference-text"><span class="citation web"><a rel="nofollow" class="external free" href="https://gobyexample.com/reading-files">https://gobyexample.com/reading-files</a>.</span><span title="ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AGo+%28programming+language%29&amp;rft.genre=book&amp;rft_id=https%3A%2F%2Fgobyexample.com%2Freading-files&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook" class="Z3988"><span style="display:none;">&#160;</span></span> <span style="font-size:100%" class="error citation-comment">Missing or empty <code style="color:inherit; border:inherit; padding:inherit;">|title=</code> (<a href="/wiki/Help:CS1_errors#citation_missing_title" title="Help:CS1 errors">help</a>)</span></span></li>
+<li id="cite_note-53"><span class="mw-cite-backlink"><b><a href="#cite_ref-53">^</a></b></span> <span class="reference-text"><span class="citation web"><a rel="nofollow" class="external free" href="http://golang.org/pkg/os/">http://golang.org/pkg/os/</a>.</span><span title="ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AGo+%28programming+language%29&amp;rft.genre=book&amp;rft_id=http%3A%2F%2Fgolang.org%2Fpkg%2Fos%2F&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook" class="Z3988"><span style="display:none;">&#160;</span></span> <span style="font-size:100%" class="error citation-comment">Missing or empty <code style="color:inherit; border:inherit; padding:inherit;">|title=</code> (<a href="/wiki/Help:CS1_errors#citation_missing_title" title="Help:CS1 errors">help</a>)</span></span></li>
+<li id="cite_note-54"><span class="mw-cite-backlink"><b><a href="#cite_ref-54">^</a></b></span> <span class="reference-text">Erik Unger, <a rel="nofollow" class="external text" href="https://gist.github.com/ungerik/3731476">The Case For Go</a></span></li>
+<li id="cite_note-55"><span class="mw-cite-backlink"><b><a href="#cite_ref-55">^</a></b></span> <span class="reference-text">Andrew Gerrand, <a rel="nofollow" class="external text" href="http://blog.golang.org/4years">Four years of Go</a>, The Go Blog</span></li>
+<li id="cite_note-56"><span class="mw-cite-backlink"><b><a href="#cite_ref-56">^</a></b></span> <span class="reference-text"><a rel="nofollow" class="external text" href="http://talks.golang.org/2013/oscon-dl.slide">dl.google.com: Powered by Go</a></span></li>
+<li id="cite_note-57"><span class="mw-cite-backlink"><b><a href="#cite_ref-57">^</a></b></span> <span class="reference-text">Matt Welsh, <a rel="nofollow" class="external text" href="http://matt-welsh.blogspot.com/2013/08/rewriting-large-production-system-in-go.html">Rewriting a Large Production System in Go</a></span></li>
+<li id="cite_note-58"><span class="mw-cite-backlink"><b><a href="#cite_ref-58">^</a></b></span> <span class="reference-text">David Symonds, <a rel="nofollow" class="external text" href="http://talks.golang.org/2013/highperf.slide">High Performance Apps on Google App Engine</a></span></li>
+<li id="cite_note-59"><span class="mw-cite-backlink"><b><a href="#cite_ref-59">^</a></b></span> <span class="reference-text">Patrick Lee, <a rel="nofollow" class="external text" href="https://tech.dropbox.com/2014/07/open-sourcing-our-go-libraries/">Open Sourcing Our Go Libraries</a>, 7 July 2014.</span></li>
+<li id="cite_note-60"><span class="mw-cite-backlink"><b><a href="#cite_ref-60">^</a></b></span> <span class="reference-text">John Graham-Cumming, <a rel="nofollow" class="external text" href="http://blog.cloudflare.com/go-at-cloudflare">Go at CloudFlare</a></span></li>
+<li id="cite_note-61"><span class="mw-cite-backlink"><b><a href="#cite_ref-61">^</a></b></span> <span class="reference-text">John Graham-Cumming, <a rel="nofollow" class="external text" href="http://blog.cloudflare.com/what-weve-been-doing-with-go">What we've been doing with Go</a></span></li>
+<li id="cite_note-62"><span class="mw-cite-backlink"><b><a href="#cite_ref-62">^</a></b></span> <span class="reference-text">Peter Bourgon, <a rel="nofollow" class="external text" href="http://backstage.soundcloud.com/2012/07/go-at-soundcloud/">Go at SoundCloud</a></span></li>
+<li id="cite_note-63"><span class="mw-cite-backlink"><b><a href="#cite_ref-63">^</a></b></span> <span class="reference-text"><span class="citation news">Simionato, Michele (15 November 2009). <a rel="nofollow" class="external text" href="http://www.artima.com/weblogs/viewpost.jsp?thread=274019">"Interfaces vs Inheritance (or, watch out for Go!)"</a>. artima<span class="reference-accessdate">. Retrieved 15 November 2009</span>.</span><span title="ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AGo+%28programming+language%29&amp;rft.aufirst=Michele&amp;rft.aulast=Simionato&amp;rft.au=Simionato%2C+Michele&amp;rft.btitle=Interfaces+vs+Inheritance+%28or%2C+watch+out+for+Go%21%29&amp;rft.date=15+November+2009&amp;rft.genre=book&amp;rft_id=http%3A%2F%2Fwww.artima.com%2Fweblogs%2Fviewpost.jsp%3Fthread%3D274019&amp;rft.pub=artima&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook" class="Z3988"><span style="display:none;">&#160;</span></span></span></li>
+<li id="cite_note-64"><span class="mw-cite-backlink"><b><a href="#cite_ref-64">^</a></b></span> <span class="reference-text"><span class="citation news">Astels, Dave (9 November 2009). <a rel="nofollow" class="external text" href="http://www.engineyard.com/blog/2009/ready-set-go/">"Ready, Set, Go!"</a>. engineyard<span class="reference-accessdate">. Retrieved 9 November 2009</span>.</span><span title="ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AGo+%28programming+language%29&amp;rft.au=Astels%2C+Dave&amp;rft.aufirst=Dave&amp;rft.aulast=Astels&amp;rft.btitle=Ready%2C+Set%2C+Go%21&amp;rft.date=9+November+2009&amp;rft.genre=book&amp;rft_id=http%3A%2F%2Fwww.engineyard.com%2Fblog%2F2009%2Fready-set-go%2F&amp;rft.pub=engineyard&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook" class="Z3988"><span style="display:none;">&#160;</span></span></span></li>
+<li id="cite_note-ars-65"><span class="mw-cite-backlink"><b><a href="#cite_ref-ars_65-0">^</a></b></span> <span class="reference-text"><span class="citation news">Paul, Ryan (10 November 2009). <a rel="nofollow" class="external text" href="http://arstechnica.com/open-source/news/2009/11/go-new-open-source-programming-language-from-google.ars">"Go: new open source programming language from Google"</a>. Ars Technica<span class="reference-accessdate">. Retrieved 13 November 2009</span>.</span><span title="ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AGo+%28programming+language%29&amp;rft.aufirst=Ryan&amp;rft.aulast=Paul&amp;rft.au=Paul%2C+Ryan&amp;rft.btitle=Go%3A+new+open+source+programming+language+from+Google&amp;rft.date=10+November+2009&amp;rft.genre=book&amp;rft_id=http%3A%2F%2Farstechnica.com%2Fopen-source%2Fnews%2F2009%2F11%2Fgo-new-open-source-programming-language-from-google.ars&amp;rft.pub=Ars+Technica&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook" class="Z3988"><span style="display:none;">&#160;</span></span></span></li>
+<li id="cite_note-66"><span class="mw-cite-backlink"><b><a href="#cite_ref-66">^</a></b></span> <span class="reference-text"><span class="citation web"><a rel="nofollow" class="external text" href="http://jaxenter.com/google-s-go-wins-programming-language-of-the-year-award-10069.html">"Google's Go Wins Programming Language Of The Year Award"</a>. jaxenter<span class="reference-accessdate">. Retrieved 5 December 2012</span>.</span><span title="ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AGo+%28programming+language%29&amp;rft.btitle=Google%27s+Go+Wins+Programming+Language+Of+The+Year+Award&amp;rft.genre=book&amp;rft_id=http%3A%2F%2Fjaxenter.com%2Fgoogle-s-go-wins-programming-language-of-the-year-award-10069.html&amp;rft.pub=jaxenter&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook" class="Z3988"><span style="display:none;">&#160;</span></span> <span style="font-size:100%" class="error citation-comment"><code style="color:inherit; border:inherit; padding:inherit;">|first1=</code> missing <code style="color:inherit; border:inherit; padding:inherit;">|last1=</code> in Authors list (<a href="/wiki/Help:CS1_errors#first_missing_last" title="Help:CS1 errors">help</a>)</span></span></li>
+<li id="cite_note-67"><span class="mw-cite-backlink"><b><a href="#cite_ref-67">^</a></b></span> <span class="reference-text"><span class="citation web"><a rel="nofollow" class="external text" href="http://www.tiobe.com/index.php/content/paperinfo/tpci/index.html">"TIOBE Programming Community Index for August 2014"</a>. TIOBE Software. August 2014<span class="reference-accessdate">. Retrieved 22 August 2014</span>.</span><span title="ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AGo+%28programming+language%29&amp;rft.btitle=TIOBE+Programming+Community+Index+for+August+2014&amp;rft.date=August+2014&amp;rft.genre=book&amp;rft_id=http%3A%2F%2Fwww.tiobe.com%2Findex.php%2Fcontent%2Fpaperinfo%2Ftpci%2Findex.html&amp;rft.pub=TIOBE+Software&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook" class="Z3988"><span style="display:none;">&#160;</span></span></span></li>
+<li id="cite_note-68"><span class="mw-cite-backlink"><b><a href="#cite_ref-68">^</a></b></span> <span class="reference-text"><span class="citation web"><a rel="nofollow" class="external text" href="http://go-lang.cat-v.org/organizations-using-go">"Organizations Using Go"</a>.</span><span title="ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AGo+%28programming+language%29&amp;rft.btitle=Organizations+Using+Go&amp;rft.genre=book&amp;rft_id=http%3A%2F%2Fgo-lang.cat-v.org%2Forganizations-using-go&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook" class="Z3988"><span style="display:none;">&#160;</span></span></span></li>
+<li id="cite_note-69"><span class="mw-cite-backlink"><b><a href="#cite_ref-69">^</a></b></span> <span class="reference-text"><span class="citation web">Bruce Eckel (27 August 2011). <a rel="nofollow" class="external text" href="http://www.artima.com/weblogs/viewpost.jsp?thread=333589">"Calling Go from Python via JSON-RPC"</a><span class="reference-accessdate">. Retrieved 29 August 2011</span>.</span><span title="ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AGo+%28programming+language%29&amp;rft.au=Bruce+Eckel&amp;rft.aulast=Bruce+Eckel&amp;rft.btitle=Calling+Go+from+Python+via+JSON-RPC&amp;rft.date=27+August+2011&amp;rft.genre=book&amp;rft_id=http%3A%2F%2Fwww.artima.com%2Fweblogs%2Fviewpost.jsp%3Fthread%3D333589&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook" class="Z3988"><span style="display:none;">&#160;</span></span></span></li>
+<li id="cite_note-70"><span class="mw-cite-backlink"><b><a href="#cite_ref-70">^</a></b></span> <span class="reference-text"><span class="citation web"><a rel="nofollow" class="external text" href="http://golang.org/doc/faq#Whats_the_origin_of_the_mascot">"FAQ&#160;— The Go Programming Language"</a>. Golang.org<span class="reference-accessdate">. Retrieved 2013-06-25</span>.</span><span title="ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AGo+%28programming+language%29&amp;rft.btitle=FAQ%26nbsp%3B%E2%80%94+The+Go+Programming+Language&amp;rft.genre=book&amp;rft_id=http%3A%2F%2Fgolang.org%2Fdoc%2Ffaq%23Whats_the_origin_of_the_mascot&amp;rft.pub=Golang.org&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook" class="Z3988"><span style="display:none;">&#160;</span></span></span></li>
+<li id="cite_note-infoweek-71"><span class="mw-cite-backlink"><b><a href="#cite_ref-infoweek_71-0">^</a></b></span> <span class="reference-text"><span class="citation news">Claburn, Thomas (11 November 2009). <a rel="nofollow" class="external text" href="http://www.informationweek.com/news/software/web_services/showArticle.jhtml?articleID=221601351">"Google 'Go' Name Brings Accusations Of Evil<span style="padding-right:0.2em;">'</span>"</a>. InformationWeek<span class="reference-accessdate">. Retrieved 18 January 2010</span>.</span><span title="ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AGo+%28programming+language%29&amp;rft.au=Claburn%2C+Thomas&amp;rft.aufirst=Thomas&amp;rft.aulast=Claburn&amp;rft.btitle=Google+%27Go%27+Name+Brings+Accusations+Of+Evil%27&amp;rft.date=11+November+2009&amp;rft.genre=book&amp;rft_id=http%3A%2F%2Fwww.informationweek.com%2Fnews%2Fsoftware%2Fweb_services%2FshowArticle.jhtml%3FarticleID%3D221601351&amp;rft.pub=InformationWeek&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook" class="Z3988"><span style="display:none;">&#160;</span></span></span></li>
+<li id="cite_note-72"><span class="mw-cite-backlink"><b><a href="#cite_ref-72">^</a></b></span> <span class="reference-text"><span class="citation web"><a rel="nofollow" class="external text" href="http://code.google.com/p/go/issues/detail?id=9">"Issue 9 - go&#160;— I have already used the name for *MY* programming language"</a>. <i>Google Code</i>. <a href="/wiki/Google_Inc." title="Google Inc." class="mw-redirect">Google Inc.</a> <span class="reference-accessdate">Retrieved 12 October 2010</span>.</span><span title="ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AGo+%28programming+language%29&amp;rft.atitle=Issue+9+-+go%26nbsp%3B%E2%80%94+I+have+already+used+the+name+for+%2AMY%2A+programming+language&amp;rft.genre=article&amp;rft_id=http%3A%2F%2Fcode.google.com%2Fp%2Fgo%2Fissues%2Fdetail%3Fid%3D9&amp;rft.jtitle=Google+Code&amp;rft.pub=Google+Inc.&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal" class="Z3988"><span style="display:none;">&#160;</span></span></span></li>
+</ol>
+</div>
+<h2><span class="mw-headline" id="External_links">External links</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Go_(programming_language)&amp;action=edit&amp;section=25" title="Edit section: External links">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul>
+<li><span class="official website"><span class="url"><a rel="nofollow" class="external text" href="https://golang.org">Official website</a></span></span></li>
+<li><a rel="nofollow" class="external text" href="http://tour.golang.org/">A Tour of Go</a> (official)</li>
+<li><a rel="nofollow" class="external text" href="http://go-lang.cat-v.org/">Go Programming Language Resources</a> (unofficial)</li>
+<li><span class="citation web">Pike, Rob (28 April 2010). <a rel="nofollow" class="external text" href="http://www.stanford.edu/class/ee380/Abstracts/100428.html">"Another Go at Language Design"</a>. <i>Stanford EE Computer Systems Colloquium</i>. <a href="/wiki/Stanford_University" title="Stanford University">Stanford University</a>.</span><span title="ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AGo+%28programming+language%29&amp;rft.atitle=Another+Go+at+Language+Design&amp;rft.aufirst=Rob&amp;rft.aulast=Pike&amp;rft.au=Pike%2C+Rob&amp;rft.date=28+April+2010&amp;rft.genre=article&amp;rft_id=http%3A%2F%2Fwww.stanford.edu%2Fclass%2Fee380%2FAbstracts%2F100428.html&amp;rft.jtitle=Stanford+EE+Computer+Systems+Colloquium&amp;rft.pub=Stanford+University&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal" class="Z3988"><span style="display:none;">&#160;</span></span> (<a rel="nofollow" class="external text" href="https://www.youtube.com/watch?v=7VcArS4Wpqk">video</a>)&#160;— A university lecture</li>
+</ul>
+<table cellspacing="0" class="navbox" style="border-spacing:0;">
+<tr>
+<td style="padding:2px;">
+<table cellspacing="0" class="nowraplinks hlist collapsible autocollapse navbox-inner" style="border-spacing:0;background:transparent;color:inherit;">
+<tr>
+<th scope="col" class="navbox-title" colspan="2">
+<div class="plainlinks hlist navbar mini">
+<ul>
+<li class="nv-view"><a href="/wiki/Template:Google_Inc." title="Template:Google Inc."><span title="View this template" style=";;background:none transparent;border:none;;">v</span></a></li>
+<li class="nv-talk"><a href="/wiki/Template_talk:Google_Inc." title="Template talk:Google Inc."><span title="Discuss this template" style=";;background:none transparent;border:none;;">t</span></a></li>
+<li class="nv-edit"><a class="external text" href="//en.wikipedia.org/w/index.php?title=Template:Google_Inc.&amp;action=edit"><span title="Edit this template" style=";;background:none transparent;border:none;;">e</span></a></li>
+</ul>
+</div>
+<div style="font-size:110%;"><a href="/wiki/Google" title="Google">Google</a></div>
+</th>
+</tr>
+<tr style="height:2px;">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group"><a href="/wiki/Outline_of_Google" title="Outline of Google">Overview</a></th>
+<td class="navbox-list navbox-odd" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;">
+<div style="padding:0em 0.25em;">
+<ul>
+<li><a href="/wiki/History_of_Google" title="History of Google">History</a></li>
+<li><a href="/wiki/List_of_mergers_and_acquisitions_by_Google" title="List of mergers and acquisitions by Google">List of mergers and acquisitions</a></li>
+<li><a href="/wiki/List_of_Google_products" title="List of Google products">Products</a></li>
+<li><a href="/wiki/Criticism_of_Google" title="Criticism of Google">Criticism</a></li>
+<li><a href="/wiki/Censorship_by_Google" title="Censorship by Google">Censorship</a></li>
+<li><a href="/wiki/List_of_Google_domains" title="List of Google domains">Domains</a></li>
+<li><a href="/wiki/List_of_Google_hoaxes_and_easter_eggs" title="List of Google hoaxes and easter eggs">Hoaxes</a></li>
+</ul>
+</div>
+</td>
+</tr>
+<tr style="height:2px;">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group">Advertising</th>
+<td class="navbox-list navbox-even" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;">
+<div style="padding:0em 0.25em;">
+<ul>
+<li><a href="/wiki/DoubleClick_for_Publishers_by_Google" title="DoubleClick for Publishers by Google">Ad Manager</a></li>
+<li><a href="/wiki/AdMob" title="AdMob">AdMob</a></li>
+<li><a href="/wiki/Adscape" title="Adscape">Adscape</a></li>
+<li><a href="/wiki/AdSense" title="AdSense">AdSense</a></li>
+<li><a href="/wiki/Google_Certification_Program" title="Google Certification Program">Advertising Professionals</a></li>
+<li><a href="/wiki/AdWords" title="AdWords">AdWords</a></li>
+<li><a href="/wiki/Google_Analytics" title="Google Analytics">Analytics</a></li>
+<li><a href="/wiki/DoubleClick" title="DoubleClick">DoubleClick</a></li>
+<li><a href="/wiki/Google_Offers" title="Google Offers">Offers</a></li>
+<li><a href="/wiki/Google_Wallet" title="Google Wallet">Wallet</a></li>
+</ul>
+</div>
+</td>
+</tr>
+<tr style="height:2px;">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group">Communication</th>
+<td class="navbox-list navbox-odd" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;">
+<div style="padding:0em 0.25em;">
+<ul>
+<li><a href="/wiki/Google_Alerts" title="Google Alerts">Alerts</a></li>
+<li><a href="/wiki/Google_Apps_Script" title="Google Apps Script">Apps Script</a></li>
+<li><a href="/wiki/Google_Calendar" title="Google Calendar">Calendar</a></li>
+<li><a href="/wiki/Google_Contacts" title="Google Contacts">Contacts</a></li>
+<li><a href="/wiki/Google_Friend_Connect" title="Google Friend Connect">Friend Connect</a></li>
+<li><a href="/wiki/Gmail" title="Gmail">Gmail</a>
+<ul>
+<li><a href="/wiki/History_of_Gmail" title="History of Gmail">history</a></li>
+<li><a href="/wiki/Gmail_interface" title="Gmail interface">interface</a></li>
+</ul>
+</li>
+<li><a href="/wiki/Google%2B" title="Google+">Google+</a></li>
+<li><a href="/wiki/Google_Groups" title="Google Groups">Groups</a></li>
+<li><a href="/wiki/Google_Hangouts" title="Google Hangouts">Hangouts</a></li>
+<li><a href="/wiki/Google_Inbox" title="Google Inbox">Inbox</a></li>
+<li><a href="/wiki/Google_Sync" title="Google Sync">Sync</a></li>
+<li><a href="/wiki/Google_Talk" title="Google Talk">Talk</a></li>
+<li><a href="/wiki/Google_Text-to-Speech" title="Google Text-to-Speech">Text-to-Speech</a></li>
+<li><a href="/wiki/Google_Translate" title="Google Translate">Translate</a></li>
+<li><a href="/wiki/Google_transliteration" title="Google transliteration">Transliteration</a></li>
+<li><a href="/wiki/Google_Voice" title="Google Voice">Voice</a></li>
+</ul>
+</div>
+</td>
+</tr>
+<tr style="height:2px;">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group">Software</th>
+<td class="navbox-list navbox-even" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;">
+<div style="padding:0em 0.25em;">
+<ul>
+<li><a href="/wiki/Google_Chrome" title="Google Chrome">Chrome</a>
+<ul>
+<li><a href="/wiki/Google_Chrome_for_Android" title="Google Chrome for Android">for Android</a></li>
+<li><a href="/wiki/Google_Chrome_for_iOS" title="Google Chrome for iOS" class="mw-redirect">for iOS</a></li>
+<li><a href="/wiki/Chrome_Web_Store" title="Chrome Web Store">Chrome Web Store</a></li>
+<li><a href="/wiki/Google_Chrome_Apps" title="Google Chrome Apps">Apps</a></li>
+<li><a href="/wiki/Google_Chrome_Extensions" title="Google Chrome Extensions">Extensions</a></li>
+</ul>
+</li>
+<li><a href="/wiki/Chrome_OS" title="Chrome OS">Chrome OS</a>
+<ul>
+<li><a href="/wiki/Chromebook" title="Chromebook">Chromebook</a></li>
+<li><a href="/wiki/Chromebox" title="Chromebox">Chromebox</a></li>
+<li><a href="/wiki/Chrome_Zone" title="Chrome Zone">Chrome Zone</a></li>
+</ul>
+</li>
+<li><a href="/wiki/Google_Cloud_Print" title="Google Cloud Print">Cloud Print</a></li>
+<li><a href="/wiki/Google_Earth" title="Google Earth">Earth</a>
+<ul>
+<li><a href="/wiki/Google_Sky" title="Google Sky">Sky</a></li>
+<li><a href="/wiki/Google_Moon" title="Google Moon">Moon</a></li>
+<li><a href="/wiki/Google_Mars" title="Google Mars">Mars</a></li>
+</ul>
+</li>
+<li><a href="/wiki/Google_Gadgets" title="Google Gadgets">Gadgets</a></li>
+<li><a href="/wiki/Google_Goggles" title="Google Goggles">Goggles</a></li>
+<li><a href="/wiki/Google_IME" title="Google IME">IME</a>
+<ul>
+<li><a href="/wiki/Google_Pinyin" title="Google Pinyin">Pinyin</a></li>
+<li><a href="/wiki/Google_Japanese_Input" title="Google Japanese Input">Japanese</a></li>
+</ul>
+</li>
+<li><a href="/wiki/Google_Keep" title="Google Keep">Keep</a></li>
+<li><a href="/wiki/Google_News_%26_Weather" title="Google News &amp; Weather">News &amp; Weather</a></li>
+<li><a href="/wiki/Google_Now" title="Google Now">Now</a></li>
+<li><a href="/wiki/Picasa" title="Picasa">Picasa</a></li>
+<li><a href="/wiki/Google_Play_Games" title="Google Play Games" class="mw-redirect">Play Games</a></li>
+<li><a href="/wiki/Google_Play_Newsstand" title="Google Play Newsstand" class="mw-redirect">Play Newsstand</a></li>
+<li><a href="/wiki/OpenRefine" title="OpenRefine">OpenRefine</a></li>
+<li><a href="/wiki/Google_Toolbar" title="Google Toolbar">Toolbar</a></li>
+</ul>
+</div>
+</td>
+</tr>
+<tr style="height:2px;">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group"><a href="/wiki/Google_platform" title="Google platform">Platforms</a></th>
+<td class="navbox-list navbox-odd" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;">
+<div style="padding:0em 0.25em;">
+<ul>
+<li><a href="/wiki/Google_Account" title="Google Account">Account</a></li>
+<li><a href="/wiki/Android_(operating_system)" title="Android (operating system)">Android</a>
+<ul>
+<li><a href="/wiki/Android_version_history" title="Android version history">Version history</a></li>
+<li><a href="/wiki/Android_software_development" title="Android software development">Software development</a></li>
+</ul>
+</li>
+<li><a href="/wiki/Google_App_Engine" title="Google App Engine">App Engine</a></li>
+<li><a href="/wiki/Google_Apps" title="Google Apps" class="mw-redirect">Apps</a>
+<ul>
+<li><a href="/wiki/Google_Classroom" title="Google Classroom">Classroom</a></li>
+</ul>
+</li>
+<li><a href="/wiki/Google_Authenticator" title="Google Authenticator">Authenticator</a></li>
+<li><a href="/wiki/BigTable" title="BigTable">BigTable</a></li>
+<li><a href="/wiki/Zygote_Body" title="Zygote Body">Body</a></li>
+<li><a href="/wiki/Google_Books" title="Google Books">Books</a></li>
+<li><a href="/wiki/Caja_project" title="Caja project">Caja</a></li>
+<li><a href="/wiki/Google_Cardboard" title="Google Cardboard">Cardboard</a></li>
+<li><a href="/wiki/Chromecast" title="Chromecast">Chromecast</a></li>
+<li><a href="/wiki/Google_Compute_Engine" title="Google Compute Engine">Compute Engine</a></li>
+<li><a href="/wiki/Google_Contact_Lens" title="Google Contact Lens">Contact Lens</a></li>
+<li><a href="/wiki/Google_Custom_Search" title="Google Custom Search">Custom Search</a></li>
+<li><a href="/wiki/Dart_(programming_language)" title="Dart (programming language)">Dart</a></li>
+<li><a href="/wiki/Google_Earth_Engine" title="Google Earth Engine">Earth Engine</a></li>
+<li><a href="/wiki/Google_Fit" title="Google Fit">Fit</a></li>
+<li><a href="/wiki/Google_Glass" title="Google Glass">Glass</a></li>
+<li><strong class="selflink">Go</strong></li>
+<li><a href="/wiki/Google_File_System" title="Google File System">GFS</a></li>
+<li><a href="/wiki/Google_Apps_Marketplace" title="Google Apps Marketplace">Marketplace</a></li>
+<li><a href="/wiki/Google_Native_Client" title="Google Native Client">Native Client</a></li>
+<li><a href="/wiki/Google_Nexus" title="Google Nexus">Nexus</a></li>
+<li><a href="/wiki/OpenSocial" title="OpenSocial">OpenSocial</a></li>
+<li><a href="/wiki/Google_Play" title="Google Play">Play</a></li>
+<li><a href="/wiki/Google_Public_DNS" title="Google Public DNS">Public DNS</a></li>
+<li><a href="/wiki/Google_Questions_and_Answers" title="Google Questions and Answers">Q &amp; A</a></li>
+<li><a href="/wiki/Google_TV" title="Google TV">Google TV</a></li>
+<li><a href="/wiki/Google_Wallet" title="Google Wallet">Wallet</a></li>
+</ul>
+</div>
+</td>
+</tr>
+<tr style="height:2px;">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group">Development tools</th>
+<td class="navbox-list navbox-even" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;">
+<div style="padding:0em 0.25em;">
+<ul>
+<li><a href="/wiki/Google_APIs" title="Google APIs">AJAX APIs</a></li>
+<li><a href="/wiki/App_Inventor_for_Android" title="App Inventor for Android">App Inventor</a></li>
+<li><a href="/wiki/AtGoogleTalks" title="AtGoogleTalks">AtGoogleTalks</a></li>
+<li><a href="/wiki/Google_Closure_Tools" title="Google Closure Tools">Closure Tools</a></li>
+<li><a href="/wiki/Google_Developers" title="Google Developers">Developers</a></li>
+<li><a href="/wiki/Google_Gadgets_API" title="Google Gadgets API">Gadgets API</a></li>
+<li><a href="/wiki/GData" title="GData">GData</a></li>
+<li><a href="/wiki/Googlebot" title="Googlebot">Googlebot</a></li>
+<li><a href="/wiki/Google_Guava" title="Google Guava">Guava</a></li>
+<li><a href="/wiki/Google_Guice" title="Google Guice">Guice</a></li>
+<li><a href="/wiki/Google_platform#Software" title="Google platform">GWS</a></li>
+<li><a href="/wiki/Keyhole_Markup_Language" title="Keyhole Markup Language">KML</a></li>
+<li><a href="/wiki/MapReduce" title="MapReduce">MapReduce</a></li>
+<li><a href="/wiki/Sitemaps" title="Sitemaps">Sitemaps</a></li>
+<li><a href="/wiki/Google_Summer_of_Code" title="Google Summer of Code">Summer of Code</a></li>
+<li><a href="/wiki/Google_Web_Toolkit" title="Google Web Toolkit">Web Toolkit</a></li>
+<li><a href="/wiki/Google_Webmaster_Tools" title="Google Webmaster Tools">Webmaster Tools</a></li>
+<li><a href="/wiki/Google_Website_Optimizer" title="Google Website Optimizer">Website Optimizer</a></li>
+<li><a href="/wiki/Google_Swiffy" title="Google Swiffy">Swiffy</a></li>
+</ul>
+</div>
+</td>
+</tr>
+<tr style="height:2px;">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group">Publishing</th>
+<td class="navbox-list navbox-odd" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;">
+<div style="padding:0em 0.25em;">
+<ul>
+<li><a href="/wiki/Blogger_(service)" title="Blogger (service)">Blogger</a></li>
+<li><a href="/wiki/Google_Bookmarks" title="Google Bookmarks">Bookmarks</a></li>
+<li><a href="/wiki/Google_Docs" title="Google Docs">Docs</a></li>
+<li><a href="/wiki/Google_Drive" title="Google Drive">Drive</a></li>
+<li><a href="/wiki/FeedBurner" title="FeedBurner">FeedBurner</a></li>
+<li><a href="/wiki/Google_Map_Maker" title="Google Map Maker">Map Maker</a></li>
+<li><a href="/wiki/Panoramio" title="Panoramio">Panoramio</a></li>
+<li><a href="/wiki/Picasa#Picasa_Web_Albums" title="Picasa">Picasa Web Albums</a></li>
+<li><a href="/wiki/Google_Sites" title="Google Sites">Sites (JotSpot)</a></li>
+<li><a href="/wiki/YouTube" title="YouTube">YouTube</a> (<a href="/wiki/Vevo" title="Vevo">Vevo</a>)</li>
+<li><a href="/wiki/Zagat" title="Zagat">Zagat</a></li>
+</ul>
+</div>
+</td>
+</tr>
+<tr style="height:2px;">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group"><a href="/wiki/Google_Search" title="Google Search">Search</a> (<a href="/wiki/Timeline_of_Google_Search" title="Timeline of Google Search">timeline</a>)</th>
+<td class="navbox-list navbox-even" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;">
+<div style="padding:0em 0.25em;">
+<ul>
+<li><a href="/wiki/Google_Search_Appliance" title="Google Search Appliance">Appliance</a></li>
+<li><a href="/wiki/Google_Audio_Indexing" title="Google Audio Indexing">Audio</a></li>
+<li><a href="/wiki/Google_Blog_Search" title="Google Blog Search">Blog Search</a></li>
+<li><a href="/wiki/Google_Books" title="Google Books">Books</a>
+<ul>
+<li><a href="/wiki/Google_Books_Library_Project" title="Google Books Library Project">Library Project</a></li>
+<li><a href="/wiki/Google_eBooks" title="Google eBooks">eBooks</a></li>
+</ul>
+</li>
+<li><a href="/wiki/Google_Finance" title="Google Finance">Finance</a></li>
+<li><a href="/wiki/Google_Images" title="Google Images">Images</a></li>
+<li><a href="/wiki/Google_Maps" title="Google Maps">Maps</a>
+<ul>
+<li><a href="/wiki/Google_Street_View" title="Google Street View">Street View</a>
+<ul>
+<li><a href="/wiki/Timeline_of_Google_Street_View" title="Timeline of Google Street View">Timeline</a></li>
+<li><a href="/wiki/Google_Street_View_privacy_concerns" title="Google Street View privacy concerns">Privacy concerns</a></li>
+<li><a href="/wiki/Competition_of_Google_Street_View" title="Competition of Google Street View" class="mw-redirect">Competition</a></li>
+<li><a href="/wiki/Locations_of_Google_Street_View" title="Locations of Google Street View" class="mw-redirect">Locations</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="/wiki/Google_News" title="Google News">News</a>
+<ul>
+<li><a href="/wiki/Google_News_Archive" title="Google News Archive">Archive</a></li>
+</ul>
+</li>
+<li><a href="/wiki/Google_Patents" title="Google Patents">Patents</a></li>
+<li><a href="/wiki/Google_Scholar" title="Google Scholar">Scholar</a></li>
+<li><a href="/wiki/Google_Shopping" title="Google Shopping">Shopping</a></li>
+<li><a href="/wiki/Google_Groups" title="Google Groups">Usenet</a></li>
+<li><a href="/wiki/Google_Voice_Search" title="Google Voice Search">Voice Search</a></li>
+<li><a href="/wiki/Google_Search" title="Google Search">Web Search</a>
+<ul>
+<li><a href="/wiki/Google_Web_History" title="Google Web History">History</a></li>
+<li><a href="/wiki/Google_Personalized_Search" title="Google Personalized Search">Personalized</a></li>
+<li><a href="/wiki/Google_Real-Time_Search" title="Google Real-Time Search">Real-Time</a></li>
+<li><a href="/wiki/Google_Search#Instant_Search" title="Google Search">Instant Search</a></li>
+<li><a href="/wiki/SafeSearch" title="SafeSearch">SafeSearch</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<table cellspacing="0" class="nowraplinks navbox-subgroup" style="border-spacing:0;">
+<tr>
+<th scope="row" class="navbox-group">Algorithms</th>
+<td class="navbox-list navbox-odd" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;">
+<div style="padding:0em 0.25em;">
+<ul>
+<li><a href="/wiki/PageRank" title="PageRank">PageRank</a></li>
+<li><a href="/wiki/Google_Panda" title="Google Panda">Panda</a></li>
+<li><a href="/wiki/Google_Penguin" title="Google Penguin">Penguin</a></li>
+<li><a href="/wiki/Google_Hummingbird" title="Google Hummingbird">Hummingbird</a></li>
+</ul>
+</div>
+</td>
+</tr>
+<tr style="height:2px;">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group">Analysis</th>
+<td class="navbox-list navbox-even" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;">
+<div style="padding:0em 0.25em;">
+<ul>
+<li><a href="/wiki/Google_Insights_for_Search" title="Google Insights for Search">Insights for Search</a></li>
+<li><a href="/wiki/Google_Trends" title="Google Trends">Trends</a></li>
+<li><a href="/wiki/Knowledge_Graph" title="Knowledge Graph">Knowledge Graph</a></li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr style="height:2px;">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group"><a href="/wiki/List_of_Google_products#Discontinued_products_and_services" title="List of Google products">Discontinued</a></th>
+<td class="navbox-list navbox-odd" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;">
+<div style="padding:0em 0.25em;">
+<ul>
+<li><a href="/wiki/Aardvark_(search_engine)" title="Aardvark (search engine)">Aardvark</a></li>
+<li><a href="/wiki/Google_Answers" title="Google Answers">Answers</a></li>
+<li><a href="/wiki/Google_Browser_Sync" title="Google Browser Sync">Browser Sync</a></li>
+<li><a href="/wiki/Google_Base" title="Google Base">Base</a></li>
+<li><a href="/wiki/Google_Buzz" title="Google Buzz">Buzz</a></li>
+<li><a href="/wiki/Google_Checkout" title="Google Checkout">Checkout</a></li>
+<li><a href="/wiki/Google_Chrome_Frame" title="Google Chrome Frame">Chrome Frame</a></li>
+<li><a href="/wiki/AdWords#Google_Click-to-Call" title="AdWords">Click-to-Call</a></li>
+<li><a href="/wiki/Google_Cloud_Connect" title="Google Cloud Connect">Cloud Connect</a></li>
+<li><a href="/wiki/Google_Code_Search" title="Google Code Search">Code Search</a></li>
+<li><a href="/wiki/Google_Currents" title="Google Currents">Currents</a></li>
+<li><a href="/wiki/Google_Desktop" title="Google Desktop">Desktop</a></li>
+<li><a href="/wiki/Google_Dictionary" title="Google Dictionary">Dictionary</a></li>
+<li><a href="/wiki/Dodgeball_(service)" title="Dodgeball (service)">Dodgeball</a></li>
+<li><a href="/wiki/Google_Fast_Flip" title="Google Fast Flip">Fast Flip</a></li>
+<li><a href="/wiki/Gears_(software)" title="Gears (software)">Gears</a></li>
+<li><a href="/wiki/GOOG-411" title="GOOG-411">GOOG-411</a></li>
+<li><a href="/wiki/Jaiku" title="Jaiku">Jaiku</a></li>
+<li><a href="/wiki/Knol" title="Knol">Knol</a></li>
+<li><a href="/wiki/Google_Health" title="Google Health">Health</a></li>
+<li><a href="/wiki/IGoogle" title="IGoogle">iGoogle</a></li>
+<li><a href="/wiki/Google_Image_Labeler" title="Google Image Labeler">Image Labeler</a></li>
+<li><a href="/wiki/Google_Labs" title="Google Labs">Labs</a></li>
+<li><a href="/wiki/Google_Latitude" title="Google Latitude">Latitude</a></li>
+<li><a href="/wiki/Google_Lively" title="Google Lively">Lively</a></li>
+<li><a href="/wiki/Google_Mashup_Editor" title="Google Mashup Editor">Mashup Editor</a></li>
+<li><a href="/wiki/Google_Notebook" title="Google Notebook">Notebook</a></li>
+<li><a href="/wiki/Google_Pack" title="Google Pack">Pack</a></li>
+<li><a href="/wiki/Google_Page_Creator" title="Google Page Creator">Page Creator</a></li>
+<li><a href="/wiki/Picnik" title="Picnik">Picnik</a></li>
+<li><a href="/wiki/Google_PowerMeter" title="Google PowerMeter">PowerMeter</a></li>
+<li><a href="/wiki/Google_Reader" title="Google Reader">Reader</a></li>
+<li><a href="/wiki/Google_Script_Converter" title="Google Script Converter">Script Converter</a></li>
+<li><a href="/wiki/Google_SearchWiki" title="Google SearchWiki">SearchWiki</a></li>
+<li><a href="/wiki/Google_Sidewiki" title="Google Sidewiki">Sidewiki</a></li>
+<li><a href="/wiki/Slide.com" title="Slide.com">Slide</a></li>
+<li><a href="/wiki/Google_Squared" title="Google Squared">Squared</a></li>
+<li><a href="/wiki/Google_Pack#Google_Updater" title="Google Pack">Updater</a></li>
+<li><a href="/wiki/Urchin_(software)" title="Urchin (software)">Urchin</a></li>
+<li><a href="/wiki/Google_Videos" title="Google Videos">Videos</a></li>
+<li><a href="/wiki/Google_Video_Marketplace" title="Google Video Marketplace">Video Marketplace</a></li>
+<li><a href="/wiki/Apache_Wave" title="Apache Wave">Wave</a></li>
+<li><a href="/wiki/Google_Web_Accelerator" title="Google Web Accelerator">Web Accelerator</a></li>
+<li><a href="/wiki/Orkut" title="Orkut">Orkut</a></li>
+</ul>
+</div>
+</td>
+</tr>
+<tr style="height:2px;">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group"><a href="/wiki/Category:Google" title="Category:Google">Related</a></th>
+<td class="navbox-list navbox-even" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;">
+<div style="padding:0em 0.25em;">
+<ul>
+<li><a href="/wiki/111_Eighth_Avenue" title="111 Eighth Avenue">111 Eighth Avenue</a></li>
+<li><a href="/wiki/AI_Challenge" title="AI Challenge">AI Challenge</a></li>
+<li><a href="/wiki/Google_Art_Project" title="Google Art Project">Art Project</a></li>
+<li><a href="/wiki/Google_bomb" title="Google bomb">Bomb</a></li>
+<li><a href="/wiki/Calico_(company)" title="Calico (company)">Calico (company)</a></li>
+<li><a href="/wiki/Google_Current" title="Google Current">Current</a></li>
+<li><a href="/wiki/Google_Chrome_Experiments" title="Google Chrome Experiments">Chrome Experiments</a></li>
+<li><a href="/wiki/Google_Code_Jam" title="Google Code Jam">Code Jam</a></li>
+<li><a href="/wiki/Google_Developer_Day" title="Google Developer Day">Developer Day</a></li>
+<li><a href="/wiki/Google_Business_Groups" title="Google Business Groups">Google Business Groups</a></li>
+<li><a href="/wiki/Google_Data_Liberation_Front" title="Google Data Liberation Front">Data Liberation</a>
+<ul>
+<li><a href="/wiki/Google_Takeout" title="Google Takeout">Takeout</a></li>
+</ul>
+</li>
+<li><a href="/wiki/Google_Developer_Expert" title="Google Developer Expert">Google Developer Expert</a></li>
+<li><a href="/wiki/Google_Enterprise" title="Google Enterprise">Google Enterprise</a></li>
+<li><a href="/wiki/Google_driverless_car" title="Google driverless car">Driverless car</a></li>
+<li><a href="/wiki/Google_Fiber" title="Google Fiber">Fiber</a></li>
+<li><a href="/wiki/Google.org#Google_Foundation" title="Google.org">Foundation</a></li>
+<li><a href="/wiki/Google_China" title="Google China">Google China</a></li>
+<li><a href="/wiki/Google_Shopping_Express" title="Google Shopping Express">Google Shopping Express</a></li>
+<li><a href="/wiki/Googlization" title="Googlization">Googlization</a></li>
+<li><a href="/wiki/Google_Grants" title="Google Grants">Grants</a></li>
+<li><a href="/wiki/Google.org" title="Google.org">Google.org</a></li>
+<li><a href="/wiki/Googleplex" title="Googleplex">Googleplex</a></li>
+<li><a href="/wiki/Goojje" title="Goojje">Goojje</a></li>
+<li><a href="/wiki/Google_Search#.22I.27m_Feeling_Lucky.22" title="Google Search">I'm Feeling Lucky</a></li>
+<li><a href="/wiki/Google_I/O" title="Google I/O">I/O</a></li>
+<li><a href="/wiki/Google_logo" title="Google logo">Logo</a></li>
+<li><a href="/wiki/Google_Doodle" title="Google Doodle">Google Doodles</a>
+<ul>
+<li><a href="/wiki/List_of_Google_Doodles_(1998%E2%80%932009)" title="List of Google Doodles (1998–2009)">1998–2009</a></li>
+<li><a href="/wiki/List_of_Google_Doodles_in_2010" title="List of Google Doodles in 2010">2010</a></li>
+<li><a href="/wiki/List_of_Google_Doodles_in_2011" title="List of Google Doodles in 2011">2011</a></li>
+<li><a href="/wiki/List_of_Google_Doodles_in_2012" title="List of Google Doodles in 2012">2012</a></li>
+<li><a href="/wiki/List_of_Google_Doodles_in_2013" title="List of Google Doodles in 2013">2013</a></li>
+<li><a href="/wiki/List_of_Google_Doodles_in_2014" title="List of Google Doodles in 2014">2014</a></li>
+</ul>
+</li>
+<li><a href="/wiki/Google_Lunar_X_Prize" title="Google Lunar X Prize">Lunar X Prize</a></li>
+<li><a href="/wiki/Material_Design" title="Material Design" class="mw-redirect">Material Design</a></li>
+<li><a href="/wiki/Monopoly_City_Streets" title="Monopoly City Streets">Monopoly City Streets</a></li>
+<li><a href="/wiki/Motorola_Mobility" title="Motorola Mobility">Motorola Mobility</a></li>
+<li><a href="/wiki/Google_Science_Fair" title="Google Science Fair">Science Fair</a></li>
+<li><a href="/wiki/Google_Searchology" title="Google Searchology">Searchology</a></li>
+<li><a href="/wiki/Unity_(cable_system)" title="Unity (cable system)">Unity</a></li>
+<li><a href="/wiki/Google_Ventures" title="Google Ventures">Ventures</a></li>
+<li><a href="/wiki/Google_WiFi" title="Google WiFi">WiFi</a></li>
+<li><a href="/wiki/Google_X" title="Google X">X</a></li>
+</ul>
+</div>
+<table cellspacing="0" class="nowraplinks navbox-subgroup" style="border-spacing:0;">
+<tr>
+<th scope="row" class="navbox-group">Projects</th>
+<td class="navbox-list navbox-odd" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;">
+<div style="padding:0em 0.25em;">
+<ul>
+<li><a href="/wiki/Project_Ara" title="Project Ara">Ara</a></li>
+<li><a href="/wiki/Project_Loon" title="Project Loon">Loon</a></li>
+<li><a href="/wiki/Project_Tango" title="Project Tango">Tango</a></li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr style="height:2px;">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group">People</th>
+<td class="navbox-list navbox-odd" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;">
+<div style="padding:0em 0.25em;">
+<ul>
+<li><a href="/wiki/Larry_Page" title="Larry Page">Larry Page</a></li>
+<li><a href="/wiki/Eric_Schmidt" title="Eric Schmidt">Eric Schmidt</a></li>
+<li><a href="/wiki/Sergey_Brin" title="Sergey Brin">Sergey Brin</a></li>
+<li><a href="/wiki/John_Doerr" title="John Doerr">John Doerr</a></li>
+<li><a href="/wiki/John_L._Hennessy" title="John L. Hennessy">John L. Hennessy</a></li>
+<li><a href="/wiki/Ray_Kurzweil" title="Ray Kurzweil">Raymond Kurzweil</a></li>
+<li><a href="/wiki/Ann_Mather" title="Ann Mather">Ann Mather</a></li>
+<li><a href="/wiki/Paul_Otellini" title="Paul Otellini">Paul Otellini</a></li>
+<li><a href="/wiki/Ram_Shriram" title="Ram Shriram">Ram Shriram</a></li>
+<li><a href="/wiki/Shirley_M._Tilghman" title="Shirley M. Tilghman">Shirley M. Tilghman</a></li>
+<li><a href="/wiki/Matt_Cutts" title="Matt Cutts">Matt Cutts</a></li>
+<li><a href="/wiki/Al_Gore" title="Al Gore">Al Gore</a></li>
+<li><a href="/wiki/Rajen_Sheth" title="Rajen Sheth">Rajen Sheth</a></li>
+<li><a href="/wiki/Vint_Cerf" title="Vint Cerf">Vint Cerf</a></li>
+<li><a href="/wiki/Alan_Mulally" title="Alan Mulally">Alan Mulally</a></li>
+</ul>
+</div>
+</td>
+</tr>
+<tr style="height:2px;">
+<td colspan="2"></td>
+</tr>
+<tr>
+<td class="navbox-abovebelow" colspan="2">
+<div>
+<ul>
+<li><img alt="Project page" src="//upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Symbol_information_vote.svg/16px-Symbol_information_vote.svg.png" width="16" height="16" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Symbol_information_vote.svg/23px-Symbol_information_vote.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Symbol_information_vote.svg/31px-Symbol_information_vote.svg.png 2x" data-file-width="180" data-file-height="185" /> <b><a href="/wiki/Wikipedia:WikiProject_Google" title="Wikipedia:WikiProject Google">Project</a></b></li>
+<li><img alt="Category" src="//upload.wikimedia.org/wikipedia/en/thumb/4/48/Folder_Hexagonal_Icon.svg/16px-Folder_Hexagonal_Icon.svg.png" width="16" height="14" srcset="//upload.wikimedia.org/wikipedia/en/thumb/4/48/Folder_Hexagonal_Icon.svg/24px-Folder_Hexagonal_Icon.svg.png 1.5x, //upload.wikimedia.org/wikipedia/en/thumb/4/48/Folder_Hexagonal_Icon.svg/32px-Folder_Hexagonal_Icon.svg.png 2x" data-file-width="36" data-file-height="31" /> <b><a href="/wiki/Category:Google" title="Category:Google">Category</a></b></li>
+<li><img alt="Commons page" src="//upload.wikimedia.org/wikipedia/en/thumb/4/4a/Commons-logo.svg/12px-Commons-logo.svg.png" width="12" height="16" srcset="//upload.wikimedia.org/wikipedia/en/thumb/4/4a/Commons-logo.svg/18px-Commons-logo.svg.png 1.5x, //upload.wikimedia.org/wikipedia/en/thumb/4/4a/Commons-logo.svg/24px-Commons-logo.svg.png 2x" data-file-width="1024" data-file-height="1376" /> <b><a href="//commons.wikimedia.org/wiki/Google" class="extiw" title="commons:Google">Commons</a></b></li>
+<li><img alt="Wikiversity page" src="//upload.wikimedia.org/wikipedia/commons/thumb/9/91/Wikiversity-logo.svg/16px-Wikiversity-logo.svg.png" width="16" height="13" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/9/91/Wikiversity-logo.svg/24px-Wikiversity-logo.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/9/91/Wikiversity-logo.svg/32px-Wikiversity-logo.svg.png 2x" data-file-width="1000" data-file-height="800" /> <b><a href="//en.wikiversity.org/wiki/Google" class="extiw" title="v:Google">Wikiversity</a></b></li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<table cellspacing="0" class="navbox" style="border-spacing:0;">
+<tr>
+<td style="padding:2px;">
+<table cellspacing="0" class="nowraplinks hlist collapsible autocollapse navbox-inner" style="border-spacing:0;background:transparent;color:inherit;">
+<tr>
+<th scope="col" class="navbox-title" colspan="2">
+<div class="plainlinks hlist navbar mini">
+<ul>
+<li class="nv-view"><a href="/wiki/Template:Rob_Pike_navbox" title="Template:Rob Pike navbox"><span title="View this template" style=";;background:none transparent;border:none;;">v</span></a></li>
+<li class="nv-talk"><a href="/wiki/Template_talk:Rob_Pike_navbox" title="Template talk:Rob Pike navbox"><span title="Discuss this template" style=";;background:none transparent;border:none;;">t</span></a></li>
+<li class="nv-edit"><a class="external text" href="//en.wikipedia.org/w/index.php?title=Template:Rob_Pike_navbox&amp;action=edit"><span title="Edit this template" style=";;background:none transparent;border:none;;">e</span></a></li>
+</ul>
+</div>
+<div style="font-size:110%;"><a href="/wiki/Rob_Pike" title="Rob Pike">Rob Pike</a></div>
+</th>
+</tr>
+<tr style="height:2px;">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group">Operating systems</th>
+<td class="navbox-list navbox-odd" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;">
+<div style="padding:0em 0.25em;">
+<ul>
+<li><a href="/wiki/Plan_9_from_Bell_Labs" title="Plan 9 from Bell Labs">Plan 9 from Bell Labs</a></li>
+<li><a href="/wiki/Inferno_(operating_system)" title="Inferno (operating system)">Inferno</a></li>
+</ul>
+</div>
+</td>
+</tr>
+<tr style="height:2px;">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group">Programming languages</th>
+<td class="navbox-list navbox-even" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;">
+<div style="padding:0em 0.25em;">
+<ul>
+<li><a href="/wiki/Newsqueak" title="Newsqueak">Newsqueak</a></li>
+<li><a href="/wiki/Limbo_(programming_language)" title="Limbo (programming language)">Limbo</a></li>
+<li><strong class="selflink">Go</strong></li>
+<li><a href="/wiki/Sawzall_(programming_language)" title="Sawzall (programming language)">Sawzall</a></li>
+</ul>
+</div>
+</td>
+</tr>
+<tr style="height:2px;">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group">Software</th>
+<td class="navbox-list navbox-odd" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;">
+<div style="padding:0em 0.25em;">
+<ul>
+<li><a href="/wiki/Acme_(text_editor)" title="Acme (text editor)">acme</a></li>
+<li><a href="/wiki/Blit_(computer_terminal)" title="Blit (computer terminal)">Blit</a></li>
+<li><a href="/wiki/Sam_(text_editor)" title="Sam (text editor)">sam</a></li>
+<li><a href="/wiki/Rio_(windowing_system)" title="Rio (windowing system)">rio</a></li>
+<li><a href="/wiki/8%C2%BD_(Plan_9)" title="8½ (Plan 9)">8½</a></li>
+</ul>
+</div>
+</td>
+</tr>
+<tr style="height:2px;">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group">Publications</th>
+<td class="navbox-list navbox-even" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;">
+<div style="padding:0em 0.25em;">
+<ul>
+<li><i><a href="/wiki/The_Practice_of_Programming" title="The Practice of Programming">The Practice of Programming</a></i></li>
+<li><i><a href="/wiki/The_Unix_Programming_Environment" title="The Unix Programming Environment">The Unix Programming Environment</a></i></li>
+</ul>
+</div>
+</td>
+</tr>
+<tr style="height:2px;">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group">Other</th>
+<td class="navbox-list navbox-odd" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;">
+<div style="padding:0em 0.25em;">
+<ul>
+<li><a href="/wiki/Ren%C3%A9e_French" title="Renée French">Renée French</a></li>
+<li><a href="/wiki/Mark_V_Shaney" title="Mark V Shaney">Mark V Shaney</a></li>
+<li><a href="/wiki/UTF-8" title="UTF-8">UTF-8</a></li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<table cellspacing="0" class="navbox" style="border-spacing:0;">
+<tr>
+<td style="padding:2px;">
+<table cellspacing="0" class="nowraplinks hlist collapsible autocollapse navbox-inner" style="border-spacing:0;background:transparent;color:inherit;">
+<tr>
+<th scope="col" class="navbox-title" colspan="2">
+<div class="plainlinks hlist navbar mini">
+<ul>
+<li class="nv-view"><a href="/wiki/Template:Ken_Thompson_navbox" title="Template:Ken Thompson navbox"><span title="View this template" style=";;background:none transparent;border:none;;">v</span></a></li>
+<li class="nv-talk"><a href="/wiki/Template_talk:Ken_Thompson_navbox" title="Template talk:Ken Thompson navbox"><span title="Discuss this template" style=";;background:none transparent;border:none;;">t</span></a></li>
+<li class="nv-edit"><a class="external text" href="//en.wikipedia.org/w/index.php?title=Template:Ken_Thompson_navbox&amp;action=edit"><span title="Edit this template" style=";;background:none transparent;border:none;;">e</span></a></li>
+</ul>
+</div>
+<div style="font-size:110%;"><a href="/wiki/Ken_Thompson" title="Ken Thompson">Ken Thompson</a></div>
+</th>
+</tr>
+<tr style="height:2px;">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group">Operating systems</th>
+<td class="navbox-list navbox-odd" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;">
+<div style="padding:0em 0.25em;">
+<ul>
+<li><a href="/wiki/Unix" title="Unix">Unix</a></li>
+<li><a href="/wiki/Plan_9_from_Bell_Labs" title="Plan 9 from Bell Labs">Plan 9 from Bell Labs</a></li>
+</ul>
+</div>
+</td>
+</tr>
+<tr style="height:2px;">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group">Programming languages</th>
+<td class="navbox-list navbox-even" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;">
+<div style="padding:0em 0.25em;">
+<ul>
+<li><a href="/wiki/B_(programming_language)" title="B (programming language)">B</a></li>
+<li><a href="/wiki/Bon_(programming_language)" title="Bon (programming language)">Bon</a></li>
+<li><strong class="selflink">Go</strong></li>
+</ul>
+</div>
+</td>
+</tr>
+<tr style="height:2px;">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group">Software</th>
+<td class="navbox-list navbox-odd" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;">
+<div style="padding:0em 0.25em;">
+<ul>
+<li><a href="/wiki/Belle_(chess_machine)" title="Belle (chess machine)">Belle</a></li>
+<li><a href="/wiki/Ed_(text_editor)" title="Ed (text editor)">ed</a></li>
+<li><a href="/wiki/Sam_(text_editor)" title="Sam (text editor)">sam</a></li>
+<li><i><a href="/wiki/Space_Travel_(video_game)" title="Space Travel (video game)">Space Travel</a></i></li>
+</ul>
+</div>
+</td>
+</tr>
+<tr style="height:2px;">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group">Other</th>
+<td class="navbox-list navbox-even" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;">
+<div style="padding:0em 0.25em;">
+<ul>
+<li><a href="/wiki/UTF-8" title="UTF-8">UTF-8</a></li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+
+
+<!-- 
+NewPP limit report
+Parsed by mw1055
+CPU time usage: 2.056 seconds
+Real time usage: 2.219 seconds
+Preprocessor visited node count: 4361/1000000
+Preprocessor generated node count: 17642/1500000
+Post‐expand include size: 126008/2097152 bytes
+Template argument size: 5622/2097152 bytes
+Highest expansion depth: 20/40
+Expensive parser function count: 11/500
+Lua time usage: 0.209/10.000 seconds
+Lua memory usage: 3.99 MB/50 MB
+-->
+
+<!-- Saved in parser cache with key enwiki:pcache:idhash:25039021-0!*!0!!en!4!* and timestamp 20141109043131 and revision id 632918619
+ -->
+<noscript><img src="//en.wikipedia.org/wiki/Special:CentralAutoLogin/start?type=1x1" alt="" title="" width="1" height="1" style="border: none; position: absolute;" /></noscript></div>									<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="http://en.wikipedia.org/w/index.php?title=Go_(programming_language)&amp;oldid=632918619">http://en.wikipedia.org/w/index.php?title=Go_(programming_language)&amp;oldid=632918619</a>"					</div>
+													<div id='catlinks' class='catlinks'><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="/wiki/Help:Category" title="Help:Category">Categories</a>: <ul><li><a href="/wiki/Category:C_programming_language_family" title="Category:C programming language family">C programming language family</a></li><li><a href="/wiki/Category:Concurrent_programming_languages" title="Category:Concurrent programming languages">Concurrent programming languages</a></li><li><a href="/wiki/Category:Google_software" title="Category:Google software">Google software</a></li><li><a href="/wiki/Category:Procedural_programming_languages" title="Category:Procedural programming languages">Procedural programming languages</a></li><li><a href="/wiki/Category:Cross-platform_software" title="Category:Cross-platform software">Cross-platform software</a></li><li><a href="/wiki/Category:Programming_languages_created_in_2009" title="Category:Programming languages created in 2009">Programming languages created in 2009</a></li><li><a href="/wiki/Category:American_inventions" title="Category:American inventions">American inventions</a></li><li><a href="/wiki/Category:Software_using_the_BSD_license" title="Category:Software using the BSD license">Software using the BSD license</a></li><li><a href="/wiki/Category:Free_compilers_and_interpreters" title="Category:Free compilers and interpreters">Free compilers and interpreters</a></li></ul></div><div id="mw-hidden-catlinks" class="mw-hidden-catlinks mw-hidden-cats-hidden">Hidden categories: <ul><li><a href="/wiki/Category:Pages_with_citations_lacking_titles" title="Category:Pages with citations lacking titles">Pages with citations lacking titles</a></li><li><a href="/wiki/Category:Pages_with_citations_having_bare_URLs" title="Category:Pages with citations having bare URLs">Pages with citations having bare URLs</a></li><li><a href="/wiki/Category:CS1_errors:_missing_author_or_editor" title="Category:CS1 errors: missing author or editor">CS1 errors: missing author or editor</a></li><li><a href="/wiki/Category:All_articles_with_unsourced_statements" title="Category:All articles with unsourced statements">All articles with unsourced statements</a></li><li><a href="/wiki/Category:Articles_with_unsourced_statements_from_July_2014" title="Category:Articles with unsourced statements from July 2014">Articles with unsourced statements from July 2014</a></li><li><a href="/wiki/Category:Articles_containing_potentially_dated_statements_from_August_2014" title="Category:Articles containing potentially dated statements from August 2014">Articles containing potentially dated statements from August 2014</a></li><li><a href="/wiki/Category:All_articles_containing_potentially_dated_statements" title="Category:All articles containing potentially dated statements">All articles containing potentially dated statements</a></li><li><a href="/wiki/Category:Articles_prone_to_spam_from_June_2013" title="Category:Articles prone to spam from June 2013">Articles prone to spam from June 2013</a></li><li><a href="/wiki/Category:Use_dmy_dates_from_August_2011" title="Category:Use dmy dates from August 2011">Use dmy dates from August 2011</a></li></ul></div></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-createaccount"><a href="/w/index.php?title=Special:UserLogin&amp;returnto=Go+%28programming+language%29&amp;type=signup" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="/w/index.php?title=Special:UserLogin&amp;returnto=Go+%28programming+language%29" title="You're encouraged to log in; however, it's not mandatory. [o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li  id="ca-nstab-main" class="selected"><span><a href="/wiki/Go_(programming_language)"  title="View the content page [c]" accesskey="c">Article</a></span></li>
+															<li  id="ca-talk"><span><a href="/wiki/Talk:Go_(programming_language)"  title="Discussion about the content page [t]" accesskey="t">Talk</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label"><span>Variants</span><a href="#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="/wiki/Go_(programming_language)" >Read</a></span></li>
+															<li id="ca-edit"><span><a href="/w/index.php?title=Go_(programming_language)&amp;action=edit"  title="You can edit this page. Please use the preview button before saving [e]" accesskey="e">Edit</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="/w/index.php?title=Go_(programming_language)&amp;action=history"  title="Past versions of this page [h]" accesskey="h">View history</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label"><span>More</span><a href="#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="/w/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input type="search" name="search" placeholder="Search" title="Search Wikipedia [f]" accesskey="f" id="searchInput" /><input type="hidden" value="Special:Search" name="title" /><input type="submit" name="fulltext" value="Search" title="Search Wikipedia for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton" /><input type="submit" name="go" value="Go" title="Go to a page with this exact name if one exists" id="searchButton" class="searchButton" />								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a class="mw-wiki-logo" href="/wiki/Main_Page"  title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id='p-navigation' aria-labelledby='p-navigation-label'>
+			<h3 id='p-navigation-label'>Navigation</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-mainpage-description"><a href="/wiki/Main_Page" title="Visit the main page [z]" accesskey="z">Main page</a></li>
+													<li id="n-contents"><a href="/wiki/Portal:Contents" title="Guides to browsing Wikipedia">Contents</a></li>
+													<li id="n-featuredcontent"><a href="/wiki/Portal:Featured_content" title="Featured content – the best of Wikipedia">Featured content</a></li>
+													<li id="n-currentevents"><a href="/wiki/Portal:Current_events" title="Find background information on current events">Current events</a></li>
+													<li id="n-randompage"><a href="/wiki/Special:Random" title="Load a random article [x]" accesskey="x">Random article</a></li>
+													<li id="n-sitesupport"><a href="https://donate.wikimedia.org/wiki/Special:FundraiserRedirector?utm_source=donate&amp;utm_medium=sidebar&amp;utm_campaign=C13_en.wikipedia.org&amp;uselang=en" title="Support us">Donate to Wikipedia</a></li>
+													<li id="n-shoplink"><a href="//shop.wikimedia.org" title="Visit the Wikimedia Shop">Wikimedia Shop</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-interaction' aria-labelledby='p-interaction-label'>
+			<h3 id='p-interaction-label'>Interaction</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-help"><a href="/wiki/Help:Contents" title="Guidance on how to use and edit Wikipedia">Help</a></li>
+													<li id="n-aboutsite"><a href="/wiki/Wikipedia:About" title="Find out about Wikipedia">About Wikipedia</a></li>
+													<li id="n-portal"><a href="/wiki/Wikipedia:Community_portal" title="About the project, what you can do, where to find things">Community portal</a></li>
+													<li id="n-recentchanges"><a href="/wiki/Special:RecentChanges" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li>
+													<li id="n-contactpage"><a href="//en.wikipedia.org/wiki/Wikipedia:Contact_us">Contact page</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-tb' aria-labelledby='p-tb-label'>
+			<h3 id='p-tb-label'>Tools</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="/wiki/Special:WhatLinksHere/Go_(programming_language)" title="List of all English Wikipedia pages containing links to this page [j]" accesskey="j">What links here</a></li>
+													<li id="t-recentchangeslinked"><a href="/wiki/Special:RecentChangesLinked/Go_(programming_language)" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+													<li id="t-upload"><a href="/wiki/Wikipedia:File_Upload_Wizard" title="Upload files [u]" accesskey="u">Upload file</a></li>
+													<li id="t-specialpages"><a href="/wiki/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li>
+													<li id="t-permalink"><a href="/w/index.php?title=Go_(programming_language)&amp;oldid=632918619" title="Permanent link to this revision of the page">Permanent link</a></li>
+													<li id="t-info"><a href="/w/index.php?title=Go_(programming_language)&amp;action=info" title="More information about this page">Page information</a></li>
+													<li id="t-wikibase"><a href="//www.wikidata.org/wiki/Q37227" title="Link to connected data repository item [g]" accesskey="g">Wikidata item</a></li>
+						<li id="t-cite"><a href="/w/index.php?title=Special:CiteThisPage&amp;page=Go_%28programming_language%29&amp;id=632918619" title="Information on how to cite this page">Cite this page</a></li>					</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-coll-print_export' aria-labelledby='p-coll-print_export-label'>
+			<h3 id='p-coll-print_export-label'>Print/export</h3>
+
+			<div class="body">
+									<ul>
+													<li id="coll-create_a_book"><a href="/w/index.php?title=Special:Book&amp;bookcmd=book_creator&amp;referer=Go+%28programming+language%29">Create a book</a></li>
+													<li id="coll-download-as-rdf2latex"><a href="/w/index.php?title=Special:Book&amp;bookcmd=render_article&amp;arttitle=Go+%28programming+language%29&amp;oldid=632918619&amp;writer=rdf2latex">Download as PDF</a></li>
+													<li id="t-print"><a href="/w/index.php?title=Go_(programming_language)&amp;printable=yes" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-lang' aria-labelledby='p-lang-label'>
+			<h3 id='p-lang-label'>Languages</h3>
+
+			<div class="body">
+									<ul>
+													<li class="interlanguage-link interwiki-ar"><a href="//ar.wikipedia.org/wiki/%D8%BA%D9%88_(%D9%84%D8%BA%D8%A9_%D8%A8%D8%B1%D9%85%D8%AC%D8%A9)" title="غو (لغة برمجة) – Arabic" lang="ar" hreflang="ar">العربية</a></li>
+													<li class="interlanguage-link interwiki-bg"><a href="//bg.wikipedia.org/wiki/Go_(%D0%B5%D0%B7%D0%B8%D0%BA_%D0%B7%D0%B0_%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%B8%D1%80%D0%B0%D0%BD%D0%B5)" title="Go (език за програмиране) – Bulgarian" lang="bg" hreflang="bg">Български</a></li>
+													<li class="interlanguage-link interwiki-cs"><a href="//cs.wikipedia.org/wiki/Go_(programovac%C3%AD_jazyk)" title="Go (programovací jazyk) – Czech" lang="cs" hreflang="cs">Čeština</a></li>
+													<li class="interlanguage-link interwiki-da"><a href="//da.wikipedia.org/wiki/Go_(programmeringssprog)" title="Go (programmeringssprog) – Danish" lang="da" hreflang="da">Dansk</a></li>
+													<li class="interlanguage-link interwiki-de"><a href="//de.wikipedia.org/wiki/Go_(Programmiersprache)" title="Go (Programmiersprache) – German" lang="de" hreflang="de">Deutsch</a></li>
+													<li class="interlanguage-link interwiki-es"><a href="//es.wikipedia.org/wiki/Go_(lenguaje_de_programaci%C3%B3n)" title="Go (lenguaje de programación) – Spanish" lang="es" hreflang="es">Español</a></li>
+													<li class="interlanguage-link interwiki-fa"><a href="//fa.wikipedia.org/wiki/%DA%AF%D9%88_(%D8%B2%D8%A8%D8%A7%D9%86_%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D9%87%E2%80%8C%D9%86%D9%88%DB%8C%D8%B3%DB%8C)" title="گو (زبان برنامه‌نویسی) – Persian" lang="fa" hreflang="fa">فارسی</a></li>
+													<li class="interlanguage-link interwiki-fr"><a href="//fr.wikipedia.org/wiki/Go_(langage)" title="Go (langage) – French" lang="fr" hreflang="fr">Français</a></li>
+													<li class="interlanguage-link interwiki-gu"><a href="//gu.wikipedia.org/wiki/%E0%AA%97%E0%AB%8B_(%E0%AA%AA%E0%AB%8D%E0%AA%B0%E0%AB%8B%E0%AA%97%E0%AB%8D%E0%AA%B0%E0%AA%BE%E0%AA%AE%E0%AA%BF%E0%AA%82%E0%AA%97_%E0%AA%AD%E0%AA%BE%E0%AA%B7%E0%AA%BE)" title="ગો (પ્રોગ્રામિંગ ભાષા) – Gujarati" lang="gu" hreflang="gu">ગુજરાતી</a></li>
+													<li class="interlanguage-link interwiki-ko"><a href="//ko.wikipedia.org/wiki/Go_(%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D_%EC%96%B8%EC%96%B4)" title="Go (프로그래밍 언어) – Korean" lang="ko" hreflang="ko">한국어</a></li>
+													<li class="interlanguage-link interwiki-is"><a href="//is.wikipedia.org/wiki/Go_(forritunarm%C3%A1l)" title="Go (forritunarmál) – Icelandic" lang="is" hreflang="is">Íslenska</a></li>
+													<li class="interlanguage-link interwiki-it"><a href="//it.wikipedia.org/wiki/Go_(linguaggio_di_programmazione)" title="Go (linguaggio di programmazione) – Italian" lang="it" hreflang="it">Italiano</a></li>
+													<li class="interlanguage-link interwiki-he"><a href="//he.wikipedia.org/wiki/Go_(%D7%A9%D7%A4%D7%AA_%D7%AA%D7%9B%D7%A0%D7%95%D7%AA)" title="Go (שפת תכנות) – Hebrew" lang="he" hreflang="he">עברית</a></li>
+													<li class="interlanguage-link interwiki-hu"><a href="//hu.wikipedia.org/wiki/Go_(programoz%C3%A1si_nyelv)" title="Go (programozási nyelv) – Hungarian" lang="hu" hreflang="hu">Magyar</a></li>
+													<li class="interlanguage-link interwiki-ms"><a href="//ms.wikipedia.org/wiki/Go_(bahasa_pengaturcaraan)" title="Go (bahasa pengaturcaraan) – Malay" lang="ms" hreflang="ms">Bahasa Melayu</a></li>
+													<li class="interlanguage-link interwiki-nl"><a href="//nl.wikipedia.org/wiki/Go_(programmeertaal)" title="Go (programmeertaal) – Dutch" lang="nl" hreflang="nl">Nederlands</a></li>
+													<li class="interlanguage-link interwiki-ja"><a href="//ja.wikipedia.org/wiki/Go_(%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0%E8%A8%80%E8%AA%9E)" title="Go (プログラミング言語) – Japanese" lang="ja" hreflang="ja">日本語</a></li>
+													<li class="interlanguage-link interwiki-no"><a href="//no.wikipedia.org/wiki/Go_(programmeringsspr%C3%A5k)" title="Go (programmeringsspråk) – Norwegian (bokmål)" lang="no" hreflang="no">Norsk bokmål</a></li>
+													<li class="interlanguage-link interwiki-pl"><a href="//pl.wikipedia.org/wiki/Go_(j%C4%99zyk_programowania)" title="Go (język programowania) – Polish" lang="pl" hreflang="pl">Polski</a></li>
+													<li class="interlanguage-link interwiki-pt"><a href="//pt.wikipedia.org/wiki/Go_(linguagem_de_programa%C3%A7%C3%A3o)" title="Go (linguagem de programação) – Portuguese" lang="pt" hreflang="pt">Português</a></li>
+													<li class="interlanguage-link interwiki-ru"><a href="//ru.wikipedia.org/wiki/Go" title="Go – Russian" lang="ru" hreflang="ru">Русский</a></li>
+													<li class="interlanguage-link interwiki-sr"><a href="//sr.wikipedia.org/wiki/%D0%93%D0%BE%D1%83" title="Гоу – Serbian" lang="sr" hreflang="sr">Српски / srpski</a></li>
+													<li class="interlanguage-link interwiki-fi"><a href="//fi.wikipedia.org/wiki/Go_(ohjelmointikieli)" title="Go (ohjelmointikieli) – Finnish" lang="fi" hreflang="fi">Suomi</a></li>
+													<li class="interlanguage-link interwiki-sv"><a href="//sv.wikipedia.org/wiki/Go_(programspr%C3%A5k)" title="Go (programspråk) – Swedish" lang="sv" hreflang="sv">Svenska</a></li>
+													<li class="interlanguage-link interwiki-ta"><a href="//ta.wikipedia.org/wiki/%E0%AE%95%E0%AF%8B_(%E0%AE%A8%E0%AE%BF%E0%AE%B0%E0%AE%B2%E0%AE%BE%E0%AE%95%E0%AF%8D%E0%AE%95_%E0%AE%AE%E0%AF%8A%E0%AE%B4%E0%AE%BF)" title="கோ (நிரலாக்க மொழி) – Tamil" lang="ta" hreflang="ta">தமிழ்</a></li>
+													<li class="interlanguage-link interwiki-tr"><a href="//tr.wikipedia.org/wiki/Go_(programlama_dili)" title="Go (programlama dili) – Turkish" lang="tr" hreflang="tr">Türkçe</a></li>
+													<li class="interlanguage-link interwiki-uk"><a href="//uk.wikipedia.org/wiki/Go_(%D0%BC%D0%BE%D0%B2%D0%B0_%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D1%83%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F)" title="Go (мова програмування) – Ukrainian" lang="uk" hreflang="uk">Українська</a></li>
+													<li class="interlanguage-link interwiki-vi"><a href="//vi.wikipedia.org/wiki/Go_(ng%C3%B4n_ng%E1%BB%AF_l%E1%BA%ADp_tr%C3%ACnh)" title="Go (ngôn ngữ lập trình) – Vietnamese" lang="vi" hreflang="vi">Tiếng Việt</a></li>
+													<li class="interlanguage-link interwiki-zh"><a href="//zh.wikipedia.org/wiki/Go" title="Go – Chinese" lang="zh" hreflang="zh">中文</a></li>
+													<li class="uls-p-lang-dummy"><a href="#"></a></li>
+											</ul>
+				<div class='after-portlet after-portlet-lang'><span class="wb-langlinks-edit wb-langlinks-link"><a action="edit" href="//www.wikidata.org/wiki/Q37227#sitelinks-wikipedia" text="Edit links" title="Edit interlanguage links" class="wbc-editpage">Edit links</a></span></div>			</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 8 November 2014 at 05:04.<br /></li>
+											<li id="footer-info-copyright">Text is available under the <a rel="license" href="//en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License">Creative Commons Attribution-ShareAlike License</a><a rel="license" href="//creativecommons.org/licenses/by-sa/3.0/" style="display:none;"></a>;
+additional terms may apply.  By using this site, you agree to the <a href="//wikimediafoundation.org/wiki/Terms_of_Use">Terms of Use</a> and <a href="//wikimediafoundation.org/wiki/Privacy_policy">Privacy Policy</a>. Wikipedia® is a registered trademark of the <a href="//www.wikimediafoundation.org/">Wikimedia Foundation, Inc.</a>, a non-profit organization.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="//wikimediafoundation.org/wiki/Privacy_policy" title="wikimedia:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="/wiki/Wikipedia:About" title="Wikipedia:About">About Wikipedia</a></li>
+											<li id="footer-places-disclaimer"><a href="/wiki/Wikipedia:General_disclaimer" title="Wikipedia:General disclaimer">Disclaimers</a></li>
+											<li id="footer-places-contact"><a href="//en.wikipedia.org/wiki/Wikipedia:Contact_us">Contact Wikipedia</a></li>
+											<li id="footer-places-developers"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/How_to_contribute">Developers</a></li>
+											<li id="footer-places-mobileview"><a href="//en.m.wikipedia.org/w/index.php?title=Go_(programming_language)&amp;mobileaction=toggle_view_mobile" class="noprint stopMobileRedirectToggle">Mobile view</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-copyrightico">
+															<a href="//wikimediafoundation.org/"><img src="//bits.wikimedia.org/images/wikimedia-button.png" srcset="//bits.wikimedia.org/images/wikimedia-button-1.5x.png 1.5x, //bits.wikimedia.org/images/wikimedia-button-2x.png 2x" width="88" height="31" alt="Wikimedia Foundation"/></a>
+													</li>
+											<li id="footer-poweredbyico">
+															<a href="//www.mediawiki.org/"><img src="//bits.wikimedia.org/static-1.25wmf6/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" width="88" height="31" /></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>/*<![CDATA[*/window.jQuery && jQuery.ready();/*]]>*/</script><script>if(window.mw){
+mw.loader.state({"ext.globalCssJs.site":"ready","ext.globalCssJs.user":"ready","site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["ext.cite","mediawiki.toc","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest","ext.gadget.teahouse","ext.gadget.ReferenceTooltips","ext.gadget.DRN-wizard","ext.gadget.charinsert","ext.gadget.refToolbar","ext.gadget.featured-articles-links","mmv.bootstrap.autostart","ext.eventLogging.subscriber","ext.navigationTiming","schema.UniversalLanguageSelector","ext.uls.eventlogger","ext.uls.interlanguage"],null,true);
+}</script>
+<script>if(window.mw){
+document.write("\u003Cscript src=\"//bits.wikimedia.org/en.wikipedia.org/load.php?debug=false\u0026amp;lang=en\u0026amp;modules=site\u0026amp;only=scripts\u0026amp;skin=vector\u0026amp;*\"\u003E\u003C/script\u003E");
+}</script>
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":2448,"wgHostname":"mw1055"});
+}</script>
+	</body>
+</html>

@@ -28,25 +28,25 @@ $ curl -s https://news.ycombinator.com/
 Ew, HTML. Let's run that through some pup selectors:
 
 ```bash
-$ curl -s https://news.ycombinator.com/ | pup 'td.title a[href^=http] attr{href}'
+$ curl -s https://news.ycombinator.com/ | pup 'table table tr:nth-last-of-type(n+2) td.title a'
+```
+
+Okay, how about only the links?
+
+```bash
+$ curl -s https://news.ycombinator.com/ | pup 'table table tr:nth-last-of-type(n+2) td.title a attr{href}'
 ```
 
 Even better, let's grab the titles too:
 
 ```bash
-$ curl -s https://news.ycombinator.com/ | pup 'td.title a[href^=http] json{}'
+$ curl -s https://news.ycombinator.com/ | pup 'table table tr:nth-last-of-type(n+2) td.title a json{}'
 ```
 
 ## Basic Usage
 
 ```bash
-$ cat index.html | pup [flags] [selectors] [optional display function]
-```
-
-or
-
-```bash
-$ pup < index.html [flags] [selectors] [optional display function]
+$ cat index.html | pup [flags] '[selectors] [display function]'
 ```
 
 ## Examples
@@ -69,123 +69,133 @@ $ cat robots.html | pup --color
 ```
 
 ####Filter by tag
+
 ```bash
-$ pup < robots.html title
+$ cat robots.html | pup 'title'
 <title>
  Robots exclusion standard - Wikipedia, the free encyclopedia
 </title>
 ```
 
 ####Filter by id
+
 ```bash
-$ pup < robots.html span#See_also
+$ cat robots.html | pup 'span#See_also'
 <span class="mw-headline" id="See_also">
  See also
 </span>
 ```
 
+####Filter by attribute
+
+```bash
+$ cat robots.html | pup 'th[scope="row"]'
+<th scope="row" class="navbox-group">
+ Exclusion standards
+</th>
+<th scope="row" class="navbox-group">
+ Related marketing topics
+</th>
+<th scope="row" class="navbox-group">
+ Search marketing related topics
+</th>
+<th scope="row" class="navbox-group">
+ Search engine spam
+</th>
+<th scope="row" class="navbox-group">
+ Linking
+</th>
+<th scope="row" class="navbox-group">
+ People
+</th>
+<th scope="row" class="navbox-group">
+ Other
+</th>
+```
+
+####Pseudo Classes
+
+CSS selectors have a group of specifiers called ["pseudo classes"](
+https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes)  which are pretty
+cool. pup implements a majority of the relevant ones them.
+
+Here are some examples.
+
+```bash
+$ cat robots.html | pup 'a[rel]:empty'
+<a rel="license" href="//creativecommons.org/licenses/by-sa/3.0/" style="display:none;">
+</a>
+```
+
+```bash
+$ cat robots.html | pup ':contains("History")'
+<span class="toctext">
+ History
+</span>
+<span class="mw-headline" id="History">
+ History
+</span>
+```
+
+For a complete list, view the [implemented selectors](#Implemented Selectors)
+section.
+
 ####Chain selectors together
 
-The following two commands are (somewhat) equivalent.
+When combining selectors, the HTML nodes selected by the previous selector will
+be passed to the next ones.
 
 ```bash
-$ pup < robots.html table.navbox ul a | tail
+$ cat robots.html | pup 'h1#firstHeading'
+<h1 id="firstHeading" class="firstHeading" lang="en">
+ <span dir="auto">
+  Robots exclusion standard
+ </span>
+</h1>
 ```
 
 ```bash
-$ pup < robots.html table.navbox | pup ul | pup a | tail
-```
-
-Both produce the ouput:
-
-```bash
-</a>
-<a href="/wiki/Stop_words" title="Stop words">
- Stop words
-</a>
-<a href="/wiki/Poison_words" title="Poison words">
- Poison words
-</a>
-<a href="/wiki/Content_farm" title="Content farm">
- Content farm
-</a>
-```
-
-Because pup reconstructs the HTML parse tree, funny things can
-happen when piping two commands together. I'd recommend chaining
-commands rather than pipes.
-
-####Limit print level
-
-```bash
-$ pup < robots.html table -l 2
-<table class="metadata plainlinks ambox ambox-content" role="presentation">
- <tbody>
-  ...
- </tbody>
-</table>
-<table style="background:#f9f9f9;font-size:85%;line-height:110%;max-width:175px;">
- <tbody>
-  ...
- </tbody>
-</table>
-<table cellspacing="0" class="navbox" style="border-spacing:0;">
- <tbody>
-  ...
- </tbody>
-</table>
-```
-
-####Slices
-
-Slices allow you to do simple `{start:end:by}` operations to limit the number of nodes
-selected for the next round of selection.
-
-Provide one number for a simple index.
-
-```bash
-$ pup < robots.html a slice{0}
-<a id="top">
-</a>
-```
-
-You can provide an end to limit the number of nodes selected.
-
-```bash
-$ # {:3} is the same as {0:3}
-$ pup < robots.html a slice{:3}
-<a id="top">
-</a>
-<a href="#mw-navigation">
- navigation
-</a>
-<a href="#p-search">
- search
-</a>
+$ cat robots.html | pup 'h1#firstHeading span'
+<span dir="auto">
+ Robots exclusion standard
+</span>
 ```
 
 ## Implemented Selectors
 
-For further examples of these selectors head over to [MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference).
+For further examples of these selectors head over to [MDN](
+https://developer.mozilla.org/en-US/docs/Web/CSS/Reference).
 
 ```bash
-cat index.html | pup .class
-# '#' indicates comments at the command line so you have to escape it
-cat index.html | pup \#id
-cat index.html | pup element
-cat index.html | pup [attribute]
-cat index.html | pup [attribute=value]
-# Probably best to quote enclose wildcards
-cat index.html | pup '[attribute*=value]'
-cat index.html | pup [attribute~=value]
-cat index.html | pup [attribute^=value]
-cat index.html | pup [attribute$=value]
+cat index.html | pup '.class'
+cat index.html | pup '#id'
+cat index.html | pup 'element'
+cat index.html | pup 'selector + selector'
+cat index.html | pup 'selector > selector'
+cat index.html | pup '[attribute]'
+cat index.html | pup '[attribute="value"]'
+cat index.html | pup '[attribute*="value"]'
+cat index.html | pup '[attribute~="value"]'
+cat index.html | pup '[attribute^="value"]'
+cat index.html | pup '[attribute$="value"]'
+cat index.html | pup ':empty'
+cat index.html | pup ':first-child'
+cat index.html | pup ':first-of-type'
+cat index.html | pup ':last-child'
+cat index.html | pup ':last-of-type'
+cat index.html | pup ':only-child'
+cat index.html | pup ':only-of-type'
+cat index.html | pup ':contains("text")'
+cat index.html | pup ':nth-child(n)'
+cat index.html | pup ':nth-of-type(n)'
+cat index.html | pup ':nth-last-child(n)'
+cat index.html | pup ':nth-last-of-type(n)'
 ```
 
 You can mix and match selectors as you wish.
 
 ```bash
-cat index.html | pup element#id[attribute=value]
+cat index.html | pup 'element#id[attribute="value"]:first-of-type'
 ```
 
 ## Display Functions
@@ -198,7 +208,7 @@ which can be provided as a final argument.
 Print all text from selected nodes and children in depth first order.
 
 ```bash
-$ cat robots.html | pup .mw-headline text{}
+$ cat robots.html | pup '.mw-headline text{}'
 History
 About the standard
 Disadvantages
@@ -221,17 +231,9 @@ External links
 Print the values of all attributes with a given key from all selected nodes.
 
 ```bash
-$ pup < robots.html a attr{href} | head
-#mw-navigation
-#p-search
-/wiki/MediaWiki:Robots.txt
-//en.wikipedia.org/robots.txt
-/wiki/Wikipedia:What_Wikipedia_is_not#NOTHOWTO
-//en.wikipedia.org/w/index.php?title=Robots_exclusion_standard&action=edit
-//meta.wikimedia.org/wiki/Help:Transwiki
-//en.wikiversity.org/wiki/
-//en.wikibooks.org/wiki/
-//en.wikivoyage.org/wiki/
+$ cat robots.html | pup '.catlinks div attr{id}'
+mw-normal-catlinks
+mw-hidden-catlinks
 ```
 
 #### `json{}`
@@ -239,7 +241,7 @@ $ pup < robots.html a attr{href} | head
 Print HTML as JSON.
 
 ```bash
-$ cat robots.html  | pup div#p-namespaces a
+$ cat robots.html  | pup 'div#p-namespaces a'
 <a href="/wiki/Robots_exclusion_standard" title="View the content page [c]" accesskey="c">
  Article
 </a>
@@ -249,25 +251,21 @@ $ cat robots.html  | pup div#p-namespaces a
 ```
 
 ```bash
-$ cat robots.html  | pup div#p-namespaces a json{}
+$ cat robots.html | pup 'div#p-namespaces a json{}'
 [
  {
-  "attrs": {
-   "accesskey": "c",
-   "href": "/wiki/Robots_exclusion_standard",
-   "title": "View the content page [c]"
-  },
+  "accesskey": "c",
+  "href": "/wiki/Robots_exclusion_standard",
   "tag": "a",
-  "text": "Article"
+  "text": "Article",
+  "title": "View the content page [c]"
  },
  {
-  "attrs": {
-   "accesskey": "t",
-   "href": "/wiki/Talk:Robots_exclusion_standard",
-   "title": "Discussion about the content page [t]"
-  },
+  "accesskey": "t",
+  "href": "/wiki/Talk:Robots_exclusion_standard",
   "tag": "a",
-  "text": "Talk"
+  "text": "Talk",
+  "title": "Discussion about the content page [t]"
  }
 ]
 ```
@@ -275,25 +273,21 @@ $ cat robots.html  | pup div#p-namespaces a json{}
 Use the `-i` / `--indent` flag to control the intent level.
 
 ```bash
-$ cat robots.html  | pup --indent 4 div#p-namespaces a json{}
+$ cat robots.html | pup -i 4 'div#p-namespaces a json{}'
 [
     {
-        "attrs": {
-            "accesskey": "c",
-            "href": "/wiki/Robots_exclusion_standard",
-            "title": "View the content page [c]"
-        },
+        "accesskey": "c",
+        "href": "/wiki/Robots_exclusion_standard",
         "tag": "a",
-        "text": "Article"
+        "text": "Article",
+        "title": "View the content page [c]"
     },
     {
-        "attrs": {
-            "accesskey": "t",
-            "href": "/wiki/Talk:Robots_exclusion_standard",
-            "title": "Discussion about the content page [t]"
-        },
+        "accesskey": "t",
+        "href": "/wiki/Talk:Robots_exclusion_standard",
         "tag": "a",
-        "text": "Talk"
+        "text": "Talk",
+        "title": "Discussion about the content page [t]"
     }
 ]
 ```
@@ -302,7 +296,7 @@ If the selectors only return one element the results will be printed as a JSON
 object, not a list.
 
 ```bash
-$ cat robots.html  | pup --indent 4 title json{}
+$ cat robots.html  | pup --indent 4 'title json{}'
 {
     "tag": "title",
     "text": "Robots exclusion standard - Wikipedia, the free encyclopedia"
@@ -323,30 +317,4 @@ output of pup into a more consumable format.
 -n --number        print number of elements selected
 -l --limit         restrict number of levels printed
 --version          display version
-```
-
-## TODO
-
-Add more selectors:
-
-```
-div > p
-div + p
-
-p:contains
-
-p:empty
-
-p:first-child
-p:first-of-type
-p:last-child
-p:last-of-type
-
-p:nth-child(2)
-p:nth-last-child(2)
-p:nth-last-of-type(2)
-p:nth-of-type(2)
-
-p:only-of-type
-p:only-child
 ```

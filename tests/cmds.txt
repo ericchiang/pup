@@ -1,0 +1,40 @@
+#footer
+#footer li
+#footer li + a
+#footer li + a attr{title}
+#footer li > li
+table li
+table li:first-child
+table li:first-of-type
+table li:last-child
+table li:last-of-type
+table a[title="The Practice of Programming"]
+table a[title="The Practice of Programming"] text{}
+json{}
+text{}
+.after-portlet
+.after
+:empty
+td:empty
+.navbox-list li:nth-child(1)
+.navbox-list li:nth-child(2)
+.navbox-list li:nth-child(3)
+.navbox-list li:nth-last-child(1)
+.navbox-list li:nth-last-child(2)
+.navbox-list li:nth-last-child(3)
+.navbox-list li:nth-child(n+1)
+.navbox-list li:nth-child(3n+1)
+.navbox-list li:nth-last-child(n+1)
+.navbox-list li:nth-last-child(3n+1)
+:only-child
+.navbox-list li:only-child
+.summary
+[class=summary]
+[class="summary"]
+#toc
+#toc li + a
+#toc li + a text{}
+#toc li + a json{}
+#toc li + a + span
+#toc li + span
+#toc li > li
