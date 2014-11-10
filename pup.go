@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"os"
 
-	"code.google.com/p/go.net/html"
-	"code.google.com/p/go.net/html/charset"
+	"golang.org/x/net/html"
+	"golang.org/x/net/html/charset"
 )
 
 //      _=,_
