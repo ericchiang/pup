@@ -378,6 +378,14 @@ func ParsePseudo(selector *CSSSelector, s scanner.Scanner) error {
 		if selector.Pseudo, err = parseNthPseudo(cmd); err != nil {
 			return err
 		}
+	case strings.HasPrefix(cmd, "not("):
+		if selector.Pseudo, err = parseNotPseudo(cmd[len("not("):]); err != nil {
+			return err
+		}
+	case strings.HasPrefix(cmd, "parent-of("):
+		if selector.Pseudo, err = parseParentOfPseudo(cmd[len("parent-of("):]); err != nil {
+			return err
+		}
 	default:
 		return fmt.Errorf("%s not a valid pseudo class", cmd)
 	}
@@ -582,4 +590,55 @@ func parseContainsPseudo(cmd string) (PseudoClass, error) {
 			}
 		}
 	}
+}
+
+// Parse a :not(selector) selector
+// expects the input to be everything after the open parenthesis
+// e.g. for `not(div#id)` the argument would be `div#id)`
+func parseNotPseudo(cmd string) (PseudoClass, error) {
+	if len(cmd) < 2 {
+		return nil, fmt.Errorf("malformed ':not' selector")
+	}
+	endQuote, cmd := cmd[len(cmd)-1], cmd[:len(cmd)-1]
+	selector, err := ParseSelector(cmd)
+	if err != nil {
+		return nil, err
+	}
+	if selector.Pseudo != nil {
+		return nil, fmt.Errorf("selector within ':not' may not contain a pseudo class")
+	}
+	if endQuote != ')' {
+		return nil, fmt.Errorf("unmatched '('")
+	}
+	return func(n *html.Node) bool {
+		return !selector.Match(n)
+	}, nil
+}
+
+// Parse a :parent-of(selector) selector
+// expects the input to be everything after the open parenthesis
+// e.g. for `parent-of(div#id)` the argument would be `div#id)`
+func parseParentOfPseudo(cmd string) (PseudoClass, error) {
+	if len(cmd) < 2 {
+		return nil, fmt.Errorf("malformed ':parent-of' selector")
+	}
+	endQuote, cmd := cmd[len(cmd)-1], cmd[:len(cmd)-1]
+	selector, err := ParseSelector(cmd)
+	if err != nil {
+		return nil, err
+	}
+	if selector.Pseudo != nil {
+		return nil, fmt.Errorf("selector within ':parent-of' may not contain a pseudo class")
+	}
+	if endQuote != ')' {
+		return nil, fmt.Errorf("unmatched '('")
+	}
+	return func(n *html.Node) bool {
+		for c := n.FirstChild; c != nil; c = c.NextSibling {
+			if c.Type == html.ElementNode && selector.Match(c) {
+				return true
+			}
+		}
+		return false
+	}, nil
 }

@@ -38,3 +38,4 @@ td:empty
 #toc li + a + span
 #toc li + span
 #toc li > li
+li a:not([rel])

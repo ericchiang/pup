@@ -38,3 +38,4 @@ dbc580de40eeb8448f0dbe1b98d74cf799a6868b #toc li + a
 0cd687baaf08605bf6a68e3c285c5e8a41e0c9b2 #toc li + a + span
 da39a3ee5e6b4b0d3255bfef95601890afd80709 #toc li + span
 5d6e3ed3cfe310cde185cbfe1bba6aa7ec2a7f8d #toc li > li
+87eee1189dd5296d6c010a1ad329fc53c6099d72 li a:not([rel])
