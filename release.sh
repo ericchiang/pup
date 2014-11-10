@@ -2,6 +2,8 @@
 
 set -e
 
+rm -f dist/*
+
 gox -output "dist/{{.Dir}}_{{.OS}}_{{.Arch}}"
 
 cd dist

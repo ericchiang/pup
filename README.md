@@ -137,6 +137,15 @@ $ cat robots.html | pup ':contains("History")'
 </span>
 ```
 
+```bash
+$ cat robots.html | pup ':parent-of([action="edit"])'
+<span class="wb-langlinks-edit wb-langlinks-link">
+ <a action="edit" href="//www.wikidata.org/wiki/Q80776#sitelinks-wikipedia" text="Edit links" title="Edit interlanguage links" class="wbc-editpage">
+  Edit links
+ </a>
+</span>
+```
+
 For a complete list, view the [implemented selectors](#Implemented Selectors)
 section.
 
@@ -167,29 +176,31 @@ For further examples of these selectors head over to [MDN](
 https://developer.mozilla.org/en-US/docs/Web/CSS/Reference).
 
 ```bash
-cat index.html | pup '.class'
-cat index.html | pup '#id'
-cat index.html | pup 'element'
-cat index.html | pup 'selector + selector'
-cat index.html | pup 'selector > selector'
-cat index.html | pup '[attribute]'
-cat index.html | pup '[attribute="value"]'
-cat index.html | pup '[attribute*="value"]'
-cat index.html | pup '[attribute~="value"]'
-cat index.html | pup '[attribute^="value"]'
-cat index.html | pup '[attribute$="value"]'
-cat index.html | pup ':empty'
-cat index.html | pup ':first-child'
-cat index.html | pup ':first-of-type'
-cat index.html | pup ':last-child'
-cat index.html | pup ':last-of-type'
-cat index.html | pup ':only-child'
-cat index.html | pup ':only-of-type'
-cat index.html | pup ':contains("text")'
-cat index.html | pup ':nth-child(n)'
-cat index.html | pup ':nth-of-type(n)'
-cat index.html | pup ':nth-last-child(n)'
-cat index.html | pup ':nth-last-of-type(n)'
+pup '.class'
+pup '#id'
+pup 'element'
+pup 'selector + selector'
+pup 'selector > selector'
+pup '[attribute]'
+pup '[attribute="value"]'
+pup '[attribute*="value"]'
+pup '[attribute~="value"]'
+pup '[attribute^="value"]'
+pup '[attribute$="value"]'
+pup ':empty'
+pup ':first-child'
+pup ':first-of-type'
+pup ':last-child'
+pup ':last-of-type'
+pup ':only-child'
+pup ':only-of-type'
+pup ':contains("text")'
+pup ':nth-child(n)'
+pup ':nth-of-type(n)'
+pup ':nth-last-child(n)'
+pup ':nth-last-of-type(n)'
+pup ':not(selector)'
+pup ':parent-of(selector)'
 ```
 
 You can mix and match selectors as you wish.
