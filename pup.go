@@ -21,7 +21,11 @@ var VERSION string = "0.3.4"
 
 func main() {
 	// process flags and arguments
-	cmds := ParseArgs()
+	cmds, err := ParseArgs()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "%s\n", err.Error())
+		os.Exit(2)
+	}
 
 	// Determine the charset of the input
 	cr, err := charset.NewReader(pupIn, "")

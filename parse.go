@@ -34,22 +34,23 @@ Flags
 	os.Exit(exitCode)
 }
 
-func ParseArgs() []string {
-	cmds := ProcessFlags(os.Args[1:])
+func ParseArgs() ([]string, error) {
+	cmds, err := ProcessFlags(os.Args[1:])
+	if err != nil {
+		return []string{}, err
+	}
 	return ParseCommands(strings.Join(cmds, " "))
 }
 
 // Process command arguments and return all non-flags.
-func ProcessFlags(cmds []string) []string {
+func ProcessFlags(cmds []string) (nonFlagCmds []string, err error) {
 	var i int
-	var err error
 	defer func() {
 		if r := recover(); r != nil {
-			fmt.Fprintf(os.Stderr, "Option '%s' requires an argument", cmds[i])
-			os.Exit(2)
+			err = fmt.Errorf("Option '%s' requires an argument", cmds[i])
 		}
 	}()
-	nonFlagCmds := make([]string, len(cmds))
+	nonFlagCmds = make([]string, len(cmds))
 	n := 0
 	for i = 0; i < len(cmds); i++ {
 		cmd := cmds[i]
@@ -77,8 +78,7 @@ func ProcessFlags(cmds []string) []string {
 		case "-l", "--limit":
 			pupMaxPrintLevel, err = strconv.Atoi(cmds[i+1])
 			if err != nil {
-				fmt.Fprintf(os.Stderr, "Argument for '%s' must be numeric\n", cmd)
-				os.Exit(2)
+				return []string{}, fmt.Errorf("Argument for '%s' must be numeric", cmd)
 			}
 			i++
 		case "--version":
@@ -86,18 +86,17 @@ func ProcessFlags(cmds []string) []string {
 			os.Exit(0)
 		default:
 			if cmd[0] == '-' {
-				fmt.Fprintf(os.Stderr, "Unrecognized flag '%s'", cmd)
-				os.Exit(2)
+				return []string{}, fmt.Errorf("Unrecognized flag '%s'", cmd)
 			}
 			nonFlagCmds[n] = cmds[i]
 			n++
 		}
 	}
-	return nonFlagCmds[:n]
+	return nonFlagCmds[:n], nil
 }
 
-// Split a string with awareness for quoted text
-func ParseCommands(cmdString string) []string {
+// Split a string with awareness for quoted text and commas
+func ParseCommands(cmdString string) ([]string, error) {
 	cmds := []string{}
 	last, next, max := 0, 0, len(cmdString)
 	for {
@@ -106,7 +105,7 @@ func ParseCommands(cmdString string) []string {
 			if next > last {
 				cmds = append(cmds, cmdString[last:next])
 			}
-			return cmds
+			return cmds, nil
 		}
 		// evalute a rune
 		c := cmdString[next]
@@ -116,16 +115,26 @@ func ParseCommands(cmdString string) []string {
 				cmds = append(cmds, cmdString[last:next])
 			}
 			last = next + 1
+		case ',':
+			if next > last {
+				cmds = append(cmds, cmdString[last:next])
+			}
+			cmds = append(cmds, ",")
+			last = next + 1
 		case '\'', '"':
 			// for quotes, consume runes until the quote has ended
 			quoteChar := c
 			for {
 				next++
 				if next == max {
-					fmt.Fprintf(os.Stderr, "Unmatched open quote (%c)\n", quoteChar)
-					os.Exit(2)
+					return []string{}, fmt.Errorf("Unmatched open quote (%c)", quoteChar)
 				}
-				if cmdString[next] == quoteChar {
+				if cmdString[next] == '\\' {
+					next++
+					if next == max {
+						return []string{}, fmt.Errorf("Unmatched open quote (%c)", quoteChar)
+					}
+				} else if cmdString[next] == quoteChar {
 					break
 				}
 			}
