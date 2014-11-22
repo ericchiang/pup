@@ -53,12 +53,14 @@ func main() {
 			}
 		}
 		switch cmd {
-		case "*":
+		case "*": // select all
 			continue
 		case "+":
 			funcGenerator = SelectFromChildren
 		case ">":
 			funcGenerator = SelectNextSibling
+		case ",": // nil will signify a comma
+			selectorFuncs = append(selectorFuncs, nil)
 		default:
 			selector, err := ParseSelector(cmd)
 			if err != nil {
@@ -70,9 +72,16 @@ func main() {
 		}
 	}
 
+	selectedNodes := []*html.Node{}
 	currNodes := []*html.Node{root}
 	for _, selectorFunc := range selectorFuncs {
-		currNodes = selectorFunc(currNodes)
+		if selectorFunc == nil { // hit a comma
+			selectedNodes = append(selectedNodes, currNodes...)
+			currNodes = []*html.Node{root}
+		} else {
+			currNodes = selectorFunc(currNodes)
+		}
 	}
-	pupDisplayer.Display(currNodes)
+	selectedNodes = append(selectedNodes, currNodes...)
+	pupDisplayer.Display(selectedNodes)
 }
