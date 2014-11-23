@@ -17,11 +17,15 @@ import (
 //       |/ \_( # |"
 //      C/ ,--___/
 
-var VERSION string = "0.3.4"
+var VERSION string = "0.3.5"
 
 func main() {
 	// process flags and arguments
-	cmds := ParseArgs()
+	cmds, err := ParseArgs()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "%s\n", err.Error())
+		os.Exit(2)
+	}
 
 	// Determine the charset of the input
 	cr, err := charset.NewReader(pupIn, "")
@@ -49,12 +53,14 @@ func main() {
 			}
 		}
 		switch cmd {
-		case "*":
+		case "*": // select all
 			continue
 		case "+":
 			funcGenerator = SelectFromChildren
 		case ">":
 			funcGenerator = SelectNextSibling
+		case ",": // nil will signify a comma
+			selectorFuncs = append(selectorFuncs, nil)
 		default:
 			selector, err := ParseSelector(cmd)
 			if err != nil {
@@ -66,9 +72,16 @@ func main() {
 		}
 	}
 
+	selectedNodes := []*html.Node{}
 	currNodes := []*html.Node{root}
 	for _, selectorFunc := range selectorFuncs {
-		currNodes = selectorFunc(currNodes)
+		if selectorFunc == nil { // hit a comma
+			selectedNodes = append(selectedNodes, currNodes...)
+			currNodes = []*html.Node{root}
+		} else {
+			currNodes = selectorFunc(currNodes)
+		}
 	}
-	pupDisplayer.Display(currNodes)
+	selectedNodes = append(selectedNodes, currNodes...)
+	pupDisplayer.Display(selectedNodes)
 }

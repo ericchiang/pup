@@ -149,6 +149,22 @@ $ cat robots.html | pup ':parent-of([action="edit"])'
 For a complete list, view the [implemented selectors](#Implemented Selectors)
 section.
 
+
+####`+`, `>`, and `,`
+
+There are intermediate characters which declare special instructions. For
+instance, a comma `,` allows pup to specify mulitple groups of selctors.
+
+```bash
+$ cat robots.html | pup 'title, h1 span[dir="auto"]'
+<title>
+ Robots exclusion standard - Wikipedia, the free encyclopedia
+</title>
+<span dir="auto">
+ Robots exclusion standard
+</span>
+```
+
 ####Chain selectors together
 
 When combining selectors, the HTML nodes selected by the previous selector will

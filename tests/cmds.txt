@@ -39,3 +39,9 @@ td:empty
 #toc li + span
 #toc li > li
 li a:not([rel])
+link, a
+link ,a
+link , a
+link , a sup
+link , a:parent-of(sup)
+link , a:parent-of(sup) sup
