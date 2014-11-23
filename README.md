@@ -156,7 +156,7 @@ There are intermediate characters which declare special instructions. For
 instance, a comma `,` allows pup to specify mulitple groups of selctors.
 
 ```bash
-cat robots.html | pup 'title, h1 span[dir="auto"]'
+$ cat robots.html | pup 'title, h1 span[dir="auto"]'
 <title>
  Robots exclusion standard - Wikipedia, the free encyclopedia
 </title>
