@@ -19,6 +19,16 @@ If you're on OS X, use [Brew](http://brew.sh/) to install (no Go required).
 
     brew install https://raw.githubusercontent.com/EricChiang/pup/master/pup.rb
 
+For linux distrubtions use the following commands to install under your `PATH`
+environment variable. You can set `ARCH` to `linux_386` for 32-bit infrastructures.
+
+    ARCH=linux_amd64
+    cd /tmp
+    wget https://github.com/EricChiang/pup/releases/download/v0.3.5/pup_${ARCH}.zip
+    unzip pup_${ARCH}.zip && rm pup_${ARCH}.zip
+    sudo mv pup /usr/local/bin
+    pup --version
+
 ## Quick start
 
 ```bash
