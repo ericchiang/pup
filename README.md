@@ -156,7 +156,7 @@ $ cat robots.html | pup ':parent-of([action="edit"])'
 </span>
 ```
 
-For a complete list, view the [implemented selectors](#Implemented Selectors)
+For a complete list, view the [implemented selectors](#implemented-selectors)
 section.
 
 
