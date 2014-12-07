@@ -1,8 +1,8 @@
 c00fef10d36c1166cb5ac886f9d25201b720e37e #footer
 a7bb8dbfdd638bacad0aa9dc3674126d396b74e2 #footer li
-06fb3f64027084bbe52af06951aeea7d2750dcff #footer li + a
-da788c5138342d0228bfc86976bd9202419e43a6 #footer li + a attr{title}
-8edb39cbf74ed66687c4eb4e0abfe36153c186a8 #footer li > li
+da39a3ee5e6b4b0d3255bfef95601890afd80709 #footer li + a
+da39a3ee5e6b4b0d3255bfef95601890afd80709 #footer li + a attr{title}
+da39a3ee5e6b4b0d3255bfef95601890afd80709 #footer li > li
 a92e50c09cd56970625ac3b74efbddb83b2731bb table li
 505c04a42e0084cd95560c233bd3a81b2c59352d table li:first-child
 505c04a42e0084cd95560c233bd3a81b2c59352d table li:first-of-type
@@ -32,12 +32,12 @@ a55bb21d37fbbd3f8f1b551126795fbc733451fe :only-child
 641037814e358487d1938fc080e08f72a3846ef8 [class=summary]
 641037814e358487d1938fc080e08f72a3846ef8 [class="summary"]
 613bf65ac4042b6ee0a7a47f08732fdbe1b5b06b #toc
-dbc580de40eeb8448f0dbe1b98d74cf799a6868b #toc li + a
-6a2c6153bce7945b88d7c818fe11aaae232725b3 #toc li + a text{}
-91f36a7072f0740b170eeaac01b0be00ec528664 #toc li + a json{}
-0cd687baaf08605bf6a68e3c285c5e8a41e0c9b2 #toc li + a + span
+da39a3ee5e6b4b0d3255bfef95601890afd80709 #toc li + a
+da39a3ee5e6b4b0d3255bfef95601890afd80709 #toc li + a text{}
+97d170e1550eee4afc0af065b78cda302a97674c #toc li + a json{}
+da39a3ee5e6b4b0d3255bfef95601890afd80709 #toc li + a + span
 da39a3ee5e6b4b0d3255bfef95601890afd80709 #toc li + span
-5d6e3ed3cfe310cde185cbfe1bba6aa7ec2a7f8d #toc li > li
+da39a3ee5e6b4b0d3255bfef95601890afd80709 #toc li > li
 87eee1189dd5296d6c010a1ad329fc53c6099d72 li a:not([rel])
 055f3c98e9160beb13f72f1009ad66b6252a9bba link, a
 055f3c98e9160beb13f72f1009ad66b6252a9bba link ,a
