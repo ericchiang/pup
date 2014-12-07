@@ -17,7 +17,7 @@ import (
 //       |/ \_( # |"
 //      C/ ,--___/
 
-var VERSION string = "0.3.5"
+var VERSION string = "0.3.6"
 
 func main() {
 	// process flags and arguments
@@ -55,9 +55,9 @@ func main() {
 		switch cmd {
 		case "*": // select all
 			continue
-		case "+":
-			funcGenerator = SelectFromChildren
 		case ">":
+			funcGenerator = SelectFromChildren
+		case "+":
 			funcGenerator = SelectNextSibling
 		case ",": // nil will signify a comma
 			selectorFuncs = append(selectorFuncs, nil)
