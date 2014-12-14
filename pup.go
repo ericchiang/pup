@@ -5,7 +5,6 @@ import (
 	"os"
 
 	"golang.org/x/net/html"
-	"golang.org/x/net/html/charset"
 )
 
 //      _=,_
@@ -17,7 +16,7 @@ import (
 //       |/ \_( # |"
 //      C/ ,--___/
 
-var VERSION string = "0.3.6"
+var VERSION string = "0.3.7"
 
 func main() {
 	// process flags and arguments
@@ -27,19 +26,13 @@ func main() {
 		os.Exit(2)
 	}
 
-	// Determine the charset of the input
-	cr, err := charset.NewReader(pupIn, "")
-	if err != nil {
-		fmt.Fprintf(os.Stderr, err.Error())
-		os.Exit(2)
-	}
-
 	// Parse the input and get the root node
-	root, err := html.Parse(cr)
+	root, err := ParseHTML(pupIn, pupCharset)
 	if err != nil {
-		fmt.Fprintf(os.Stderr, err.Error())
+		fmt.Fprintf(os.Stderr, "%s\n", err.Error())
 		os.Exit(2)
 	}
+	pupIn.Close()
 
 	// Parse the selectors
 	selectorFuncs := []SelectorFunc{}

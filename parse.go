@@ -6,15 +6,40 @@ import (
 	"os"
 	"strconv"
 	"strings"
+
+	"golang.org/x/net/html"
+	"golang.org/x/net/html/charset"
+	"golang.org/x/text/transform"
 )
 
 var (
 	pupIn            io.ReadCloser = os.Stdin
+	pupCharset       string        = ""
 	pupMaxPrintLevel int           = -1
 	pupPrintColor    bool          = false
 	pupIndentString  string        = " "
 	pupDisplayer     Displayer     = TreeDisplayer{}
 )
+
+// Parse the html while handling the charset
+func ParseHTML(r io.Reader, cs string) (*html.Node, error) {
+	var err error
+	if cs == "" {
+		// attempt to guess the charset of the HTML document
+		r, err = charset.NewReader(r, "")
+		if err != nil {
+			return nil, err
+		}
+	} else {
+		// let the user specify the charset
+		e, name := charset.Lookup(cs)
+		if name == "" {
+			return nil, fmt.Errorf("'%s' is not a valid charset", cs)
+		}
+		r = transform.NewReader(r, e.NewDecoder())
+	}
+	return html.Parse(r)
+}
 
 func PrintHelp(w io.Writer, exitCode int) {
 	helpString := `Usage
@@ -28,6 +53,7 @@ Flags
     -i --indent        number of spaces to use for indent or character
     -n --number        print number of elements selected
     -l --limit         restrict number of levels printed
+    --charset          specify the charset for pup to use
     --version          display version
 `
 	fmt.Fprintf(w, helpString, VERSION)
@@ -80,6 +106,9 @@ func ProcessFlags(cmds []string) (nonFlagCmds []string, err error) {
 			if err != nil {
 				return []string{}, fmt.Errorf("Argument for '%s' must be numeric", cmd)
 			}
+			i++
+		case "--charset":
+			pupCharset = cmds[i+1]
 			i++
 		case "--version":
 			fmt.Println(VERSION)
