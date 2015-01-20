@@ -6,10 +6,10 @@ import (
 	"regexp"
 	"strings"
 
-	"golang.org/x/net/html"
-	"golang.org/x/net/html/atom"
 	"github.com/fatih/color"
 	"github.com/mattn/go-colorable"
+	"golang.org/x/net/html"
+	"golang.org/x/net/html/atom"
 )
 
 func init() {
@@ -70,7 +70,13 @@ func (t TreeDisplayer) Display(nodes []*html.Node) {
 func (t TreeDisplayer) printNode(n *html.Node, level int) {
 	switch n.Type {
 	case html.TextNode:
-		s := html.EscapeString(n.Data)
+		s := n.Data
+		if pupEscapeHTML {
+			// don't escape javascript
+			if n.Parent == nil || n.Parent.DataAtom != atom.Script {
+				s = html.EscapeString(s)
+			}
+		}
 		s = strings.TrimSpace(s)
 		if s != "" {
 			t.printIndent(level)
@@ -85,7 +91,10 @@ func (t TreeDisplayer) printNode(n *html.Node, level int) {
 			fmt.Printf("<%s", n.Data)
 		}
 		for _, a := range n.Attr {
-			val := html.EscapeString(a.Val)
+			val := a.Val
+			if pupEscapeHTML {
+				val = html.EscapeString(val)
+			}
 			if pupPrintColor {
 				fmt.Print(" ")
 				attrKeyColor.Printf("%s", a.Key)
@@ -113,10 +122,14 @@ func (t TreeDisplayer) printNode(n *html.Node, level int) {
 		}
 	case html.CommentNode:
 		t.printIndent(level)
+		data := n.Data
+		if pupEscapeHTML {
+			data = html.EscapeString(data)
+		}
 		if pupPrintColor {
-			commentColor.Printf("<!--%s-->\n", n.Data)
+			commentColor.Printf("<!--%s-->\n", data)
 		} else {
-			fmt.Printf("<!--%s-->\n", n.Data)
+			fmt.Printf("<!--%s-->\n", data)
 		}
 		t.printChildren(n, level)
 	case html.DoctypeNode, html.DocumentNode:
@@ -151,7 +164,14 @@ type TextDisplayer struct{}
 func (t TextDisplayer) Display(nodes []*html.Node) {
 	for _, node := range nodes {
 		if node.Type == html.TextNode {
-			fmt.Println(node.Data)
+			data := node.Data
+			if pupEscapeHTML {
+				// don't escape javascript
+				if node.Parent == nil || node.Parent.DataAtom != atom.Script {
+					data = html.EscapeString(data)
+				}
+			}
+			fmt.Println(data)
 		}
 		children := []*html.Node{}
 		child := node.FirstChild
@@ -173,7 +193,10 @@ func (a AttrDisplayer) Display(nodes []*html.Node) {
 		attributes := node.Attr
 		for _, attr := range attributes {
 			if attr.Key == a.Attr {
-				val := html.EscapeString(attr.Val)
+				val := attr.Val
+				if pupEscapeHTML {
+					val = html.EscapeString(val)
+				}
 				fmt.Printf("%s\n", val)
 			}
 		}
@@ -188,7 +211,11 @@ func jsonify(node *html.Node) map[string]interface{} {
 	vals := map[string]interface{}{}
 	if len(node.Attr) > 0 {
 		for _, attr := range node.Attr {
-			vals[attr.Key] = html.EscapeString(attr.Val)
+			if pupEscapeHTML {
+				vals[attr.Key] = html.EscapeString(attr.Val)
+			} else {
+				vals[attr.Key] = attr.Val
+			}
 		}
 	}
 	vals["tag"] = node.DataAtom.String()
@@ -200,6 +227,12 @@ func jsonify(node *html.Node) map[string]interface{} {
 		case html.TextNode:
 			text := strings.TrimSpace(child.Data)
 			if text != "" {
+				if pupEscapeHTML {
+					// don't escape javascript
+					if node.DataAtom != atom.Script {
+						text = html.EscapeString(text)
+					}
+				}
 				// if there is already text we'll append it
 				currText, ok := vals["text"]
 				if ok {
@@ -209,6 +242,9 @@ func jsonify(node *html.Node) map[string]interface{} {
 			}
 		case html.CommentNode:
 			comment := strings.TrimSpace(child.Data)
+			if pupEscapeHTML {
+				comment = html.EscapeString(comment)
+			}
 			currComment, ok := vals["comment"]
 			if ok {
 				comment = fmt.Sprintf("%s %s", currComment, comment)

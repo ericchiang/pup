@@ -17,6 +17,7 @@ var (
 	pupCharset       string        = ""
 	pupMaxPrintLevel int           = -1
 	pupPrintColor    bool          = false
+	pupEscapeHTML    bool          = true
 	pupIndentString  string        = " "
 	pupDisplayer     Displayer     = TreeDisplayer{}
 )
@@ -53,6 +54,7 @@ Flags
     -i --indent        number of spaces to use for indent or character
     -n --number        print number of elements selected
     -l --limit         restrict number of levels printed
+    -u --unescape      don't escape html
     --charset          specify the charset for pup to use
     --version          display version
 `
@@ -83,6 +85,8 @@ func ProcessFlags(cmds []string) (nonFlagCmds []string, err error) {
 		switch cmd {
 		case "-c", "--color":
 			pupPrintColor = true
+		case "-u", "--unescape":
+			pupEscapeHTML = false
 		case "-f", "--file":
 			filename := cmds[i+1]
 			pupIn, err = os.Open(filename)
