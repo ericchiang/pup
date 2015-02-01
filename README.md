@@ -343,6 +343,7 @@ output of pup into a more consumable format.
 -i --indent        number of spaces to use for indent or character
 -n --number        print number of elements selected
 -l --limit         restrict number of levels printed
+-p --plain         don't escape html
 --charset          specify the charset for pup to use
 --version          display version
 ```
