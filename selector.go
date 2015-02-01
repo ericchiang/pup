@@ -604,9 +604,6 @@ func parseNotPseudo(cmd string) (PseudoClass, error) {
 	if err != nil {
 		return nil, err
 	}
-	if selector.Pseudo != nil {
-		return nil, fmt.Errorf("selector within ':not' may not contain a pseudo class")
-	}
 	if endQuote != ')' {
 		return nil, fmt.Errorf("unmatched '('")
 	}
@@ -626,9 +623,6 @@ func parseParentOfPseudo(cmd string) (PseudoClass, error) {
 	selector, err := ParseSelector(cmd)
 	if err != nil {
 		return nil, err
-	}
-	if selector.Pseudo != nil {
-		return nil, fmt.Errorf("selector within ':parent-of' may not contain a pseudo class")
 	}
 	if endQuote != ')' {
 		return nil, fmt.Errorf("unmatched '('")
