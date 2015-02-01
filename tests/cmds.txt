@@ -45,3 +45,5 @@ link , a
 link , a sup
 link , a:parent-of(sup)
 link , a:parent-of(sup) sup
+li --number
+li -n
