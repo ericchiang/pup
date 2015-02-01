@@ -288,3 +288,10 @@ func (j JSONDisplayer) Display(nodes []*html.Node) {
 	}
 	fmt.Printf("%s", data)
 }
+
+// Print the number of features returned
+type NumDisplayer struct{}
+
+func (d NumDisplayer) Display(nodes []*html.Node) {
+	fmt.Println(len(nodes))
+}

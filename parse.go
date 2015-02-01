@@ -54,7 +54,7 @@ Flags
     -i --indent        number of spaces to use for indent or character
     -n --number        print number of elements selected
     -l --limit         restrict number of levels printed
-    -u --unescape      don't escape html
+    -p --plain         don't escape html
     --charset          specify the charset for pup to use
     --version          display version
 `
@@ -85,7 +85,7 @@ func ProcessFlags(cmds []string) (nonFlagCmds []string, err error) {
 		switch cmd {
 		case "-c", "--color":
 			pupPrintColor = true
-		case "-u", "--unescape":
+		case "-p", "--plain":
 			pupEscapeHTML = false
 		case "-f", "--file":
 			filename := cmds[i+1]
@@ -117,6 +117,8 @@ func ProcessFlags(cmds []string) (nonFlagCmds []string, err error) {
 		case "--version":
 			fmt.Println(VERSION)
 			os.Exit(0)
+		case "-n", "--number":
+			pupDisplayer = NumDisplayer{}
 		default:
 			if cmd[0] == '-' {
 				return []string{}, fmt.Errorf("Unrecognized flag '%s'", cmd)
