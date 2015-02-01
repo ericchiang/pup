@@ -2,14 +2,14 @@
 require 'formula'
 class Pup < Formula
   homepage 'https://github.com/EricChiang/pup'
-  version '0.3.7'
+  version '0.3.8'
 
   if Hardware.is_64_bit?
-    url 'https://github.com/EricChiang/pup/releases/download/v0.3.7/pup_darwin_amd64.zip'
-    sha1 '7ce35744b8112e7ae699071459a3456e8c057ffd'
+    url 'https://github.com/EricChiang/pup/releases/download/v0.3.8/pup_darwin_amd64.zip'
+    sha1 '4416b12c1022b8c7edb0a68d616cebb3d1cc48f2'
   else
-    url 'https://github.com/EricChiang/pup/releases/download/v0.3.7/pup_darwin_386.zip'
-    sha1 '18b58e877463881e9734dbe9b46ad272cc5173e3'
+    url 'https://github.com/EricChiang/pup/releases/download/v0.3.8/pup_darwin_386.zip'
+    sha1 'a8cc3125f4b57772905d5a6d7451a761aba8b033'
   end
 
   def install
