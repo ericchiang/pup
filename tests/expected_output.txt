@@ -10,8 +10,8 @@ a92e50c09cd56970625ac3b74efbddb83b2731bb table li
 66950e746590d7f4e9cfe3d1adef42cd0addcf1d table li:last-of-type
 0a37d612cd4c67a42bd147b1edc5a1128456b017 table a[title="The Practice of Programming"]
 0d3918d54f868f13110262ffbb88cbb0b083057d table a[title="The Practice of Programming"] text{}
-48a00be8203baea11bf9672bf10b183cca98c3b2 json{}
-74fa5ddf9687041ece8aed54913cc2d1a6e7101c text{}
+ecb542a30fc75c71a0c6380692cbbc4266ccbce4 json{}
+95ef88ded9dab22ee3206cca47b9c3a376274bda text{}
 e4f7358fbb7bb1748a296fa2a7e815fa7de0a08b .after-portlet
 da39a3ee5e6b4b0d3255bfef95601890afd80709 .after
 5b3020ba03fb43f7cdbcb3924546532b6ec9bd71 :empty
@@ -26,7 +26,7 @@ d314e83b059bb876b0e5ee76aa92d54987961f9a .navbox-list li:nth-last-child(1)
 0b20c98650efa5df39d380fea8d5b43f3a08cb66 .navbox-list li:nth-child(3n+1)
 52e726f0993d2660f0fb3ea85156f6fbcc1cfeee .navbox-list li:nth-last-child(n+1)
 972973fe1e8f63e4481c8641d6169c638a528a6e .navbox-list li:nth-last-child(3n+1)
-a55bb21d37fbbd3f8f1b551126795fbc733451fe :only-child
+6c45ee6bca361b8a9baee50a15f575fc6ac73adc :only-child
 44c99f6ad37b65dc0893cdcb1c60235d827ee73e .navbox-list li:only-child
 641037814e358487d1938fc080e08f72a3846ef8 .summary
 641037814e358487d1938fc080e08f72a3846ef8 [class=summary]
@@ -45,3 +45,5 @@ da39a3ee5e6b4b0d3255bfef95601890afd80709 #toc li > li
 0d1f66765d1632c70f8608947890524e78459362 link , a sup
 b6a3d6cccd305fcc3e8bf2743c443743bdaaa02b link , a:parent-of(sup)
 0d1f66765d1632c70f8608947890524e78459362 link , a:parent-of(sup) sup
+da39a3ee5e6b4b0d3255bfef95601890afd80709 li --number
+da39a3ee5e6b4b0d3255bfef95601890afd80709 li -n
