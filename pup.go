@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 
-	"golang.org/x/net/html"
+	"github.com/ericchiang/pup/Godeps/_workspace/src/golang.org/x/net/html"
 )
 
 //      _=,_

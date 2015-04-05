@@ -7,9 +7,9 @@ import (
 	"strconv"
 	"strings"
 
-	"golang.org/x/net/html"
-	"golang.org/x/net/html/charset"
-	"golang.org/x/text/transform"
+	"github.com/ericchiang/pup/Godeps/_workspace/src/golang.org/x/net/html"
+	"github.com/ericchiang/pup/Godeps/_workspace/src/golang.org/x/net/html/charset"
+	"github.com/ericchiang/pup/Godeps/_workspace/src/golang.org/x/text/transform"
 )
 
 var (
