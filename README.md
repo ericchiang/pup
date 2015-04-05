@@ -336,14 +336,4 @@ output of pup into a more consumable format.
 
 ## Flags
 
-```bash
--c --color         print result with color
--f --file          file to read from
--h --help          display this help
--i --indent        number of spaces to use for indent or character
--n --number        print number of elements selected
--l --limit         restrict number of levels printed
--p --plain         don't escape html
---charset          specify the charset for pup to use
---version          display version
-```
+Run `pup --help` for a list of further options
