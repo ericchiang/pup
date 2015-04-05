@@ -66,6 +66,54 @@ func (t TreeDisplayer) Display(nodes []*html.Node) {
 	}
 }
 
+// The <pre> tag indicates that the text within it should always be formatted
+// as is. See https://github.com/ericchiang/pup/issues/33
+func (t TreeDisplayer) printPre(n *html.Node) {
+	switch n.Type {
+	case html.TextNode:
+		s := n.Data
+		if pupEscapeHTML {
+			// don't escape javascript
+			if n.Parent == nil || n.Parent.DataAtom != atom.Script {
+				s = html.EscapeString(s)
+			}
+		}
+		fmt.Print(s)
+		for c := n.FirstChild; c != nil; c = c.NextSibling {
+			t.printPre(c)
+		}
+	case html.ElementNode:
+		fmt.Printf("<%s", n.Data)
+		for _, a := range n.Attr {
+			val := a.Val
+			if pupEscapeHTML {
+				val = html.EscapeString(val)
+			}
+			fmt.Printf(` %s="%s"`, a.Key, val)
+		}
+		fmt.Print(">")
+		if !isVoidElement(n) {
+			for c := n.FirstChild; c != nil; c = c.NextSibling {
+				t.printPre(c)
+			}
+			fmt.Printf("</%s>", n.Data)
+		}
+	case html.CommentNode:
+		data := n.Data
+		if pupEscapeHTML {
+			data = html.EscapeString(data)
+		}
+		fmt.Printf("<!--%s-->\n", data)
+		for c := n.FirstChild; c != nil; c = c.NextSibling {
+			t.printPre(c)
+		}
+	case html.DoctypeNode, html.DocumentNode:
+		for c := n.FirstChild; c != nil; c = c.NextSibling {
+			t.printPre(c)
+		}
+	}
+}
+
 // Print a node and all of it's children to `maxlevel`.
 func (t TreeDisplayer) printNode(n *html.Node, level int) {
 	switch n.Type {
@@ -84,6 +132,12 @@ func (t TreeDisplayer) printNode(n *html.Node, level int) {
 		}
 	case html.ElementNode:
 		t.printIndent(level)
+		// TODO: allow pre with color
+		if n.DataAtom == atom.Pre && !pupPrintColor && pupPreformatted {
+			t.printPre(n)
+			fmt.Println()
+			return
+		}
 		if pupPrintColor {
 			tokenColor.Print("<")
 			tagColor.Printf("%s", n.Data)

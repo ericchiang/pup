@@ -16,6 +16,7 @@ var (
 	pupIn            io.ReadCloser = os.Stdin
 	pupCharset       string        = ""
 	pupMaxPrintLevel int           = -1
+	pupPreformatted  bool          = false
 	pupPrintColor    bool          = false
 	pupEscapeHTML    bool          = true
 	pupIndentString  string        = " "
@@ -55,6 +56,7 @@ Flags
     -n --number        print number of elements selected
     -l --limit         restrict number of levels printed
     -p --plain         don't escape html
+    --pre              preserve preformatted text
     --charset          specify the charset for pup to use
     --version          display version
 `
@@ -87,6 +89,8 @@ func ProcessFlags(cmds []string) (nonFlagCmds []string, err error) {
 			pupPrintColor = true
 		case "-p", "--plain":
 			pupEscapeHTML = false
+		case "--pre":
+			pupPreformatted = true
 		case "-f", "--file":
 			filename := cmds[i+1]
 			pupIn, err = os.Open(filename)
