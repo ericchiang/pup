@@ -315,28 +315,11 @@ func jsonify(node *html.Node) map[string]interface{} {
 func (j JSONDisplayer) Display(nodes []*html.Node) {
 	var data []byte
 	var err error
-	switch len(nodes) {
-	case 1:
-		node := nodes[0]
-		if node.Type != html.DocumentNode {
-			jsonNode := jsonify(nodes[0])
-			data, err = json.MarshalIndent(&jsonNode, "", pupIndentString)
-		} else {
-			children := []*html.Node{}
-			child := node.FirstChild
-			for child != nil {
-				children = append(children, child)
-				child = child.NextSibling
-			}
-			j.Display(children)
-		}
-	default:
-		jsonNodes := []map[string]interface{}{}
-		for _, node := range nodes {
-			jsonNodes = append(jsonNodes, jsonify(node))
-		}
-		data, err = json.MarshalIndent(&jsonNodes, "", pupIndentString)
+	jsonNodes := []map[string]interface{}{}
+	for _, node := range nodes {
+		jsonNodes = append(jsonNodes, jsonify(node))
 	}
+	data, err = json.MarshalIndent(&jsonNodes, "", pupIndentString)
 	if err != nil {
 		panic("Could not jsonify nodes")
 	}
