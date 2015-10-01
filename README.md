@@ -152,8 +152,8 @@ section.
 
 ####`+`, `>`, and `,`
 
-There are intermediate characters which declare special instructions. For
-instance, a comma `,` allows pup to specify mulitple groups of selctors.
+These are intermediate characters that declare special instructions. For
+instance, a comma `,` allows pup to specify multiple groups of selectors.
 
 ```bash
 $ cat robots.html | pup 'title, h1 span[dir="auto"]'
