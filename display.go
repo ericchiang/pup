@@ -323,7 +323,7 @@ func (j JSONDisplayer) Display(nodes []*html.Node) {
 	if err != nil {
 		panic("Could not jsonify nodes")
 	}
-	fmt.Printf("%s", data)
+	fmt.Printf("%s\n", data)
 }
 
 // Print the number of features returned
