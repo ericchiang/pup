@@ -6,10 +6,9 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/ericchiang/pup/Godeps/_workspace/src/github.com/fatih/color"
-	"github.com/ericchiang/pup/Godeps/_workspace/src/github.com/mattn/go-colorable"
-	"github.com/ericchiang/pup/Godeps/_workspace/src/golang.org/x/net/html"
-	"github.com/ericchiang/pup/Godeps/_workspace/src/golang.org/x/net/html/atom"
+	"github.com/fatih/color"
+	"golang.org/x/net/html"
+	"golang.org/x/net/html/atom"
 )
 
 func init() {
