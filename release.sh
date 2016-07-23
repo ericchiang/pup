@@ -51,10 +51,10 @@ class Pup < Formula
   version '0.4.0'
 
   if Hardware.is_64_bit?
-    url 'https://github.com/ericchiang/pup/releases/download/${VERSION}/${DARWIN_AMD64}'
+    url 'https://github.com/ericchiang/pup/releases/download/v${VERSION}/${DARWIN_AMD64}'
     sha256 '$( sha256sum dist/${DARWIN_AMD64}  | awk '{ print $1 }' | xargs printf )'
   else
-    url 'https://github.com/ericchiang/pup/releases/download/${VERSION}/${DARWIN_386}'
+    url 'https://github.com/ericchiang/pup/releases/download/v${VERSION}/${DARWIN_386}'
     sha256 '$( sha256sum dist/${DARWIN_386}  | awk '{ print $1 }' | xargs printf )'
   end
 
