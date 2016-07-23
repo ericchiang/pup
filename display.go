@@ -7,6 +7,7 @@ import (
 	"strings"
 
 	"github.com/fatih/color"
+	colorable "github.com/mattn/go-colorable"
 	"golang.org/x/net/html"
 	"golang.org/x/net/html/atom"
 )
