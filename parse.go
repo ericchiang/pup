@@ -146,7 +146,7 @@ func ParseCommands(cmdString string) ([]string, error) {
 			}
 			return cmds, nil
 		}
-		// evalute a rune
+		// evaluate a rune
 		c := cmdString[next]
 		switch c {
 		case ' ':
