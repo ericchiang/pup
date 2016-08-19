@@ -495,7 +495,7 @@ func parseNthPseudo(cmd string) (PseudoClass, error) {
 	nthString := cmd[i+1:]
 	i = strings.IndexRune(nthString, ')')
 	if i < 0 {
-		return nil, fmt.Errorf("Unmatched '(' for psuedo class %s", pseudoName)
+		return nil, fmt.Errorf("Unmatched '(' for pseudo class %s", pseudoName)
 	} else if i != len(nthString)-1 {
 		return nil, fmt.Errorf("%s(n) must end selector", pseudoName)
 	}
