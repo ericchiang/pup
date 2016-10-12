@@ -50,7 +50,7 @@ class Pup < Formula
   homepage 'https://github.com/ericchiang/pup'
   version '0.4.0'
 
-  if Hardware.is_64_bit?
+  if Hardware::CPU.is_64_bit?
     url 'https://github.com/ericchiang/pup/releases/download/v${VERSION}/${DARWIN_AMD64}'
     sha256 '$( sha256sum dist/${DARWIN_AMD64}  | awk '{ print $1 }' | xargs printf )'
   else
