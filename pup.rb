@@ -4,7 +4,7 @@ class Pup < Formula
   homepage 'https://github.com/ericchiang/pup'
   version '0.4.0'
 
-  if Hardware.is_64_bit?
+  if Hardware::CPU.is_64_bit?
     url 'https://github.com/ericchiang/pup/releases/download/v0.4.0/pup_v0.4.0_darwin_amd64.zip'
     sha256 'c539a697efee2f8e56614a54cb3b215338e00de1f6a7c2fa93144ab6e1db8ebe'
   else
