@@ -57,7 +57,7 @@ Download a webpage with wget.
 $ wget http://en.wikipedia.org/wiki/Robots_exclusion_standard -O robots.html
 ```
 
-####Clean and indent
+#### Clean and indent
 
 By default pup will fill in missing tags and properly indent the page.
 
@@ -68,7 +68,7 @@ $ cat robots.html | pup --color
 # cleaned, indented, and colorful HTML
 ```
 
-####Filter by tag
+#### Filter by tag
 
 ```bash
 $ cat robots.html | pup 'title'
@@ -77,7 +77,7 @@ $ cat robots.html | pup 'title'
 </title>
 ```
 
-####Filter by id
+#### Filter by id
 
 ```bash
 $ cat robots.html | pup 'span#See_also'
@@ -86,7 +86,7 @@ $ cat robots.html | pup 'span#See_also'
 </span>
 ```
 
-####Filter by attribute
+#### Filter by attribute
 
 ```bash
 $ cat robots.html | pup 'th[scope="row"]'
@@ -113,7 +113,7 @@ $ cat robots.html | pup 'th[scope="row"]'
 </th>
 ```
 
-####Pseudo Classes
+#### Pseudo Classes
 
 CSS selectors have a group of specifiers called ["pseudo classes"](
 https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes)  which are pretty
@@ -150,7 +150,7 @@ For a complete list, view the [implemented selectors](#implemented-selectors)
 section.
 
 
-####`+`, `>`, and `,`
+#### `+`, `>`, and `,`
 
 These are intermediate characters that declare special instructions. For
 instance, a comma `,` allows pup to specify multiple groups of selectors.
@@ -165,7 +165,7 @@ $ cat robots.html | pup 'title, h1 span[dir="auto"]'
 </span>
 ```
 
-####Chain selectors together
+#### Chain selectors together
 
 When combining selectors, the HTML nodes selected by the previous selector will
 be passed to the next ones.
