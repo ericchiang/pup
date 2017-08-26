@@ -47,3 +47,4 @@ link , a:parent-of(sup)
 link , a:parent-of(sup) sup
 li	--number
 li	-n
+li a	--invert

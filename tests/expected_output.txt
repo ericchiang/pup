@@ -47,3 +47,4 @@ b6a3d6cccd305fcc3e8bf2743c443743bdaaa02b link , a:parent-of(sup)
 0d1f66765d1632c70f8608947890524e78459362 link , a:parent-of(sup) sup
 d200756078ef79d77fb17848c5f15b85bcea7e00 li	--number
 d200756078ef79d77fb17848c5f15b85bcea7e00 li	-n
+1fa074385374bcd613394678b5e08ed1ad4d5d9d li a	--invert
