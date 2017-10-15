@@ -18,6 +18,10 @@ If you have Go installed on your computer just run `go get`.
 If you're on OS X, use [Homebrew](http://brew.sh/) to install (no Go required).
 
     brew install https://raw.githubusercontent.com/EricChiang/pup/master/pup.rb
+    
+If you're on NixOs, or using [Nix](https://nixos.org/nix/).
+
+    nix-env -i pup
 
 ## Quick start
 
