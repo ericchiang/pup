@@ -319,17 +319,6 @@ $ cat robots.html | pup -i 4 'div#p-namespaces a json{}'
 ]
 ```
 
-If the selectors only return one element the results will be printed as a JSON
-object, not a list.
-
-```bash
-$ cat robots.html  | pup --indent 4 'title json{}'
-{
-    "tag": "title",
-    "text": "Robots exclusion standard - Wikipedia, the free encyclopedia"
-}
-```
-
 Because there is no universal standard for converting HTML/XML to JSON, a
 method has been chosen which hopefully fits. The goal is simply to get the
 output of pup into a more consumable format.
