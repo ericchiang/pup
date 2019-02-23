@@ -272,7 +272,7 @@ $ cat robots.html  | pup 'div#p-namespaces a'
 <a href="/wiki/Robots_exclusion_standard" title="View the content page [c]" accesskey="c">
  Article
 </a>
-<a href="/wiki/Talk:Robots_exclusion_standard" title="Discussion about the content page [t]" accesskey="t">
+<a href="/wiki/Talk:Robots_exclusion_standard" rel="discussion" title="Discussion about the content page [t]" accesskey="t">
  Talk
 </a>
 ```
@@ -282,16 +282,25 @@ $ cat robots.html | pup 'div#p-namespaces a json{}'
 [
  {
   "accesskey": "c",
+  "children": [
+   {
+    "text": "Article"
+   }
+  ],
   "href": "/wiki/Robots_exclusion_standard",
   "tag": "a",
-  "text": "Article",
   "title": "View the content page [c]"
  },
  {
   "accesskey": "t",
+  "children": [
+   {
+    "text": "Talk"
+   }
+  ],
   "href": "/wiki/Talk:Robots_exclusion_standard",
+  "rel": "discussion",
   "tag": "a",
-  "text": "Talk",
   "title": "Discussion about the content page [t]"
  }
 ]
@@ -304,16 +313,25 @@ $ cat robots.html | pup -i 4 'div#p-namespaces a json{}'
 [
     {
         "accesskey": "c",
+        "children": [
+            {
+                "text": "Article"
+            }
+        ],
         "href": "/wiki/Robots_exclusion_standard",
         "tag": "a",
-        "text": "Article",
         "title": "View the content page [c]"
     },
     {
         "accesskey": "t",
+        "children": [
+            {
+                "text": "Talk"
+            }
+        ],
         "href": "/wiki/Talk:Robots_exclusion_standard",
+        "rel": "discussion",
         "tag": "a",
-        "text": "Talk",
         "title": "Discussion about the content page [t]"
     }
 ]
