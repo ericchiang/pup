@@ -276,7 +276,7 @@ func jsonify(node *html.Node) map[string]interface{} {
 	case html.ElementNode:
 		vals["tag"] = node.Data
 	case html.TextNode:
-		text := strings.TrimSpace(node.Data)
+		text := node.Data
 		if text != "" {
 			if pupEscapeHTML {
 				// don't escape javascript
