@@ -1,0 +1,12 @@
+github.com/fatih/color v1.0.0 h1:4zdNjpoprR9fed2QRCPb2VTPU4UFXEtJc9Vc+sgXkaQ=
+github.com/fatih/color v1.0.0/go.mod h1:Zm6kSWBoL9eyXnKyktHP6abPY2pDugNf5KwzbycvMj4=
+github.com/mattn/go-colorable v0.0.5 h1:X1IeP+MaFWC+vpbhw3y426rQftzXSj+N7eJFnBEMBfE=
+github.com/mattn/go-colorable v0.0.5/go.mod h1:9vuHe8Xs5qXnSaW/c/ABM9alt+Vo+STaOChaDxuIBZU=
+github.com/mattn/go-isatty v0.0.0-20151211000621-56b76bdf51f7 h1:owMyzMR4QR+jSdlfkX9jPU3rsby4++j99BfbtgVr6ZY=
+github.com/mattn/go-isatty v0.0.0-20151211000621-56b76bdf51f7/go.mod h1:M+lRXTBqGeGNdLjl/ufCoiOlB5xdOkqRJdNxMWT7Zi4=
+golang.org/x/net v0.0.0-20160720084139-4d38db76854b h1:2lHDZItrxmjk3OXnITVKcHWo6qQYJSm4q2pmvciVkxo=
+golang.org/x/net v0.0.0-20160720084139-4d38db76854b/go.mod h1:mL1N/T3taQHkDXs73rZJwtUhF3w3ftmwwsq0BUmARs4=
+golang.org/x/sys v0.0.0-20160717071931-a646d33e2ee3 h1:ZLExsLvnoqWSw6JB6k6RjWobIHGR3NG9dzVANJ7SVKc=
+golang.org/x/sys v0.0.0-20160717071931-a646d33e2ee3/go.mod h1:STP8DvDyc/dI5b8T5hshtkjS+E42TnysNCUPdjciGhY=
+golang.org/x/text v0.0.0-20160719205907-0a5a09ee4409 h1:ImTDOALQ1AOSGXgapb9Q1tOcHlxpQXZCPSIMKLce0JU=
+golang.org/x/text v0.0.0-20160719205907-0a5a09ee4409/go.mod h1:NqM8EUOU14njkJ3fqMW+pc6Ldnwhi/IjpwHt7yyuwOQ=

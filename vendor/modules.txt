@@ -1,0 +1,28 @@
+# github.com/fatih/color v1.0.0
+github.com/fatih/color
+# github.com/mattn/go-colorable v0.0.5
+github.com/mattn/go-colorable
+# github.com/mattn/go-isatty v0.0.0-20151211000621-56b76bdf51f7
+github.com/mattn/go-isatty
+# golang.org/x/net v0.0.0-20160720084139-4d38db76854b
+golang.org/x/net/html
+golang.org/x/net/html/atom
+golang.org/x/net/html/charset
+# golang.org/x/sys v0.0.0-20160717071931-a646d33e2ee3
+golang.org/x/sys/unix
+# golang.org/x/text v0.0.0-20160719205907-0a5a09ee4409
+golang.org/x/text/encoding
+golang.org/x/text/encoding/charmap
+golang.org/x/text/encoding/htmlindex
+golang.org/x/text/encoding/internal
+golang.org/x/text/encoding/internal/identifier
+golang.org/x/text/encoding/japanese
+golang.org/x/text/encoding/korean
+golang.org/x/text/encoding/simplifiedchinese
+golang.org/x/text/encoding/traditionalchinese
+golang.org/x/text/encoding/unicode
+golang.org/x/text/internal/tag
+golang.org/x/text/internal/utf8internal
+golang.org/x/text/language
+golang.org/x/text/runes
+golang.org/x/text/transform
