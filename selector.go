@@ -86,7 +86,7 @@ func (s CSSSelector) Match(node *html.Node) bool {
 		return false
 	}
 	if s.Tag != "" {
-		if s.Tag != node.DataAtom.String() {
+		if s.Tag != node.Data {
 			return false
 		}
 	}
