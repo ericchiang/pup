@@ -47,3 +47,6 @@ link , a:parent-of(sup)
 link , a:parent-of(sup) sup
 li --number
 li -n
+table.infobox tr > td:first-child json{}
+table.infobox tr > th:first-child json{}
+table.infobox tr > *:first-child json{}

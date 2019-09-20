@@ -10,7 +10,7 @@ a92e50c09cd56970625ac3b74efbddb83b2731bb table li
 66950e746590d7f4e9cfe3d1adef42cd0addcf1d table li:last-of-type
 0a37d612cd4c67a42bd147b1edc5a1128456b017 table a[title="The Practice of Programming"]
 0d3918d54f868f13110262ffbb88cbb0b083057d table a[title="The Practice of Programming"] text{}
-ecb542a30fc75c71a0c6380692cbbc4266ccbce4 json{}
+199188dc8f1522426a628e41d96264bffb8beb0f json{}
 95ef88ded9dab22ee3206cca47b9c3a376274bda text{}
 e4f7358fbb7bb1748a296fa2a7e815fa7de0a08b .after-portlet
 da39a3ee5e6b4b0d3255bfef95601890afd80709 .after
@@ -34,7 +34,7 @@ d314e83b059bb876b0e5ee76aa92d54987961f9a .navbox-list li:nth-last-child(1)
 613bf65ac4042b6ee0a7a47f08732fdbe1b5b06b #toc
 da39a3ee5e6b4b0d3255bfef95601890afd80709 #toc li + a
 da39a3ee5e6b4b0d3255bfef95601890afd80709 #toc li + a text{}
-97d170e1550eee4afc0af065b78cda302a97674c #toc li + a json{}
+cd0d4cc32346750408f7d4f5e78ec9a6e5b79a0d #toc li + a json{}
 da39a3ee5e6b4b0d3255bfef95601890afd80709 #toc li + a + span
 da39a3ee5e6b4b0d3255bfef95601890afd80709 #toc li + span
 da39a3ee5e6b4b0d3255bfef95601890afd80709 #toc li > li
@@ -47,3 +47,6 @@ b6a3d6cccd305fcc3e8bf2743c443743bdaaa02b link , a:parent-of(sup)
 0d1f66765d1632c70f8608947890524e78459362 link , a:parent-of(sup) sup
 da39a3ee5e6b4b0d3255bfef95601890afd80709 li --number
 da39a3ee5e6b4b0d3255bfef95601890afd80709 li -n
+d0589399563047f15da01c9fc9c5d61c16bfc71f table.infobox tr > td:first-child json{}
+c2d0c7a5503973dbd6927516411248aaf307b901 table.infobox tr > th:first-child json{}
+ce7f8da23dea83aa0e10e1e54603a88d44e22e4c table.infobox tr > *:first-child json{}
