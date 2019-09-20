@@ -264,13 +264,15 @@ type JSONDisplayer struct{}
 func jsonify(node *html.Node) map[string]interface{} {
 	vals := map[string]interface{}{}
 	if len(node.Attr) > 0 {
+		attrs := map[string]interface{}{}
 		for _, attr := range node.Attr {
 			if pupEscapeHTML {
-				vals[attr.Key] = html.EscapeString(attr.Val)
+				attrs[attr.Key] = html.EscapeString(attr.Val)
 			} else {
-				vals[attr.Key] = attr.Val
+				attrs[attr.Key] = attr.Val
 			}
 		}
+		vals["attrs"] = attrs
 	}
 	vals["tag"] = node.DataAtom.String()
 	children := []interface{}{}
