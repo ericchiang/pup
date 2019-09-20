@@ -19,6 +19,10 @@ If you're on OS X, use [Homebrew](http://brew.sh/) to install (no Go required).
 
     brew install https://raw.githubusercontent.com/EricChiang/pup/master/pup.rb
 
+If you're on FreeBSD, use [pkg(8)](http://man.freebsd.org/pkg/8) to install pup.
+
+    pkg install pup
+
 ## Quick start
 
 ```bash
