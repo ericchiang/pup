@@ -19,6 +19,7 @@ var (
 	pupPreformatted  bool          = false
 	pupPrintColor    bool          = false
 	pupEscapeHTML    bool          = true
+	pupInvertSelect  bool          = false
 	pupIndentString  string        = " "
 	pupDisplayer     Displayer     = TreeDisplayer{}
 )
@@ -56,6 +57,7 @@ Flags
     -n --number        print number of elements selected
     -l --limit         restrict number of levels printed
     -p --plain         don't escape html
+    -v --invert        invert selection (remove matching elements)
     --pre              preserve preformatted text
     --charset          specify the charset for pup to use
     --version          display version
@@ -89,6 +91,8 @@ func ProcessFlags(cmds []string) (nonFlagCmds []string, err error) {
 			pupPrintColor = true
 		case "-p", "--plain":
 			pupEscapeHTML = false
+		case "-v", "--invert":
+			pupInvertSelect = true
 		case "--pre":
 			pupPreformatted = true
 		case "-f", "--file":
