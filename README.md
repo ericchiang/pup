@@ -11,13 +11,20 @@ fast and flexible way of exploring HTML from the terminal.
 
 Direct downloads are available through the [releases page](https://github.com/EricChiang/pup/releases/latest).
 
-If you have Go installed on your computer just run `go get`.
+If you have Go installed on your computer just run `go get`:
 
     go get github.com/ericchiang/pup
 
-If you're on OS X, use [Homebrew](http://brew.sh/) to install (no Go required).
+If you're on OS X, use [Homebrew](http://brew.sh/) to install (no Go required):
 
     brew install https://raw.githubusercontent.com/EricChiang/pup/master/pup.rb
+
+If you have Docker installed, use the Docker image:
+
+    docker run --rm pup --help
+    
+    # an alias makes it even shorter
+    alias pup="docker run --rm pup"
 
 ## Quick start
 
