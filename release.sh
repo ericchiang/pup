@@ -1,11 +1,18 @@
 #!/bin/bash
-
-set -e
+# Requires go, rkt to be installed prior to running
 
 VERSION="0.4.0"
 
 rm -rf dist
 mkdir dist
+
+# Small test for rkt being installed
+RKT=`which rkt` 
+if [ "$?" -eq "1" ] 
+then
+	echo "rkt not installed. See https://coreos.com/rkt/docs/latest/distributions.html to install"
+	exit 1
+fi
 
 for ENV in $( go tool dist list | grep -v 'android' | grep -v 'darwin/arm' | grep -v 's390x' | grep -v 'plan9/arm'); do
     eval $( echo $ENV | tr '/' ' ' | xargs printf 'export GOOS=%s; export GOARCH=%s\n' )
@@ -22,7 +29,7 @@ for ENV in $( go tool dist list | grep -v 'android' | grep -v 'darwin/arm' | gre
 
     echo "Building for GOOS=$GOOS GOARCH=$GOARCH"
 
-    sudo rkt run \
+    sudo ${RKT} run \
         --set-env=GOOS=${GOOS} \
         --set-env=GOARCH=${GOARCH} \
         --set-env=CGO_ENABLED=0 \
@@ -34,7 +41,7 @@ for ENV in $( go tool dist list | grep -v 'android' | grep -v 'darwin/arm' | gre
         -o /go/src/github.com/ericchiang/pup/dist/${BIN} \
         github.com/ericchiang/pup
 
-    sudo rkt gc --grace-period=0s
+    sudo ${RKT} gc --grace-period=0s
 
 	zip dist/pup_v${VERSION}_${GOOS}_${GOARCH}.zip -j dist/${BIN}
     rm -f dist/${BIN}
