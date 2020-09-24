@@ -4,7 +4,7 @@ from __future__ import print_function
 from hashlib import sha1
 from subprocess import Popen, PIPE, STDOUT
 
-data = open("index.html", "r").read()
+data = open("index.html", "rb").read()
 
 for line in open("cmds.txt", "r"):
     line = line.strip()
