@@ -524,8 +524,18 @@ func parseNthPseudo(cmd string) (PseudoClass, error) {
 			return n.Type == html.ElementNode && countNth(n)%cycle == offset
 		}, nil
 	}
+
+	r = regexp.MustCompile(`^-n[ ]?\+[ ]?([0-9])`)
+	subMatch = r.FindAllStringSubmatch(number, -1)
+	if len(subMatch) == 1 && len(subMatch[0]) == 2 {
+		offset, _ := strconv.Atoi(subMatch[0][1])
+		return func(n *html.Node) bool {
+			return n.Type == html.ElementNode && countNth(n) <= offset
+		}, nil
+	}
+
 	// check against 'n+2' pattern
-	r = regexp.MustCompile(`n[ ]?\+[ ]?([0-9])`)
+	r = regexp.MustCompile(`^n[ ]?\+[ ]?([0-9])`)
 	subMatch = r.FindAllStringSubmatch(number, -1)
 	if len(subMatch) == 1 && len(subMatch[0]) == 2 {
 		offset, _ := strconv.Atoi(subMatch[0][1])
