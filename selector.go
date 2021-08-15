@@ -525,6 +525,7 @@ func parseNthPseudo(cmd string) (PseudoClass, error) {
 		}, nil
 	}
 
+	// check against '-n+2' pattern
 	r = regexp.MustCompile(`^-n[ ]?\+[ ]?([0-9])`)
 	subMatch = r.FindAllStringSubmatch(number, -1)
 	if len(subMatch) == 1 && len(subMatch[0]) == 2 {
