@@ -297,7 +297,7 @@ $ cat robots.html | pup 'div#p-namespaces a json{}'
 ]
 ```
 
-Use the `-i` / `--indent` flag to control the intent level.
+Use the `-i` / `--indent` flag to control the indent level.
 
 ```bash
 $ cat robots.html | pup -i 4 'div#p-namespaces a json{}'
