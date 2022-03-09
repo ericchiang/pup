@@ -85,7 +85,7 @@ func (s CSSSelector) Match(node *html.Node) bool {
 	if node.Type != html.ElementNode {
 		return false
 	}
-	if s.Tag != "" {
+	if s.Tag != "" && s.Tag != "*" {
 		if s.Tag != node.DataAtom.String() {
 			return false
 		}
@@ -510,12 +510,13 @@ func parseNthPseudo(cmd string) (PseudoClass, error) {
 		oddOrEven = 0
 	}
 	if oddOrEven > -1 {
+		fmt.Println("bruh it stopped")
 		return func(n *html.Node) bool {
 			return n.Type == html.ElementNode && countNth(n)%2 == oddOrEven
 		}, nil
 	}
 	// Check against '3n+4' pattern
-	r := regexp.MustCompile(`([0-9]+)n[ ]?\+[ ]?([0-9])`)
+	r := regexp.MustCompile(`([0-9]+)n[ ]?\+[ ]?([1-9][0-9]{0,2}|1000)$`)
 	subMatch := r.FindAllStringSubmatch(number, -1)
 	if len(subMatch) == 1 && len(subMatch[0]) == 3 {
 		cycle, _ := strconv.Atoi(subMatch[0][1])
@@ -524,8 +525,19 @@ func parseNthPseudo(cmd string) (PseudoClass, error) {
 			return n.Type == html.ElementNode && countNth(n)%cycle == offset
 		}, nil
 	}
+
+	// check against '-n+2' pattern
+	r = regexp.MustCompile(`^-n[ ]?\+[ ]?([1-9][0-9]{0,2}|1000)$`)
+	subMatch = r.FindAllStringSubmatch(number, -1)
+	if len(subMatch) == 1 && len(subMatch[0]) == 2 {
+		offset, _ := strconv.Atoi(subMatch[0][1])
+		return func(n *html.Node) bool {
+			return n.Type == html.ElementNode && countNth(n) <= offset
+		}, nil
+	}
+
 	// check against 'n+2' pattern
-	r = regexp.MustCompile(`n[ ]?\+[ ]?([0-9])`)
+	r = regexp.MustCompile(`^n[ ]?\+[ ]?([1-9][0-9]{0,2}|1000)$`)
 	subMatch = r.FindAllStringSubmatch(number, -1)
 	if len(subMatch) == 1 && len(subMatch[0]) == 2 {
 		offset, _ := strconv.Atoi(subMatch[0][1])
