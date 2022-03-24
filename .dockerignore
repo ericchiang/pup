@@ -1,0 +1,4 @@
+dist/
+testpages/*
+tests/test_results.txt
+robots.html
