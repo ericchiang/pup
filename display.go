@@ -21,7 +21,9 @@ type Displayer interface {
 }
 
 func ParseDisplayer(cmd string) error {
-	attrRe := regexp.MustCompile(`attr\{([a-zA-Z\-]+)\}`)
+	// Attribute names can be almost anything.
+	// cf https://www.w3.org/TR/2012/WD-html5-20120329/syntax.html#syntax-attribute-name
+	attrRe := regexp.MustCompile(`attr\{([^\s"'>/=\p{Cc}]+)\}`)
 	if cmd == "text{}" {
 		pupDisplayer = TextDisplayer{}
 	} else if cmd == "json{}" {
