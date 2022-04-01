@@ -272,38 +272,32 @@ func jsonify(node *html.Node) map[string]interface{} {
 			}
 		}
 	}
-	vals["tag"] = node.DataAtom.String()
+	switch node.Type {
+	case html.ElementNode:
+		vals["tag"] = node.Data
+	case html.TextNode:
+		text := node.Data
+		if text != "" {
+			if pupEscapeHTML {
+				// don't escape javascript
+				if node.DataAtom != atom.Script {
+					text = html.EscapeString(text)
+				}
+			}
+			vals["text"] = text
+		}
+	case html.CommentNode:
+		comment := strings.TrimSpace(node.Data)
+		if pupEscapeHTML {
+			comment = html.EscapeString(comment)
+		}
+		vals["comment"] = comment
+	}
 	children := []interface{}{}
 	for child := node.FirstChild; child != nil; child = child.NextSibling {
-		switch child.Type {
-		case html.ElementNode:
-			children = append(children, jsonify(child))
-		case html.TextNode:
-			text := strings.TrimSpace(child.Data)
-			if text != "" {
-				if pupEscapeHTML {
-					// don't escape javascript
-					if node.DataAtom != atom.Script {
-						text = html.EscapeString(text)
-					}
-				}
-				// if there is already text we'll append it
-				currText, ok := vals["text"]
-				if ok {
-					text = fmt.Sprintf("%s %s", currText, text)
-				}
-				vals["text"] = text
-			}
-		case html.CommentNode:
-			comment := strings.TrimSpace(child.Data)
-			if pupEscapeHTML {
-				comment = html.EscapeString(comment)
-			}
-			currComment, ok := vals["comment"]
-			if ok {
-				comment = fmt.Sprintf("%s %s", currComment, comment)
-			}
-			vals["comment"] = comment
+		jChild := jsonify(child)
+		if len(jChild) > 0 {
+			children = append(children, jChild)
 		}
 	}
 	if len(children) > 0 {
