@@ -76,5 +76,33 @@ func main() {
 		}
 	}
 	selectedNodes = append(selectedNodes, currNodes...)
-	pupDisplayer.Display(selectedNodes)
+	if pupInvertSelect {
+		RemoveInverseMatches(root, selectedNodes)
+		pupDisplayer.Display([]*html.Node{root})
+	} else {
+		pupDisplayer.Display(selectedNodes)
+	}
+}
+
+func RemoveInverseMatches(root *html.Node, selectedNodes []*html.Node) {
+	var remove []*html.Node
+	for node := root.FirstChild; node != nil; node = node.NextSibling {
+		if HtmlNodeInList(node, selectedNodes) {
+			remove = append(remove, node)
+		} else {
+			RemoveInverseMatches(node, selectedNodes)
+		}
+	}
+	for _, rm := range remove {
+		root.RemoveChild(rm)
+	}
+}
+
+func HtmlNodeInList(a *html.Node, list []*html.Node) bool {
+	for _, b := range list {
+		if b == a {
+			return true
+		}
+	}
+	return false
 }

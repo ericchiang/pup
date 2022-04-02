@@ -8,7 +8,7 @@ data = open("index.html", "r").read()
 
 for line in open("cmds.txt", "r"):
     line = line.strip()
-    p = Popen(['pup', line], stdout=PIPE, stdin=PIPE, stderr=PIPE)
+    p = Popen(['pup']+line.split('\t'), stdout=PIPE, stdin=PIPE, stderr=PIPE)
     h = sha1()
     h.update(p.communicate(input=data)[0])
     print("%s %s" % (h.hexdigest(), line))
