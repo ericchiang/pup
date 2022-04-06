@@ -49,7 +49,7 @@ func PrintHelp(w io.Writer, exitCode int) {
 Version
     %s
 Flags
-    -c --color         print result with color
+    -c --color [mode]  print result with color; mode is never, auto (default), or always
     -f --file          file to read from
     -h --help          display this help
     -i --indent        number of spaces to use for indent or character
@@ -87,6 +87,21 @@ func ProcessFlags(cmds []string) (nonFlagCmds []string, err error) {
 		switch cmd {
 		case "-c", "--color":
 			pupPrintColor = true
+			if (i+1) < len(cmds) { // `--color` is not tail arg
+				switch strings.ToLower(cmds[i+1]) {
+				case "never":
+					pupPrintColor = false
+					ForcePrintColor(false)
+					i++
+				case "auto":
+					// set by default
+					// see also https://github.com/fatih/color#disableenable-color
+					i++
+				case "always":
+					ForcePrintColor(true)
+					i++
+				}
+			}
 		case "-p", "--plain":
 			pupEscapeHTML = false
 		case "--pre":

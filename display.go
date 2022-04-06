@@ -16,6 +16,10 @@ func init() {
 	color.Output = colorable.NewColorableStdout()
 }
 
+func ForcePrintColor(mode bool) {
+	color.NoColor = !mode
+}
+
 type Displayer interface {
 	Display([]*html.Node)
 }
