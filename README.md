@@ -1,5 +1,7 @@
 # pup
 
+TODO: Remove me
+
 pup is a command line tool for processing HTML. It reads from stdin,
 prints to stdout, and allows the user to filter parts of the page using
 [CSS selectors](https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Getting_started/Selectors).
