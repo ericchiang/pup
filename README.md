@@ -15,6 +15,10 @@ If you have Go installed on your computer just run `go get`.
 
     go get github.com/ericchiang/pup
 
+or run `go install`.
+
+    go install github.com/ericchiang/pup@latest
+
 If you're on OS X, use [Homebrew](http://brew.sh/) to install (no Go required).
 
     brew install https://raw.githubusercontent.com/EricChiang/pup/master/pup.rb
