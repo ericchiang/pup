@@ -16,7 +16,7 @@ import (
 //       |/ \_( # |"
 //      C/ ,--___/
 
-var VERSION string = "0.4.0"
+var VERSION string = "0.4.1"
 
 func main() {
 	// process flags and arguments
