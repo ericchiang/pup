@@ -13,7 +13,7 @@ Direct downloads are available through the [releases page](https://github.com/Er
 
 If you have Go installed on your computer just run `go get`.
 
-    go get github.com/ericchiang/pup
+    go install github.com/ericchiang/pup@latest
 
 If you're on OS X, use [Homebrew](http://brew.sh/) to install (no Go required).
 
