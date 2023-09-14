@@ -117,7 +117,7 @@ $ cat robots.html | pup 'th[scope="row"]'
 
 CSS selectors have a group of specifiers called ["pseudo classes"](
 https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-classes)  which are pretty
-cool. pup implements a majority of the relevant ones them.
+cool. pup implements a majority of the relevant ones of them.
 
 Here are some examples.
 
